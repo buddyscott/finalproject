@@ -75,17 +75,18 @@ playercontracts_modified <- playercontracts %>%
     select(playername, playerid, team, bubbleyearsalary, nextyearsalary)
 
 ui <- navbarPage(
-    "Final Project Title",
+    "Buddy Ball: Understanding NBA Finances Amidst COVID-19",
     tabPanel("About", 
              titlePanel("About"),
              h3("Project Background and Motivations"),
-             p("Hello, this is where I talk about my project."),
+             a("Please see my GitHub repo here", 
+             href = "https://github.com/buddyscott/finalproject"),
              h3("About Me"),
              p("My name is Buddy Scott and I study Economics with a secondary 
               in Government at Harvard College. 
              You can reach me at jamesscott@college.harvard.edu."), 
-             a("Dan made me link Google", href = "https://www.google.com"), 
-             h4("This is smaller")
+             a("Connect with me on LinkedIn", 
+               href = "https://www.linkedin.com/in/buddyscott13/"), 
     ),
     tabPanel("Model",
              fluidPage(
@@ -97,18 +98,8 @@ ui <- navbarPage(
     tabPanel("Discussion",
              titlePanel("Discussion Title"),
              p("Tour of the modeling choices you made and 
-              an explanation of why you made them")),
-    tabPanel("About", 
-             titlePanel("About"),
-             h3("Project Background and Motivations"),
-             p("Hello, this is where I talk about my project."),
-             h3("About Me"),
-             p("My name is Buddy Scott and I study Economics with a secondary 
-              in Government at Harvard College. 
-             You can reach me at jamesscott@college.harvard.edu."), 
-             a("Dan made me link Google", href = "https://www.google.com"), 
-             h4("This is smaller")))
-    
+              an explanation of why you made them"),)
+)
     
     # Define server logic
     server <- function(input, output, session) {
