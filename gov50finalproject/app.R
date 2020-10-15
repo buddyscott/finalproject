@@ -65,14 +65,26 @@ nbainfo <- read_csv("nbainfo2.csv",
                                     operating_income = col_number())) %>%
     rename_with(~ str_replace(.x, "1920", "current")) %>% 
     rename_with(~ str_replace(.x, "2021", "future")) %>% 
-    slice(1:30)
+    slice(1:30) %>%
+    subset(select = -futureprojcapspace)
 
-playercontracts <- read_csv("bbrefcontractdata2.csv")
+playercontracts <- read_csv("bbrefcontractdata2.csv", col_type = cols(
+    playername = col_character(),
+    playerid = col_character(),
+    team = col_character(),
+    salary1920 = col_double(),
+    salary2021 = col_double(),
+    salary2122 = col_double(),
+    salary2223 = col_double(),
+    salary2324 = col_double(),
+    salary2425 = col_double(),
+    signedusing = col_character(),
+    guaranteed = col_double()
+))
 
 playercontracts_modified <- playercontracts %>%
-    rename_with(~ str_replace(.x, "1920", "bubbleyear")) %>% 
-    rename_with(~ str_replace(.x, "2021", "nextyear")) %>%
-    select(playername, playerid, team, bubbleyearsalary, nextyearsalary)
+    filter(salary2021 >= 20000000) %>%
+    arrange(desc(salary2021))
 
 ui <- navbarPage(
     "Buddy Ball: Understanding NBA Finances Amidst COVID-19",
@@ -118,4 +130,10 @@ ui <- navbarPage(
     }
     
     shinyApp(ui, server)
+    
+    
+    
+    
+
+    
     

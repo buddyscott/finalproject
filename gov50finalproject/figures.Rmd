@@ -1,0 +1,88 @@
+---
+title: "Other Stuff"
+author: "Buddy Scott"
+date: "10/14/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#other stuff...
+    tibble(subject = c("2019-2020 Season", 
+                       "Projection for Next Season With No Fans"),
+           ynear = c("$8B", "$4.8B"),
+           yfar = c("$4B", "$2.4B"), 
+           ydiff = c("$4B", "$2.4B")) %>%
+```{r}
+   tibble(subject = c("2019-2020 Season", 
+                       "Projection for Next Season With No Fans"),
+           ynear = c("$8B", "$4.8B"),
+           yfar = c("$4B", "$2.4B"), 
+           ydiff = c("$4B", "$2.4B")) %>%
+        
+        # table setup
+        gt() %>%
+        cols_label(subject = "BRI",
+                   ynear = "Total",
+                   yfar = "Players",
+                   ydiff = "Owners") %>%
+        tab_style(cell_borders(sides = "right"),
+                  location = cells_body(columns = vars(subject))) %>%
+        tab_style(cell_text(weight = "bold"),
+                  location = cells_body(columns = vars(subject))) %>%
+        cols_align(align = "center", columns = TRUE) %>%
+        fmt_markdown(columns = TRUE) %>%
+        tab_header(title = "Figure 1: Potential BRI Drop in 2020-2021 Season", 
+                   subtitle = "Commisssioner Adam Silver projects ticket sales
+               comprise 40% of BRI")
+    
+    nbainfo %>%
+        ggplot(aes(x = currentwinpct, y = valuation, label = team)) + 
+        geom_point() + 
+        stat_smooth(formula = y ~ x, method = "lm", se = TRUE) + 
+        geom_text(nudge_x = 0.02) +
+        annotate(x=0.5, y=3.5, label=paste("Correlation = ", 
+                                           round(cor(nbainfo$currentwinpct, 
+                                                     nbainfo$valuation), 3)), 
+                 geom="text", size=5) + 
+        labs(title = "Figure 2: Team Valuation vs. 2019-2020 Winning Percentage",
+             x = "2019-2020 Winning Percentage", y = "Team Valuation") + 
+        scale_y_continuous(breaks = c(0, 1, 2, 3, 4),
+                           labels = c("$0", "$1B", "$2B", "$3B", "$4B"))
+    
+    nbainfo %>%
+        ggplot(aes(x = tenyrwinpct, y = valuation, label = team)) + 
+        geom_point() + 
+        geom_text(nudge_x = 0.01) + 
+        stat_smooth(formula = y ~ x, method = "lm", se = TRUE) + 
+        annotate(x=0.5, y=3.5, label=paste("Correlation = ", 
+                                           round(cor(nbainfo$tenyrwinpct, 
+                                                     nbainfo$valuation), 3)), 
+                 geom="text", size=5) + 
+        labs(title = "Figure 3: Team Valuation vs. Ten Year Winning Percentage",
+             x = "Ten Year Winning Percentage", y = "Team Valuation") + 
+        scale_y_continuous(breaks = c(0, 1, 2, 3, 4),
+                           labels = c("$0", "$1B", "$2B", "$3B", "$4B"))
+    
+    nbainfo %>%
+        ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
+        geom_col() + 
+        coord_flip() + 
+        labs(title = "Figure 4: Team Valuations", x = "February 2020 Valuation", 
+             y = "Team") + 
+        scale_y_continuous(breaks = c(0, 1, 2, 3, 4),
+                           labels = c("$0", "$1B", "$2B", "$3B", "$4B"))
+    
+    nbainfo %>%
+        ggplot(aes(x = fct_reorder(team, nw), y = nw)) + 
+        geom_col() + 
+        coord_flip() + 
+        labs(title = "Figure 5: Team Majority Owner's Net Worth", x = "Net Worth", 
+             y = "Team") + 
+        scale_y_continuous(breaks = c(0, 20, 40, 60, 80),
+                           labels = c("$0", "$20B", "$40B", "$60B", "$80B"))
+```
+        
+  

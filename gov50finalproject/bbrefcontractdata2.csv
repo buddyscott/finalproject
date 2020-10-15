@@ -1,569 +1,615 @@
-﻿playername,playerid,team,1920salary,2021salary,2122salary,2223salary,2324salary,2425salary,signedusing,guaranteed
-Stephen Curry,curryst01,GSW,"$40,231,758 ","$43,006,362 ","$45,780,966 ",,,,Bird Rights,"$129,019,086 "
-Chris Paul,paulch01,OKC,"$38,506,482 ","$41,358,814 ","$44,211,146 ",,,,Bird Rights,"$79,865,296 "
-Russell Westbrook,westbru01,HOU,"$38,178,000 ","$41,006,000 ","$43,848,000 ","$46,662,000 ",,,Bird Rights,"$123,032,000 "
-John Wall,walljo01,WAS,"$37,800,000 ","$40,824,000 ","$43,848,000 ","$46,872,000 ",,,Bird Rights,"$122,472,000 "
-James Harden,hardeja01,HOU,"$37,800,000 ","$40,824,000 ","$43,848,000 ","$46,872,000 ",,,Bird Rights,"$122,472,000 "
-LeBron James,jamesle01,LAL,"$37,436,858 ","$39,219,565 ","$41,002,273 ",,,,Cap Space,"$76,656,423 "
-Kevin Durant,duranke01,BRK,"$37,199,000 ","$39,058,950 ","$40,918,900 ","$42,778,850 ",,,Sign and Trade,"$117,176,850 "
-Blake Griffin,griffbl01,DET,"$34,234,964 ","$36,595,996 ","$38,957,028 ",,,,Bird Rights,"$70,830,960 "
-Kyle Lowry,lowryky01,TOR,"$33,296,296 ","$30,000,000 ",,,,,Bird Rights,"$63,296,296 "
-Paul George,georgpa01,LAC,"$33,005,556 ","$35,450,412 ","$37,895,268 ",,,,Maximum Salary,"$68,455,968 "
-Klay Thompson,thompkl01,GSW,"$32,742,000 ","$35,361,360 ","$37,980,720 ","$40,600,080 ","$43,219,440 ",,Bird Rights,"$189,903,600 "
-Jimmy Butler,butleji01,MIA,"$32,742,000 ","$34,379,100 ","$36,016,200 ","$37,653,300 ",,,Sign and Trade,"$103,137,300 "
-Kemba Walker,walkeke02,BOS,"$32,742,000 ","$34,379,100 ","$36,016,200 ","$37,653,300 ",,,Sign and Trade,"$103,137,300 "
-Kawhi Leonard,leonaka01,LAC,"$32,742,000 ","$34,379,100 ","$36,016,200 ",,,,Cap Space,"$67,121,100 "
-Gordon Hayward,haywago01,BOS,"$32,700,690 ","$34,187,085 ",,,,,Cap space,"$32,700,690 "
-Mike Conley,conlemi01,UTA,"$32,511,623 ","$34,504,132 ",,,,,Cap Space,"$54,938,006 "
-Kyrie Irving,irvinky01,BRK,"$31,742,000 ","$33,329,100 ","$34,916,200 ","$36,503,300 ",,,Cap space,"$136,490,600 "
-Tobias Harris,harrito02,PHI,"$31,034,483 ","$33,517,241 ","$36,000,000 ","$38,482,759 ","$40,965,517 ",,Bird Rights,"$180,000,000 "
-Khris Middleton,middlkh01,MIL,"$30,603,448 ","$33,051,724 ","$35,500,000 ","$37,948,276 ","$40,396,552 ",,Bird Rights,"$137,103,448 "
-Paul Millsap,millspa01,DEN,"$30,500,000 ",,,,,,Cap space,"$30,500,000 "
-Damian Lillard,lillada01,POR,"$29,802,321 ","$31,626,953 ","$43,750,000 ","$47,250,000 ","$50,750,000 ","$54,250,000 ",1st Round Pick,"$257,429,274 "
-Kevin Love,loveke01,CLE,"$28,900,000 ","$31,300,000 ","$31,300,000 ","$28,900,000 ",,,Bird Rights,"$120,400,000 "
-Nikola Vučević,vucevni01,ORL,"$28,000,000 ","$26,000,000 ","$24,000,000 ","$22,000,000 ",,,Bird Rights,"$100,000,000 "
-Al Horford,horfoal01,PHI,"$28,000,000 ","$27,500,000 ","$27,000,000 ","$26,500,000 ",,,Cap Space,"$97,000,000 "
-DeMar DeRozan,derozde01,SAS,"$27,739,975 ","$27,739,975 ",,,,,Cap Space,"$27,739,975 "
-CJ McCollum,mccolcj01,POR,"$27,556,959 ","$29,354,152 ","$30,864,198 ","$33,333,333 ","$35,802,469 ",,1st Round Pick,"$156,911,111 "
-Joel Embiid,embiijo01,PHI,"$27,504,630 ","$29,542,010 ","$31,579,390 ","$33,616,770 ",,,1st Round Pick,"$122,242,800 "
-Andrew Wiggins,wiggian01,GSW,"$27,504,630 ","$29,542,010 ","$31,579,390 ","$33,616,770 ",,,1st Round Pick,"$122,242,800 "
-Kristaps Porziņģis,porzikr01,DAL,"$27,285,000 ","$29,467,800 ","$31,650,600 ","$33,833,400 ","$36,016,200 ",,Bird Rights,"$122,236,800 "
-D'Angelo Russell,russeda01,MIN,"$27,285,000 ","$28,649,250 ","$30,013,500 ","$31,377,750 ",,,Sign and Trade,"$117,325,500 "
-Otto Porter,porteot01,CHI,"$27,250,576 ","$28,489,239 ",,,,,Bird Rights,"$27,250,576 "
-Devin Booker,bookede01,PHO,"$27,250,000 ","$29,430,000 ","$31,610,000 ","$33,790,000 ","$35,970,000 ",,1st round pick,"$158,050,000 "
-Karl-Anthony Towns,townska01,MIN,"$27,250,000 ","$29,430,000 ","$31,610,000 ","$33,790,000 ","$35,970,000 ",,1st Round Pick,"$155,870,000 "
-Bradley Beal,bealbr01,WAS,"$27,093,019 ","$28,751,775 ","$34,502,130 ","$37,262,300 ",,,Cap Space,"$90,346,924 "
-Anthony Davis,davisan02,LAL,"$27,093,019 ","$28,751,775 ",,,,,1st Round Pick,"$27,093,019 "
-Andre Drummond,drumman01,CLE,"$27,093,019 ","$28,751,775 ",,,,,Cap Space,"$27,093,019 "
-Hassan Whiteside,whiteha01,POR,"$27,093,018 ",,,,,,Cap Space,"$27,093,018 "
-Nikola Jokić,jokicni01,DEN,"$26,573,595 ","$28,542,009 ","$30,510,423 ","$32,478,837 ",,,Bird Rights,"$118,104,864 "
-Jrue Holiday,holidjr01,NOP,"$26,131,111 ","$26,131,111 ","$27,020,000 ",,,,Bird Rights,"$52,262,222 "
-LaMarcus Aldridge,aldrila01,SAS,"$26,000,000 ","$24,000,000 ",,,,,Cap Space,"$50,000,000 "
-Steven Adams,adamsst01,OKC,"$25,842,697 ","$27,528,090 ",,,,,1st Round Pick,"$53,370,787 "
-Giannis Antetokounmpo,antetgi01,MIL,"$25,842,697 ","$27,528,090 ",,,,,1st Round Pick,"$53,370,787 "
-Marc Gasol,gasolma01,TOR,"$25,595,700 ",,,,,,Bird Rights,"$25,595,700 "
-Nicolas Batum,batumni01,CHO,"$25,565,217 ","$27,130,434 ",,,,,Cap Space,"$25,565,217 "
-Chandler Parsons,parsoch01,ATL,"$25,102,511 ",,,,,,,"$25,102,511 "
-Rudy Gobert,goberru01,UTA,"$25,008,427 ","$26,525,281 ",,,,,1st Round Pick,"$51,533,708 "
-Harrison Barnes,barneha02,SAC,"$24,147,727 ","$22,215,909 ","$20,284,091 ","$18,352,273 ",,,Bird Rights,"$85,000,000 "
-Serge Ibaka,ibakase01,TOR,"$23,271,604 ",,,,,,Cap space,"$23,271,604 "
-Danilo Gallinari,gallida01,OKC,"$22,615,559 ",,,,,,Sign and Trade,"$22,615,559 "
-Victor Oladipo,oladivi01,IND,"$21,000,000 ","$21,000,000 ",,,,,1st Round Pick,"$42,000,000 "
-Malcolm Brogdon,brogdma01,IND,"$20,000,000 ","$20,700,000 ","$21,700,000 ","$22,600,000 ",,,Sign and Trade,"$85,000,000 "
-Terry Rozier,roziete01,CHO,"$19,894,737 ","$18,900,000 ","$17,905,263 ",,,,Sign and Trade,"$56,700,000 "
-Aaron Gordon,gordoaa01,ORL,"$19,863,636 ","$18,136,364 ","$16,409,091 ",,,,Bird Rights,"$54,409,091 "
-Zach LaVine,lavinza01,CHI,"$19,500,000 ","$19,500,000 ","$19,500,000 ",,,,Cap space,"$58,500,000 "
-Kent Bazemore,bazemke01,SAC,"$19,269,662 ",,,,,,Cap Space,"$19,269,662 "
-Tyler Johnson,johnsty01,PHO,"$19,245,370 ",,,,,,,"$19,245,370 "
-Goran Dragić,dragigo01,MIA,"$19,217,900 ",,,,,,Bird Rights,"$19,217,900 "
-Jeff Teague,teaguje01,ATL,"$19,000,000 ",,,,,,Cap space,"$19,000,000 "
-Evan Turner,turneev01,MIN,"$18,606,557 ",,,,,,Cap Space,"$18,606,557 "
-Draymond Green,greendr01,GSW,"$18,539,130 ","$22,246,956 ","$24,026,712 ","$25,806,469 ","$27,586,225 ",,Bird Rights,"$90,619,267 "
-Tristan Thompson,thomptr01,CLE,"$18,539,130 ",,,,,,Bird Rights,"$18,539,130 "
-Tim Hardaway,hardati02,DAL,"$18,150,000 ","$18,975,000 ",,,,,Cap space,"$18,150,000 "
-Myles Turner,turnemy01,IND,"$18,000,000 ","$18,000,000 ","$18,000,000 ","$18,000,000 ",,,1st Round pick,"$72,000,000 "
-Julius Randle,randlju01,NYK,"$18,000,000 ","$18,900,000 ","$19,800,000 ",,,,Cap Space,"$40,900,000 "
-Gary Harris,harriga01,DEN,"$17,839,286 ","$19,160,714 ","$20,482,143 ",,,,1st Round Pick,"$57,482,143 "
-Allen Crabbe,crabbal01,MIN,"$17,818,456 ",,,,,,,"$17,818,456 "
-Derrick Favors,favorde01,NOP,"$17,650,000 ",,,,,,Bird Rights,"$17,650,000 "
-Reggie Jackson,jacksre01,DET,"$17,286,956 ",,,,,,,"$17,286,956 "
-Andre Iguodala,iguodan01,MIA,"$17,185,185 ","$15,000,000 ","$15,000,000 ",,,,Bird Rights,"$32,185,185 "
-Bojan Bogdanović,bogdabo02,UTA,"$17,000,000 ","$17,850,000 ","$18,700,000 ","$19,550,000 ",,,Cap Space,"$73,100,000 "
-Evan Fournier,fournev01,ORL,"$17,000,000 ","$17,000,000 ",,,,,Cap Space,"$17,000,000 "
-Bismack Biyombo,biyombi01,CHO,"$17,000,000 ",,,,,,Cap Space,"$17,000,000 "
-Clint Capela,capelca01,ATL,"$16,456,522 ","$17,500,000 ","$18,543,478 ","$19,586,957 ",,,Bird Rights,"$72,086,957 "
-Gorgui Dieng,dienggo01,MEM,"$16,229,213 ","$17,287,640 ",,,,,1st Round Pick,"$33,516,853 "
-Ricky Rubio,rubiori01,PHO,"$16,190,476 ","$17,000,000 ","$17,809,524 ",,,,Cap Space,"$51,000,000 "
-Jonas Valančiūnas,valanjo01,MEM,"$16,000,000 ","$15,000,000 ","$14,000,000 ",,,,Bird Rights,"$45,000,000 "
-Brandon Knight,knighbr03,DET,"$15,643,750 ",,,,,,Bird Rights,"$15,643,750 "
-Eric Bledsoe,bledser01,MIL,"$15,625,000 ","$16,875,000 ","$18,125,000 ","$19,375,000 ",,,Bird Rights,"$54,525,000 "
-Kelly Oubre,oubreke01,PHO,"$15,625,000 ","$14,375,000 ",,,,,Bird Rights,"$30,000,000 "
-Dennis Schröder,schrode01,OKC,"$15,500,000 ","$15,500,000 ",,,,,1st Round Pick,"$31,000,000 "
-Ian Mahinmi,mahinia01,WAS,"$15,450,051 ",,,,,,Cap Space,"$15,450,051 "
-James Johnson,johnsja01,MIN,"$15,349,400 ","$16,047,100 ",,,,,Cap space,"$15,349,400 "
-Marvin Williams,willima02,CHO,"$15,006,250 ",,,,,,,"$15,006,250 "
-Bobby Portis,portibo01,NYK,"$15,000,000 ","$15,750,000 ",,,,,Cap Space,"$15,000,000 "
-Marcus Morris,morrima03,LAC,"$15,000,000 ",,,,,,Cap Space,"$15,000,000 "
-Danny Green,greenda02,LAL,"$14,634,146 ","$15,365,854 ",,,,,Cap Space,"$30,000,000 "
-Cody Zeller,zelleco01,CHO,"$14,471,910 ","$15,415,730 ",,,,,1st Round Pick,"$29,887,640 "
-Eric Gordon,gordoer01,HOU,"$14,057,730 ","$16,869,276 ","$18,218,818 ","$19,568,360 ","$20,917,902 ",,Cap Space,"$68,714,184 "
-Mason Plumlee,plumlma01,DEN,"$14,041,096 ",,,,,,Cap space,"$14,041,096 "
-Rudy Gay,gayru01,SAS,"$14,000,000 ","$14,000,000 ",,,,,Early Bird Rights,"$28,000,000 "
-J.J. Redick,redicjj01,NOP,"$13,486,300 ","$13,013,700 ",,,,,Cap Space,"$26,500,000 "
-Jordan Clarkson,clarkjo01,UTA,"$13,437,500 ",,,,,,Cap Space,"$13,437,500 "
-Dewayne Dedmon,dedmode01,ATL,"$13,333,334 ","$13,333,333 ","$13,333,333 ",,,,Cap space,"$40,000,000 "
-Solomon Hill,hillso01,MIA,"$13,258,781 ",,,,,,Cap Space,"$13,258,781 "
-Justise Winslow,winslju01,MEM,"$13,000,000 ","$13,000,000 ","$13,000,000 ",,,,1st Round Pick,"$26,000,000 "
-Michael Kidd-Gilchrist,kiddgmi01,CHO,"$13,000,000 ",,,,,,,"$13,000,000 "
-Will Barton,bartowi01,DEN,"$12,960,000 ","$13,920,000 ","$14,880,000 ",,,,Bird Rights,"$26,880,000 "
-Thaddeus Young,youngth01,CHI,"$12,900,000 ","$13,545,000 ","$14,190,000 ",,,,Cap space,"$32,445,000 "
-Courtney Lee,leeco01,DAL,"$12,759,670 ",,,,,,Cap Space,"$12,759,670 "
-Larry Nance,nancela02,CLE,"$12,727,273 ","$11,709,091 ","$10,690,909 ","$9,672,727 ",,,1st Round pick,"$44,800,000 "
-Marcus Smart,smartma01,BOS,"$12,553,471 ","$13,446,428 ","$14,339,285 ",,,,Bird Rights,"$40,339,184 "
-Terrence Ross,rosste01,ORL,"$12,500,000 ","$13,500,000 ","$12,500,000 ","$11,500,000 ",,,Bird Rights,"$50,000,000 "
-Miles Plumlee,plumlmi01,MEM,"$12,500,000 ",,,,,,,"$12,500,000 "
-Patty Mills,millspa02,SAS,"$12,428,571 ","$13,285,714 ",,,,,Bird Rights,"$25,714,285 "
-Patrick Beverley,beverpa01,LAC,"$12,345,679 ","$13,333,333 ","$14,320,988 ",,,,Bird Rights,"$40,000,000 "
-Trevor Ariza,arizatr01,POR,"$12,200,000 ","$12,800,000 ",,,,,Cap Space,"$14,000,000 "
-Dion Waiters,waitedi01,MEM,"$12,100,000 ","$12,650,000 ",,,,,,"$24,750,000 "
-Brook Lopez,lopezbr01,MIL,"$12,093,024 ","$12,697,675 ","$13,302,325 ","$13,906,976 ",,,Cap Space,"$52,000,000 "
-Jusuf Nurkić,nurkiju01,POR,"$12,000,000 ","$12,000,000 ","$12,000,000 ",,,,Bird Rights,"$28,000,000 "
-Cory Joseph,josepco01,SAC,"$12,000,000 ","$12,600,000 ","$12,600,000 ",,,,Cap Space,"$24,600,000 "
-Joe Ingles,inglejo01,UTA,"$11,954,546 ","$10,863,637 ","$14,000,000 ",,,,Bird Rights,"$36,818,183 "
-Kelly Olynyk,olynyke01,MIA,"$11,667,885 ","$12,198,243 ",,,,,Cap space,"$11,667,885 "
-Maurice Harkless,harklma01,NYK,"$11,511,234 ",,,,,,Cap Space,"$11,511,234 "
-Tony Snell,snellto01,DET,"$11,392,857 ","$12,178,571 ",,,,,Cap space,"$11,392,857 "
-Robert Covington,covinro01,HOU,"$11,301,219 ","$12,138,345 ","$12,975,471 ",,,,Cap Space,"$36,415,035 "
-Meyers Leonard,leoname01,MIA,"$11,286,515 ",,,,,,Cap Space,"$11,286,515 "
-T.J. Warren,warretj01,IND,"$10,810,000 ","$11,750,000 ","$12,690,000 ",,,,1st Round Pick,"$35,250,000 "
-Andre Roberson,roberan03,OKC,"$10,740,741 ",,,,,,Bird Rights,"$10,740,741 "
-Spencer Dinwiddie,dinwisp01,BRK,"$10,600,000 ","$11,400,000 ","$12,300,000 ",,,,Minimum Salary,"$22,000,000 "
-Jeremy Lamb,lambje01,IND,"$10,500,000 ","$10,500,000 ","$10,500,000 ",,,,Cap Space,"$31,500,000 "
-Dwight Powell,poweldw01,DAL,"$10,259,375 ","$10,185,185 ","$11,000,000 ","$11,814,815 ",,,Cap Space,"$43,259,375 "
-Norman Powell,powelno01,TOR,"$10,116,576 ","$10,865,952 ","$11,615,328 ",,,,Cap Space,"$20,982,528 "
-Josh Richardson,richajo01,PHI,"$10,100,000 ","$10,800,000 ","$11,600,000 ",,,,Minimum Salary,"$20,900,000 "
-Tomáš Satoranský,satorto01,CHI,"$10,000,000 ","$10,000,000 ","$10,000,000 ",,,,Sign and Trade,"$25,000,000 "
-DeAndre Jordan,jordade01,BRK,"$9,881,598 ","$10,375,678 ","$9,881,598 ","$9,821,842 ",,,Cap space,"$39,960,716 "
-Taj Gibson,gibsota01,NYK,"$9,800,000 ","$10,290,000 ",,,,,Cap Space,"$9,800,000 "
-Zion Williamson,willizi01,NOP,"$9,757,440 ","$10,245,480 ","$10,733,400 ","$13,534,817 ",,,1st Round Pick,"$20,002,920 "
-Markelle Fultz,fultzma01,ORL,"$9,745,200 ","$12,288,697 ",,,,,1st Round Pick,"$22,033,897 "
-John Henson,hensojo01,DET,"$9,732,396 ",,,,,,1st Round Pick,"$9,732,396 "
-Matthew Dellavedova,dellama01,CLE,"$9,607,500 ",,,,,,Cap Space,"$9,607,500 "
-Dante Exum,exumda01,CLE,"$9,600,000 ","$9,600,000 ",,,,,Cap Space,"$18,200,000 "
-Deandre Ayton,aytonde01,PHO,"$9,562,920 ","$10,018,200 ","$12,632,950 ",,,,1st Round Pick,"$19,581,120 "
-Delon Wright,wrighde01,DAL,"$9,473,684 ","$9,000,000 ","$8,526,316 ",,,,Sign and Trade,"$27,000,000 "
-Jerami Grant,grantje01,DEN,"$9,346,153 ","$9,346,153 ",,,,,Bird Rights,"$9,346,153 "
-Al-Farouq Aminu,aminual01,ORL,"$9,258,000 ","$9,720,900 ","$10,183,800 ",,,,MLE,"$29,162,700 "
-George Hill,hillge01,MIL,"$9,133,907 ","$9,590,602 ","$10,047,297 ",,,,Cap Space,"$21,000,000 "
-Kyle Anderson,anderky01,MEM,"$9,073,050 ","$9,505,100 ","$9,937,150 ",,,,MLE,"$28,515,300 "
-Fred VanVleet,vanvlfr01,TOR,"$9,000,000 ",,,,,,Bird Rights,"$9,000,000 "
-Ja Morant,moranja01,MEM,"$8,730,240 ","$9,166,800 ","$9,603,360 ","$12,119,440 ",,,1st Round Pick,"$17,897,040 "
-C.J. Miles,milescj01,WAS,"$8,730,158 ",,,,,,,"$8,730,158 "
-Lonzo Ball,balllo01,NOP,"$8,719,320 ","$11,003,782 ",,,,,1st Round Pick,"$19,723,102 "
-E'Twaun Moore,mooreet01,NOP,"$8,664,928 ",,,,,,Cap Space,"$8,664,928 "
-Marvin Bagley,baglema01,SAC,"$8,556,120 ","$8,963,640 ","$11,312,114 ",,,,1st Round Pick,"$17,519,760 "
-Bogdan Bogdanović,bogdabo01,SAC,"$8,529,386 ",,,,,,Cap space,"$8,529,386 "
-Tyus Jones,jonesty01,MEM,"$8,408,000 ","$7,965,100 ","$7,522,200 ",,,,MLE,"$23,895,300 "
-P.J. Tucker,tuckepj01,HOU,"$8,349,039 ","$7,969,537 ",,,,,MLE,"$16,318,576 "
-Cristiano Felício,feliccr01,CHI,"$8,156,500 ","$7,529,020 ",,,,,Cap space,"$15,685,520 "
-Ben Simmons,simmobe01,PHI,"$8,113,930 ","$29,250,000 ","$31,590,000 ","$33,930,000 ","$36,270,000 ","$38,610,000 ",1st Round pick,"$177,763,930 "
-Kentavious Caldwell-Pope,caldwke01,LAL,"$8,089,282 ","$8,493,746 ",,,,,Cap Space,"$8,089,282 "
-Maxi Kleber,klebima01,DAL,"$8,000,000 ","$8,250,000 ","$8,750,000 ","$9,000,000 ",,,Early Bird Rights,"$25,000,000 "
-Lou Williams,willilo02,LAC,"$8,000,000 ","$8,000,000 ",,,,,Cap Space,"$16,000,000 "
-Elfrid Payton,paytoel01,NYK,"$8,000,000 ","$8,000,000 ",,,,,Cap Space,"$9,000,000 "
-Thomas Bryant,bryanth01,WAS,"$7,936,508 ","$8,333,333 ","$8,730,159 ",,,,Early Bird Rights,"$25,000,000 "
-RJ Barrett,barrerj01,NYK,"$7,839,960 ","$8,231,760 ","$8,623,920 ","$10,900,635 ",,,1st Round Pick,"$16,071,720 "
-Jayson Tatum,tatumja01,BOS,"$7,830,000 ","$9,897,120 ",,,,,1st Round Pick,"$17,727,120 "
-Jae Crowder,crowdja01,MIA,"$7,815,533 ",,,,,,Bird Rights,"$7,815,533 "
-Wayne Ellington,ellinwa01,NYK,"$7,804,878 ","$8,195,122 ",,,,,Cap Space,"$7,804,878 "
-Luka Dončić,doncilu01,DAL,"$7,683,360 ","$8,049,360 ","$10,174,391 ",,,,1st Round Pick,"$15,732,720 "
-Joe Harris,harrijo01,BRK,"$7,670,000 ",,,,,,Early Bird Rights,"$7,670,000 "
-Seth Curry,curryse01,DAL,"$7,441,860 ","$7,813,953 ","$8,186,047 ","$8,558,140 ",,,MLE,"$32,000,000 "
-Doug McDermott,mcderdo01,IND,"$7,333,334 ","$7,333,333 ",,,,,Cap Space,"$14,666,667 "
-Langston Galloway,gallola01,DET,"$7,333,333 ",,,,,,MLE,"$7,333,333 "
-Derrick Rose,rosede01,DET,"$7,317,073 ","$7,682,927 ",,,,,MLE,"$15,000,000 "
-Brandon Ingram,ingrabr01,NOP,"$7,265,485 ",,,,,,1st Round pick,"$7,265,485 "
-D.J. Augustin,augusdj01,ORL,"$7,250,000 ",,,,,,Cap Space,"$7,250,000 "
-Darius Miller,milleda01,NOP,"$7,250,000 ","$7,000,000 ",,,,,Early Bird Rights,"$7,250,000 "
-De'Andre Hunter,huntede01,ATL,"$7,068,360 ","$7,422,000 ","$7,775,400 ","$9,835,881 ",,,1st Round Pick,"$14,490,360 "
-Josh Jackson,jacksjo02,MEM,"$7,059,480 ",,,,,,1st Round Pick,"$7,059,480 "
-Dāvis Bertāns,bertada01,WAS,"$7,000,000 ",,,,,,Early Bird Rights,"$7,000,000 "
-Ersan İlyasova,ilyaser01,MIL,"$7,000,000 ","$7,000,000 ",,,,,MLE,"$7,000,000 "
-Jaren Jackson,jacksja02,MEM,"$6,927,480 ","$7,257,360 ","$9,180,560 ",,,,1st Round Pick,"$14,184,840 "
-DeMarre Carroll,carrode01,SAS,"$6,842,307 ","$6,167,887 ","$1,252,127 ",,,,,"$14,262,321 "
-Nemanja Bjelica,bjeline01,SAC,"$6,825,000 ","$7,150,000 ",,,,,Cap Space,"$6,825,000 "
-Jaylen Brown,brownja02,BOS,"$6,534,829 ","$22,991,071 ","$24,830,357 ","$26,669,643 ","$28,508,929 ",,1st Round pick,"$109,534,829 "
-Jabari Parker,parkeja01,SAC,"$6,500,000 ","$6,500,000 ",,,,,Cap Space,"$6,500,000 "
-Ivica Zubac,zubaciv01,LAC,"$6,481,482 ","$7,000,000 ","$7,518,518 ","$7,518,518 ",,,Bird Rights,"$21,000,000 "
-Joakim Noah,noahjo01,NYK,"$6,431,666 ","$6,431,666 ","$6,431,666 ",,,,,"$19,294,998 "
-Darius Garland,garlada01,CLE,"$6,400,920 ","$6,720,720 ","$7,040,880 ","$8,920,795 ",,,1st Round Pick,"$13,121,640 "
-De'Aaron Fox,foxde01,SAC,"$6,392,760 ","$8,099,627 ",,,,,1st Round Pick,"$14,492,387 "
-Trae Young,youngtr01,ATL,"$6,273,000 ","$6,571,800 ","$8,326,471 ",,,,1st Round Pick,"$12,844,800 "
-Montrezl Harrell,harremo01,LAC,"$6,000,000 ",,,,,,Bird Rights,"$6,000,000 "
-Ish Smith,smithis01,WAS,"$5,853,659 ","$6,146,341 ",,,,,MLE,"$12,000,000 "
-Marco Belinelli,belinma01,SAS,"$5,846,154 ",,,,,,MLE,"$5,846,154 "
-Jarrett Culver,culveja01,MIN,"$5,813,640 ","$6,104,280 ","$6,395,160 ","$8,109,063 ",,,1st Round Pick,"$11,917,920 "
-Jonathan Isaac,isaacjo01,ORL,"$5,806,440 ","$7,362,566 ",,,,,1st Round Pick,"$13,169,006 "
-Rodney Hood,hoodro01,POR,"$5,718,000 ","$6,003,900 ",,,,,MLE,"$5,718,000 "
-Mohamed Bamba,bambamo01,ORL,"$5,697,600 ","$5,969,040 ","$7,568,742 ",,,,1st Round Pick,"$11,666,640 "
-Timofey Mozgov,mozgoti01,ORL,"$5,573,333 ","$5,573,333 ","$5,573,334 ",,,,,"$16,720,000 "
-Trey Lyles,lylestr01,SAS,"$5,500,000 ","$5,500,000 ",,,,,MLE,"$5,500,000 "
-Deron Williams,willide01,BRK,"$5,474,787 ",,,,,,,"$5,474,787 "
-Aron Baynes,baynear01,PHO,"$5,453,280 ",,,,,,Non-Bird Exception,"$5,453,280 "
-Kris Dunn,dunnkr01,CHI,"$5,348,007 ",,,,,,1st Round pick,"$5,348,007 "
-Josh Smith,smithjo03,DET,"$5,331,729 ",,,,,,,"$5,331,729 "
-Coby White,whiteco01,CHI,"$5,307,120 ","$5,572,680 ","$5,837,760 ","$7,413,955 ",,,1st Round Pick,"$10,879,800 "
-Lauri Markkanen,markkla01,CHI,"$5,300,400 ","$6,731,508 ",,,,,1st Round Pick,"$12,031,908 "
-Ryan Anderson,anderry01,MIA,"$5,214,583 ","$5,214,583 ","$5,214,584 ",,,,,"$15,643,750 "
-Wendell Carter,cartewe01,CHI,"$5,201,400 ","$5,448,840 ","$6,920,027 ",,,,1st Round Pick,"$10,650,240 "
-Pau Gasol,gasolpa01,SAS,"$5,100,000 ",,,,,,,"$5,100,000 "
-Daniel Theis,theisda01,BOS,"$5,000,000 ","$5,000,000 ",,,,,Early Bird Rights,"$5,000,000 "
-Luol Deng,denglu01,LAL,"$4,990,000 ","$4,990,000 ","$4,990,000 ",,,,,"$14,970,000 "
-Jaxson Hayes,hayesja02,NOP,"$4,862,040 ","$5,105,160 ","$5,348,280 ","$6,803,012 ",,,1st Round Pick,"$9,967,200 "
-Buddy Hield,hieldbu01,SAC,"$4,861,208 ","$24,431,818 ","$22,477,273 ","$20,522,727 ","$18,568,182 ",,1st Round pick,"$90,861,208 "
-Frank Ntilikina,ntilila01,NYK,"$4,855,800 ","$6,176,578 ",,,,,1st Round Pick,"$11,032,378 "
-Ed Davis,davised01,UTA,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$9,772,350 "
-Richaun Holmes,holmeri01,SAC,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$9,772,350 "
-Frank Kaminsky,kaminfr01,PHO,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$9,772,350 "
-Mike Scott,scottmi01,PHI,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$9,772,350 "
-Avery Bradley,bradlav01,LAL,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$9,772,350 "
-Robin Lopez,lopezro01,MIL,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$4,767,000 "
-JaMychal Green,greenja01,LAC,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$4,767,000 "
-Justin Holiday,holidju01,IND,"$4,767,000 ",,,,,,Room Exception,"$4,767,000 "
-Garrett Temple,templga01,BRK,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$4,767,000 "
-Enes Kanter,kanteen01,BOS,"$4,767,000 ","$5,005,350 ",,,,,Room Exception,"$4,767,000 "
-Collin Sexton,sextoco01,CLE,"$4,764,960 ","$4,991,880 ","$6,349,671 ",,,,1st Round Pick,"$9,756,840 "
-Rodney McGruder,mcgruro01,LAC,"$4,629,630 ","$5,000,000 ","$5,370,370 ",,,,Cap Space,"$15,000,000 "
-Rui Hachimura,hachiru01,WAS,"$4,469,160 ","$4,692,840 ","$4,916,160 ","$6,263,188 ",,,1st Round Pick,"$9,162,000 "
-Kevon Looney,looneke01,GSW,"$4,464,286 ","$4,821,429 ","$5,178,572 ",,,,Bird Rights,"$9,285,715 "
-Dennis Smith,smithde03,NYK,"$4,463,640 ","$5,686,677 ",,,,,1st Round Pick,"$10,150,317 "
-Jamal Murray,murraja01,DEN,"$4,444,746 ","$29,250,000 ","$31,590,000 ","$33,930,000 ","$36,270,000 ","$38,610,000 ",1st Round pick,"$174,094,746 "
-Kevin Knox,knoxke01,NYK,"$4,380,120 ","$4,588,680 ","$5,845,978 ",,,,1st Round Pick,"$8,968,800 "
-Cam Reddish,reddica01,ATL,"$4,245,720 ","$4,458,000 ","$4,670,160 ","$5,954,454 ",,,1st Round Pick,"$8,703,720 "
-Zach Collins,colliza01,POR,"$4,240,200 ","$5,406,255 ",,,,,1st Round Pick,"$9,646,455 "
-Mikal Bridges,bridgmi01,PHO,"$4,161,000 ","$4,359,000 ","$5,557,725 ",,,,1st Round Pick,"$8,520,000 "
-Alex Len,lenal01,SAC,"$4,160,000 ",,,,,,Room Exception,"$4,160,000 "
-Cameron Johnson,johnsca02,PHO,"$4,033,440 ","$4,235,160 ","$4,437,000 ","$5,887,899 ",,,1st Round Pick,"$8,268,600 "
-Malik Monk,monkma01,CHO,"$4,028,400 ","$5,345,687 ",,,,,1st Round Pick,"$9,374,087 "
-Dorian Finney-Smith,finnedo01,DAL,"$4,000,000 ","$4,000,000 ","$4,000,000 ",,,,Bird Rights,"$12,000,000 "
-JaVale McGee,mcgeeja01,LAL,"$4,000,000 ","$4,200,000 ",,,,,Cap Space,"$8,200,000 "
-Patrick McCaw,mccawpa01,TOR,"$4,000,000 ","$4,000,000 ",,,,,MLE,"$8,000,000 "
-Reggie Bullock,bullore01,NYK,"$4,000,000 ","$4,200,000 ",,,,,Room Exception,"$5,000,000 "
-Shai Gilgeous-Alexander,gilgesh01,OKC,"$3,952,920 ","$4,141,320 ","$5,495,532 ",,,,1st Round Pick,"$8,094,240 "
-Nicolò Melli,mellini01,NOP,"$3,902,439 ","$4,097,561 ",,,,,Room Exception,"$8,000,000 "
-P.J. Washington,washipj01,CHO,"$3,831,840 ","$4,023,600 ","$4,215,120 ","$5,808,435 ",,,1st Round Pick,"$7,855,440 "
-Luke Kennard,kennalu01,DET,"$3,827,160 ","$5,273,826 ",,,,,1st Round Pick,"$9,100,986 "
-Miles Bridges,bridgmi02,CHO,"$3,755,400 ","$3,934,320 ","$5,421,493 ",,,,1st Round Pick,"$7,689,720 "
-Jakob Poeltl,poeltja01,SAS,"$3,754,886 ",,,,,,1st Round pick,"$3,754,886 "
-Tyler Herro,herroty01,MIA,"$3,640,200 ","$3,822,240 ","$4,004,280 ","$5,722,116 ",,,1st Round Pick,"$7,462,440 "
-Donovan Mitchell,mitchdo01,UTA,"$3,635,760 ","$5,195,501 ",,,,,1st Round Pick,"$8,831,261 "
-Stanley Johnson,johnsst04,TOR,"$3,623,000 ","$3,801,000 ",,,,,Bi-annual Exception,"$3,623,000 "
-Jake Layman,laymaja01,MIN,"$3,581,986 ","$3,761,085 ","$3,940,184 ",,,,Sign and Trade,"$11,283,255 "
-Thon Maker,makerth01,DET,"$3,569,643 ",,,,,,1st Round pick,"$3,569,643 "
-Jerome Robinson,robinje01,WAS,"$3,567,720 ","$3,737,520 ","$5,340,916 ",,,,1st Round Pick,"$7,305,240 "
-Allonzo Trier,trieral01,NYK,"$3,551,100 ",,,,,,,"$3,551,100 "
-Danuel House,houseda01,HOU,"$3,540,000 ","$3,717,000 ","$3,894,000 ",,,,MLE,"$11,151,000 "
-Domantas Sabonis,sabondo01,IND,"$3,529,555 ","$17,187,500 ","$18,562,500 ","$19,937,500 ","$21,312,500 ",,1st Round pick,"$80,529,555 "
-Mirza Teletović,teletmi01,MIL,"$3,500,000 ","$3,500,000 ",,,,,,"$7,000,000 "
-Boban Marjanović,marjabo01,DAL,"$3,500,000 ","$3,500,000 ",,,,,Bi-Annual Exception,"$7,000,000 "
-T.J. McConnell,mccontj01,IND,"$3,500,000 ","$3,500,000 ",,,,,Cap Space,"$4,500,000 "
-DeMarcus Cousins,couside01,LAL,"$3,500,000 ",,,,,,,"$3,500,000 "
-Taurean Waller-Prince,princta02,BRK,"$3,481,986 ","$13,942,308 ","$15,057,692 ",,,,1st Round pick,"$32,481,986 "
-Dario Šarić,saricda01,PHO,"$3,481,986 ",,,,,,1st Round pick,"$3,481,986 "
-Romeo Langford,langfro01,BOS,"$3,458,400 ","$3,631,200 ","$3,804,360 ","$5,634,257 ",,,1st Round Pick,"$7,089,600 "
-Bam Adebayo,adebaba01,MIA,"$3,454,080 ","$5,115,492 ",,,,,1st Round Pick,"$8,569,572 "
-Kyle Korver,korveky01,PHO,"$3,440,000 ",,,,,,,"$3,440,000 "
-Michael Porter,portemi01,DEN,"$3,389,400 ","$3,550,800 ","$5,258,735 ",,,,1st Round Pick,"$6,940,200 "
-Denzel Valentine,valende01,CHI,"$3,377,569 ",,,,,,1st Round pick,"$3,377,569 "
-Juan Hernangómez,hernaju01,MIN,"$3,321,030 ",,,,,,1st Round pick,"$3,321,030 "
-Sekou Doumbouya,doumbse01,DET,"$3,285,120 ","$3,449,400 ","$3,613,680 ","$5,539,771 ",,,1st Round Pick,"$6,734,520 "
-Justin Jackson,jacksju01,DAL,"$3,280,920 ","$5,029,650 ",,,,,1st Round Pick,"$8,310,570 "
-Troy Brown,browntr01,WAS,"$3,219,480 ","$3,372,840 ","$5,170,564 ",,,,1st Round Pick,"$6,592,320 "
-Jon Leuer,leuerjo01,MIL,"$3,169,348 ","$3,169,348 ","$3,169,347 ",,,,,"$9,508,043 "
-Yogi Ferrell,ferreyo01,SAC,"$3,150,000 ",,,,,,Cap Space,"$3,150,000 "
-Guerschon Yabusele,yabusgu01,BOS,"$3,117,240 ",,,,,,,"$3,117,240 "
-Zhaire Smith,smithzh01,PHI,"$3,058,800 ","$3,204,600 ","$4,915,856 ",,,,1st Round Pick,"$6,263,400 "
-Dwight Howard,howardw01,MEM,"$3,039,097 ",,,,,,,"$3,039,097 "
-Khem Birch,birchkh01,ORL,"$3,000,000 ","$3,000,000 ",,,,,Early Bird Rights,"$6,000,000 "
-Ryan Arcidiacono,arcidry01,CHI,"$3,000,000 ","$3,000,000 ","$3,000,000 ",,,,Cap space,"$6,000,000 "
-Quinn Cook,cookqu01,LAL,"$3,000,000 ","$3,000,000 ",,,,,Cap Space,"$4,000,000 "
-Ömer Aşık,asikom01,CHI,"$3,000,000 ",,,,,,,"$3,000,000 "
-Nickeil Alexander-Walker,alexani01,NOP,"$2,964,840 ","$3,113,160 ","$3,261,480 ","$5,009,633 ",,,1st Round Pick,"$6,078,000 "
-D.J. Wilson,wilsodj01,MIL,"$2,961,120 ","$4,548,280 ",,,,,1st Round Pick,"$7,509,400 "
-Cedi Osman,osmande01,CLE,"$2,907,143 ","$8,750,000 ","$8,050,000 ","$7,350,000 ","$6,650,000 ",,MLE,"$27,057,143 "
-Donte DiVincenzo,divindo01,MIL,"$2,905,800 ","$3,044,160 ","$4,675,830 ",,,,1st Round Pick,"$5,949,960 "
-Bryn Forbes,forbebr01,SAS,"$2,875,000 ",,,,,,Early Bird Rights,"$2,875,000 "
-Andrew Nicholson,nichoan01,POR,"$2,844,429 ","$2,844,429 ","$2,844,429 ","$2,844,429 ","$2,844,429 ",,,"$14,222,145 "
-Goga Bitadze,bitadgo01,IND,"$2,816,760 ","$2,957,520 ","$3,098,400 ","$4,765,339 ",,,1st Round Pick,"$5,774,280 "
-T.J. Leaf,leaftj01,IND,"$2,813,280 ","$4,326,825 ",,,,,1st Round Pick,"$7,140,105 "
-Lonnie Walker,walkelo01,SAS,"$2,760,480 ","$2,892,000 ","$4,447,896 ",,,,1st Round Pick,"$5,652,480 "
-Alex Caruso,carusal01,LAL,"$2,750,000 ","$2,750,000 ",,,,,Room Exception,"$5,500,000 "
-Malik Beasley,beaslma01,MIN,"$2,731,714 ",,,,,,1st Round pick,"$2,731,714 "
-Luka Šamanić,samanlu01,SAS,"$2,689,920 ","$2,824,320 ","$2,959,080 ","$4,556,983 ",,,1st Round Pick,"$5,514,240 "
-John Collins,collijo01,ATL,"$2,686,560 ","$4,137,302 ",,,,,1st Round Pick,"$6,823,862 "
-Kevin Huerter,huertke01,ATL,"$2,636,280 ","$2,761,920 ","$4,253,357 ",,,,1st Round Pick,"$5,398,200 "
-Caris LeVert,leverca01,BRK,"$2,625,718 ","$16,203,704 ","$17,500,000 ","$18,796,296 ",,,1st Round pick,"$55,125,718 "
-Marko Guduric,gudurma01,MEM,"$2,625,000 ","$2,750,000 ",,,,,Bi-annual Exception,"$5,375,000 "
-DeAndre' Bembry,bembrde01,ATL,"$2,603,982 ",,,,,,1st Round pick,"$2,603,982 "
-Matisse Thybulle,thybuma01,PHI,"$2,582,160 ","$2,711,280 ","$2,840,160 ","$4,379,527 ",,,1st Round Pick,"$5,293,440 "
-Harry Giles,gilesha01,SAC,"$2,578,800 ",,,,,,1st Round Pick,"$2,578,800 "
-Jeff Green,greenje02,UTA,"$2,564,753 ",,,,,,,"$2,564,753 "
-Pau Gasol,gasolpa01,POR,"$2,564,753 ",,,,,,,"$2,564,753 "
-Wesley Matthews,matthwe02,MIL,"$2,564,753 ","$2,692,991 ",,,,,Minimum Salary,"$2,564,753 "
-Kyle Korver,korveky01,MIL,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Udonis Haslem,hasleud01,MIA,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Jared Dudley,dudleja01,LAL,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Rajon Rondo,rondora01,LAL,"$2,564,753 ","$2,619,605 ",,,,,Minimum Salary,"$2,564,753 "
-Dwight Howard,howardw01,LAL,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Thabo Sefolosha,sefolth01,HOU,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Tyson Chandler,chandty01,HOU,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Gerald Green,greenge01,DEN,"$2,564,753 ",,,,,,,"$2,564,753 "
-J.J. Barea,bareajo01,DAL,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Wilson Chandler,chandwi01,BRK,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Nenê Hilário,hilarne01,ATL,"$2,564,753 ",,,,,,,"$2,564,753 "
-Vince Carter,cartevi01,ATL,"$2,564,753 ",,,,,,Minimum Salary,"$2,564,753 "
-Josh Okogie,okogijo01,MIN,"$2,530,680 ","$2,651,040 ","$4,087,904 ",,,,1st Round Pick,"$5,181,720 "
-Vincent Poirier,poirivi01,BOS,"$2,505,793 ","$2,619,207 ",,,,,Minimum Salary,"$5,125,000 "
-Rondae Hollis-Jefferson,holliro01,TOR,"$2,500,000 ",,,,,,MLE,"$2,500,000 "
-Brandon Clarke,clarkbr01,MEM,"$2,478,840 ","$2,602,920 ","$2,726,880 ","$4,343,920 ",,,1st Round Pick,"$5,081,760 "
-Terrance Ferguson,fergute01,OKC,"$2,475,840 ","$3,944,013 ",,,,,1st Round Pick,"$6,419,853 "
-Grayson Allen,allengr01,MEM,"$2,429,400 ","$2,545,320 ","$4,054,695 ",,,,1st Round Pick,"$4,974,720 "
-Anthony Tolliver,tollian01,SAC,"$2,419,852 ",,,,,,,"$2,419,852 "
-Grant Williams,willigr01,BOS,"$2,379,840 ","$2,498,760 ","$2,617,800 ","$4,306,281 ",,,1st Round Pick,"$4,878,600 "
-Jarrett Allen,allenja01,BRK,"$2,376,840 ","$3,909,902 ",,,,,1st Round Pick,"$6,286,742 "
-Pascal Siakam,siakapa01,TOR,"$2,351,839 ","$29,000,000 ","$31,320,000 ","$33,640,000 ","$35,960,000 ",,1st Round pick,"$132,271,839 "
-Skal Labissière,labissk01,ATL,"$2,338,847 ",,,,,,1st Round pick,"$2,338,847 "
-Chandler Hutchison,hutchch01,CHI,"$2,332,320 ","$2,443,440 ","$4,019,459 ",,,,1st Round Pick,"$4,775,760 "
-Patrick Patterson,pattepa01,LAC,"$2,331,593 ",,,,,,Minimum Salary,"$2,331,593 "
-Dejounte Murray,murrade01,SAS,"$2,321,735 ","$14,285,714 ","$15,428,571 ","$16,571,429 ","$17,714,286 ",,1st Round pick,"$66,321,735 "
-Alec Burks,burksal01,PHI,"$2,320,044 ",,,,,,Minimum Salary,"$2,320,044 "
-Isaiah Thomas,thomais02,LAC,"$2,320,044 ",,,,,,,"$2,320,044 "
-Damian Jones,jonesda03,ATL,"$2,305,057 ",,,,,,1st Round pick,"$2,305,057 "
-Darius Bazley,bazleda01,OKC,"$2,284,800 ","$2,399,160 ","$2,513,040 ","$4,264,629 ",,,1st Round Pick,"$4,683,960 "
-OG Anunoby,anunoog01,TOR,"$2,281,800 ","$3,872,215 ",,,,,1st Round Pick,"$6,154,015 "
-Ante Žižić,zizican01,CLE,"$2,281,800 ",,,,,,1st Round Pick,"$2,281,800 "
-Monta Ellis,ellismo01,IND,"$2,245,400 ","$2,245,400 ","$2,245,400 ",,,,,"$6,736,200 "
-Markieff Morris,morrima02,DET,"$2,241,808 ",,,,,,,"$2,241,808 "
-Aaron Holiday,holidaa01,IND,"$2,239,200 ","$2,345,640 ","$3,980,551 ",,,,1st Round Pick,"$4,584,840 "
-Luke Kornet,kornelu01,CHI,"$2,195,122 ","$2,304,878 ",,,,,Room Exception,"$4,500,000 "
-Ty Jerome,jeromty01,PHO,"$2,193,480 ","$2,303,040 ","$2,412,840 ","$4,220,057 ",,,1st Round Pick,"$4,496,520 "
-Willie Cauley-Stein,caulewi01,DAL,"$2,177,483 ","$2,286,357 ",,,,,MLE,"$2,177,483 "
-Austin Rivers,riverau01,HOU,"$2,174,318 ","$2,369,663 ",,,,,Minimum Salary,"$2,174,318 "
-Carmelo Anthony,anthoca01,POR,"$2,159,029 ",,,,,,Minimum Salary,"$2,159,029 "
-Anfernee Simons,simonan01,POR,"$2,149,560 ","$2,252,040 ","$3,938,818 ",,,,1st Round Pick,"$4,401,600 "
-Matt Barnes,barnema02,SAC,"$2,133,541 ",,,,,,,"$2,133,541 "
-Nassir Little,littlna01,POR,"$2,105,520 ","$2,210,640 ","$2,316,240 ","$4,171,548 ",,,1st Round Pick,"$4,316,160 "
-Torrey Craig,craigto01,DEN,"$2,100,000 ",,,,,,Cap Space,"$2,100,000 "
-Moritz Wagner,wagnemo01,WAS,"$2,063,520 ","$2,161,920 ","$3,893,618 ",,,,1st Round Pick,"$4,225,440 "
-Dylan Windler,windldy01,CLE,"$2,035,800 ","$2,137,440 ","$2,239,200 ","$4,037,278 ",,,1st Round Pick,"$4,173,240 "
-Caleb Swanigan,swanica01,POR,"$2,033,160 ",,,,,,1st Round Pick,"$2,033,160 "
-Trey Burke,burketr01,PHI,"$2,028,594 ",,,,,,,"$2,028,594 "
-Kyle O'Quinn,oquinky01,PHI,"$2,028,594 ",,,,,,Minimum Salary,"$2,028,594 "
-Michael Carter-Williams,cartemi01,ORL,"$2,028,594 ",,,,,,Minimum Salary,"$2,028,594 "
-Mike Muscala,muscami01,OKC,"$2,028,594 ","$2,283,034 ",,,,,Minimum Salary,"$2,028,594 "
-Nerlens Noel,noelne01,OKC,"$2,028,594 ",,,,,,Minimum Salary,"$2,028,594 "
-Troy Daniels,danietr01,LAL,"$2,028,594 ",,,,,,,"$2,028,594 "
-Ben McLemore,mclembe01,HOU,"$2,028,594 ","$2,283,034 ",,,,,Minimum Salary,"$2,028,594 "
-Spencer Hawes,hawessp01,MIL,"$2,007,058 ",,,,,,,"$2,007,058 "
-Edmond Sumner,sumneed01,IND,"$2,000,000 ","$2,160,000 ","$2,320,000 ",,,,Cap Space,"$4,160,000 "
-Avery Bradley,bradlav01,MEM,"$2,000,000 ",,,,,,,"$2,000,000 "
-Noah Vonleh,vonleno01,DEN,"$2,000,000 ",,,,,,MLE,"$2,000,000 "
-Landry Shamet,shamela01,LAC,"$1,995,120 ","$2,090,040 ","$3,768,342 ",,,,1st Round Pick,"$4,085,160 "
-Mfiondu Kabengele,kabenmf01,LAC,"$1,977,000 ","$2,075,880 ","$2,174,880 ","$3,923,484 ",,,1st Round Pick,"$4,052,880 "
-Kyle Kuzma,kuzmaky01,LAL,"$1,974,600 ","$3,562,178 ",,,,,1st Round Pick,"$5,536,778 "
-Jordan Poole,poolejo01,GSW,"$1,964,760 ","$2,063,280 ","$2,161,440 ","$3,901,399 ",,,1st Round Pick,"$4,028,040 "
-Tony Bradley,bradlto01,UTA,"$1,962,360 ","$3,542,060 ",,,,,1st Round Pick,"$5,504,420 "
-Keldon Johnson,johnske04,SAS,"$1,950,600 ","$2,048,040 ","$2,145,720 ","$3,873,025 ",,,1st Round Pick,"$3,998,640 "
-Derrick White,whitede01,SAS,"$1,948,080 ","$3,516,284 ",,,,,1st Round Pick,"$5,464,364 "
-Robert Williams,williro04,BOS,"$1,937,520 ","$2,029,920 ","$3,661,976 ",,,,1st Round Pick,"$3,967,440 "
-Josh Hart,hartjo01,NOP,"$1,934,160 ","$3,491,159 ",,,,,1st Round Pick,"$5,425,319 "
-Jacob Evans,evansja02,MIN,"$1,925,880 ","$2,017,320 ","$3,641,263 ",,,,1st Round Pick,"$3,943,200 "
-Anderson Varejão,varejan01,POR,"$1,913,345 ","$1,913,345 ",,,,,,"$3,826,690 "
-Džanan Musa,musadz01,BRK,"$1,911,600 ","$2,002,800 ","$3,615,054 ",,,,1st Round Pick,"$3,914,400 "
-Omari Spellman,spellom01,MIN,"$1,897,800 ","$1,988,280 ","$3,588,845 ",,,,1st Round Pick,"$3,886,080 "
-Shabazz Napier,napiesh01,WAS,"$1,882,867 ",,,,,,Cap Space,"$1,882,867 "
-Glenn Robinson,robingl02,PHI,"$1,882,867 ","$2,071,978 ",,,,,Minimum Salary,"$1,882,867 "
-James Ennis,ennisja01,ORL,"$1,882,867 ","$2,071,978 ",,,,,Minimum Salary,"$1,882,867 "
-Tim Frazier,fraziti01,DET,"$1,882,867 ",,,,,,,"$1,882,867 "
-Larry Sanders,sandela01,MIL,"$1,865,547 ","$1,865,547 ","$1,865,547 ",,,,,"$5,596,641 "
-Bruno Caboclo,cabocbr01,HOU,"$1,845,301 ",,,,,,Minimum Salary,"$1,845,301 "
-Markieff Morris,morrima02,LAL,"$1,750,000 ",,,,,,DPE,"$1,750,000 "
-Mario Hezonja,hezonma01,POR,"$1,737,145 ","$1,882,867 ",,,,,Minimum Salary,"$3,620,012 "
-Emmanuel Mudiay,mudiaem01,UTA,"$1,737,145 ",,,,,,Minimum Salary,"$1,737,145 "
-Raul Neto,netora01,PHI,"$1,737,145 ",,,,,,Minimum Salary,"$1,737,145 "
-JaKarr Sampson,sampsja02,IND,"$1,737,145 ",,,,,,Minimum Salary,"$1,737,145 "
-Pat Connaughton,connapa01,MIL,"$1,723,050 ",,,,,,MLE,"$1,723,050 "
-Jahlil Okafor,okafoja01,NOP,"$1,702,486 ",,,,,,Minimum Salary,"$1,702,486 "
-Rodions Kurucs,kurucro01,BRK,"$1,699,236 ","$1,780,152 ","$1,861,068 ",,,,Cap space,"$3,479,388 "
-Jonah Bolden,boldejo01,PHI,"$1,698,450 ",,,,,,,"$1,698,450 "
-Georges Niang,niangge01,UTA,"$1,678,854 ","$1,783,557 ",,,,,Non-Bird Exception,"$1,678,854 "
-Cheick Diallo,diallch01,PHO,"$1,678,854 ","$1,824,003 ",,,,,Minimum Salary,"$1,678,854 "
-Dragan Bender,bendedr01,MIL,"$1,678,854 ",,,,,,,"$1,678,854 "
-David Nwaba,nwabada01,BRK,"$1,678,854 ",,,,,,,"$1,678,854 "
-Treveon Graham,grahatr01,ATL,"$1,678,854 ",,,,,,Minimum Salary,"$1,678,854 "
-Willy Hernangómez,hernawi01,CHO,"$1,676,735 ",,,,,,Cap Space,"$1,676,735 "
-Derrick Jones,jonesde02,MIA,"$1,645,357 ",,,,,,Minimum Salary,"$1,645,357 "
-Jordan McRae,mcraejo01,DET,"$1,645,357 ",,,,,,Minimum Salary,"$1,645,357 "
-Christian Wood,woodch01,DET,"$1,645,357 ",,,,,,Minimum Salary,"$1,645,357 "
-Furkan Korkmaz,korkmfu01,PHI,"$1,620,564 ","$1,762,796 ",,,,,Minimum Salary,"$1,620,564 "
-Jordan Bell,belljo01,MEM,"$1,620,564 ",,,,,,,"$1,620,564 "
-Justin Patton,pattoju01,DAL,"$1,620,564 ",,,,,,,"$1,620,564 "
-Royce O'Neale,onealro01,UTA,"$1,618,520 ","$8,035,714 ","$8,678,571 ","$9,321,429 ","$9,964,286 ",,Cap space,"$37,618,520 "
-Dillon Brooks,brookdi01,MEM,"$1,618,520 ","$11,400,000 ","$12,200,000 ","$11,400,000 ",,,MLE,"$36,618,520 "
-Wesley Iwundu,iwundwe01,ORL,"$1,618,520 ",,,,,,Cap Space,"$1,618,520 "
-Abdel Nader,naderab01,OKC,"$1,618,520 ","$1,752,950 ",,,,,Cap Space,"$1,618,520 "
-Damyean Dotson,dotsoda01,NYK,"$1,618,520 ",,,,,,Minimum Salary,"$1,618,520 "
-Frank Jackson,jacksfr01,NOP,"$1,618,520 ",,,,,,MLE,"$1,618,520 "
-Sterling Brown,brownst02,MIL,"$1,618,520 ",,,,,,MLE,"$1,618,520 "
-Dwayne Bacon,bacondw01,CHO,"$1,618,520 ",,,,,,MLE,"$1,618,520 "
-Semi Ojeleye,ojelese01,BOS,"$1,618,520 ","$1,752,950 ",,,,,Cap space,"$1,618,520 "
-Chris Boucher,bouchch01,TOR,"$1,588,231 ",,,,,,Minimum Salary,"$1,588,231 "
-Malcolm Miller,millema01,TOR,"$1,588,231 ",,,,,,Minimum Salary,"$1,588,231 "
-Monte Morris,morrimo01,DEN,"$1,588,231 ","$1,663,861 ",,,,,Minimum Salary,"$1,588,231 "
-Mitchell Robinson,robinmi01,NYK,"$1,559,712 ","$1,663,861 ","$1,802,057 ",,,,MLE,"$1,559,712 "
-Vlatko Čančar,cancavl01,DEN,"$1,517,981 ","$898,310 ","$1,782,621 ",,,,MLE,"$2,416,291 "
-Isaiah Roby,robyis01,OKC,"$1,500,000 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,MLE,"$3,017,981 "
-Nigel Williams-Goss,willini01,UTA,"$1,500,000 ","$1,517,981 ","$1,782,621 ",,,,Cap Space,"$1,500,000 "
-J.R. Smith,smithjr01,CLE,"$1,456,667 ","$1,456,667 ","$1,456,666 ",,,,,"$4,370,000 "
-Shake Milton,miltosh01,PHI,"$1,445,697 ","$1,701,593 ","$1,846,738 ","$1,997,718 ",,,Cap Space,"$4,994,028 "
-Thanasis Antetokounmpo,antetth01,MIL,"$1,445,697 ","$1,701,593 ",,,,,Minimum Salary,"$3,147,290 "
-Amile Jefferson,jeffeam01,ORL,"$1,445,697 ",,,,,,,"$1,445,697 "
-Theo Pinson,pinsoth01,NYK,"$1,445,697 ","$1,701,593 ",,,,,Minimum Salary,"$1,445,697 "
-Brad Wanamaker,wanambr01,BOS,"$1,445,697 ",,,,,,Minimum Salary,"$1,445,697 "
-Derrick Walton,waltode01,ATL,"$1,445,697 ",,,,,,,"$1,445,697 "
-Ryan Broekhoff,broekry01,DAL,"$1,443,842 ",,,,,,,"$1,443,842 "
-Gary Trent,trentga02,POR,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$3,080,713 "
-Isaac Bonga,bongais01,WAS,"$1,416,852 ","$1,663,861 ",,,,,Cap Space,"$1,416,852 "
-Chimezie Metu,metuch01,SAS,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Jevon Carter,carteje01,PHO,"$1,416,852 ",,,,,,MInimum Salary,"$1,416,852 "
-Elie Okobo,okoboel01,PHO,"$1,416,852 ","$1,663,861 ","$1,802,057 ",,,,Cap Space,"$1,416,852 "
-Melvin Frazier,frazime01,ORL,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Deonte Burton,burtode02,OKC,"$1,416,852 ","$1,663,861 ",,,,,Minimum Salary,"$1,416,852 "
-Hamidou Diallo,diallha01,OKC,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Kenrich Williams,willike04,NOP,"$1,416,852 ",,,,,,Minimum Salary,"$1,416,852 "
-Jarred Vanderbilt,vandeja01,MIN,"$1,416,852 ","$1,663,861 ",,,,,Cap Space,"$1,416,852 "
-Duncan Robinson,robindu01,MIA,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Kendrick Nunn,nunnke01,MIA,"$1,416,852 ","$1,663,861 ",,,,,Minimum Salary,"$1,416,852 "
-De'Anthony Melton,meltode01,MEM,"$1,416,852 ",,,,,,Cap Space,"$1,416,852 "
-Alize Johnson,johnsal02,IND,"$1,416,852 ",,,,,,Minimum Salary,"$1,416,852 "
-Isaiah Hartenstein,harteis01,HOU,"$1,416,852 ",,,,,,,"$1,416,852 "
-Sviatoslav Mykhailiuk,mykhasv01,DET,"$1,416,852 ","$1,663,861 ",,,,,Cap Space,"$1,416,852 "
-Bruce Brown,brownbr01,DET,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Keita Bates-Diop,bateske01,DEN,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Devonte' Graham,grahade01,CHO,"$1,416,852 ","$1,663,861 ",,,,,MLE,"$1,416,852 "
-Jalen Brunson,brunsja01,DAL,"$1,416,582 ","$1,663,861 ","$1,802,057 ",,,,Cap Space,"$3,080,443 "
-Bruno Fernando,fernabr01,ATL,"$1,400,000 ","$1,517,981 ","$1,782,621 ",,,,Cap space,"$4,700,602 "
-Jaylen Nowell,nowelja01,MIN,"$1,400,000 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,MLE,"$1,400,000 "
-Alfonzo McKinnie,mckinal01,CLE,"$1,361,046 ","$1,762,796 ","$1,910,860 ","$2,165,298 ",,,MLE,"$2,253,031 "
-Kevin Porter,porteke02,CLE,"$1,290,960 ","$2,033,160 ","$2,130,240 ","$3,845,083 ",,,1st Round Pick,"$3,324,120 "
-Carsen Edwards,edwarca01,BOS,"$1,228,026 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,Cap space,"$4,528,628 "
-Cody Martin,martico01,CHO,"$1,173,310 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$4,473,912 "
-Gary Payton,paytoga02,WAS,"$1,090,781 ",,,,,,Minimum Salary,"$1,090,781 "
-George Hill,hillge01,MIL,"$1,000,000 ",,,,,,,"$21,000,000 "
-Terance Mann,mannte01,LAC,"$1,000,000 ","$1,517,984 ","$1,782,621 ","$1,930,681 ",,,Minimum Salary,"$2,517,984 "
-Jonathon Simmons,simmojo02,WAS,"$1,000,000 ",,,,,,,"$1,000,000 "
-Justin Hamilton,hamilju01,TOR,"$1,000,000 ",,,,,,,"$1,000,000 "
-Kyle Singler,singlky01,OKC,"$999,200 ","$999,200 ","$999,200 ","$999,200 ",,,,"$3,996,800 "
-Marvin Williams,willima02,MIL,"$956,349 ",,,,,,Minimum Salary,"$956,349 "
-David Nwaba,nwabada01,HOU,"$903,111 ","$1,862,250 ",,,,,MLE,"$903,111 "
-Admiral Schofield,schofad01,WAS,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$4,198,912 "
-KZ Okpala,okpalkz01,MIA,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$4,198,912 "
-Eric Paschall,pascher01,GSW,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$4,198,912 "
-Nicolas Claxton,claxtni01,BRK,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,Minimum Salary,"$4,198,912 "
-Justin James,jamesju01,SAC,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,Minimum Salary,"$2,416,291 "
-Jalen Lecque,lecquja01,PHO,"$898,310 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,Cap Space,"$2,416,291 "
-Ignas Brazdeikis,brazdig01,NYK,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,Minimum Salary,"$2,416,291 "
-Talen Horton-Tucker,hortota01,LAL,"$898,310 ","$1,517,981 ",,,,,Minimum Salary,"$2,416,291 "
-Daniel Gafford,gaffoda01,CHI,"$898,310 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,Minimum Salary,"$2,416,291 "
-Alen Smailagić,smailal01,GSW,"$898,310 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,MLE,"$2,415,891 "
-Matt Thomas,thomama02,TOR,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$1,623,310 "
-Miye Oni,onimi01,UTA,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,Minimum Salary,"$898,310 "
-Dewan Hernandez,hernade01,TOR,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$898,310 "
-Terence Davis,daviste02,TOR,"$898,310 ","$1,517,981 ",,,,,Minimum Salary,"$898,310 "
-Wenyen Gabriel,gabriwe01,POR,"$898,310 ",,,,,,Minimum Salary,"$898,310 "
-Naz Reid,reidna01,MIN,"$898,310 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,MLE,"$898,310 "
-Jalen McDaniels,mcdanja01,CHO,"$898,310 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,Minimum Salary,"$898,310 "
-Caleb Martin,martica02,CHO,"$898,310 ","$1,517,981 ","$1,782,621 ",,,,Minimum Salary,"$898,310 "
-Shaquille Harrison,harrish01,CHI,"$898,310 ",,,,,,Minimum Salary,"$898,310 "
-Javonte Green,greenja02,BOS,"$898,310 ","$1,517,981 ",,,,,Minimum Salary,"$898,310 "
-Damion Lee,leeda03,GSW,"$842,327 ","$1,762,796 ","$1,910,860 ",,,,MLE,"$1,442,327 "
-Khyri Thomas,thomakh01,DET,"$838,464 ","$1,663,861 ",,,,,MLE,"$838,464 "
-DeMarre Carroll,carrode01,HOU,"$811,447 ",,,,,,Minimum Salary,"$811,447 "
-Michael Kidd-Gilchrist,kiddgmi01,DAL,"$810,763 ",,,,,,Minimum Salary,"$810,763 "
-Marquese Chriss,chrisma01,GSW,"$758,804 ",,,,,,,"$2,213,272 "
-Juwan Morgan,morgaju01,UTA,"$746,054 ",,,,,,Minimum Salary,"$746,054 "
-Patrick Patterson,pattepa01,OKC,"$737,067 ","$737,067 ","$737,066 ",,,,,"$2,211,200 "
-Reggie Jackson,jacksre01,LAC,"$734,025 ",,,,,,Minimum Salary,"$734,025 "
-Alfonzo McKinnie,mckinal01,CLE,"$708,871 ",,,,,,,"$2,253,031 "
-Gary Clark,clarkga01,HOU,"$708,426 ",,,,,,,"$708,426 "
-Jeff Green,greenje02,HOU,"$695,526 ",,,,,,Minimum Salary,"$840,427 "
-Cole Aldrich,aldrico01,MIN,"$685,340 ","$685,340 ",,,,,,"$1,370,680 "
-Shaun Livingston,livinsh01,GSW,"$666,667 ","$666,667 ","$666,666 ",,,,,"$2,666,666 "
-Marquese Chriss,chrisma01,GSW,"$654,468 ","$1,824,003 ",,,,,Minimum Salary,"$2,213,272 "
-Timothé Luwawu-Cabarrot,luwawti01,BRK,"$654,468 ","$1,824,003 ",,,,,Minimum Salary,"$844,170 "
-Rayjon Tucker,tuckera01,UTA,"$578,573 ","$1,517,981 ",,,,,Minimum Salary,"$578,574 "
-Chris Clemons,clemoch01,HOU,"$568,422 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$568,422 "
-Gary Clark,clarkga01,ORL,"$555,409 ",,,,,,Minimum Salary,"$718,765 "
-Brandon Goodwin,goodwbr01,ATL,"$522,738 ","$1,701,593 ",,,,,Minimum Salary,"$522,738 "
-Dion Waiters,waitedi01,LAL,"$503,656 ",,,,,,Minimum Salary,"$503,656 "
-Ryan Anderson,anderry01,HOU,"$500,000 ",,,,,,,"$500,000 "
-Anžejs Pasečņiks,pasecan01,WAS,"$482,144 ",,,,,,Minimum Salary,"$482,144 "
-Troy Daniels,danietr01,DEN,"$481,000 ",,,,,,Minimum Salary,"$481,000 "
-Chris Silva,silvach01,MIA,"$466,918 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$1,984,899 "
-Dakari Johnson,johnsda04,MEM,"$459,414 ","$459,414 ",,,,,,"$918,828 "
-Iman Shumpert,shumpim01,BRK,"$419,443 ",,,,,,,"$419,443 "
-Max Strus,strusma01,BOS,"$415,414 ",,,,,,,"$415,414 "
-Justin Robinson,robinju01,WAS,"$395,866 ",,,,,,,"$395,866 "
-Dean Wade,wadede01,CLE,"$375,000 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,MLE,"$375,000 "
-Ivan Rabb,rabbiv01,MEM,"$371,758 ",,,,,,,"$371,758 "
-Norvel Pelle,pelleno01,PHI,"$350,189 ",,,,,,Minimum Salary,"$350,189 "
-Ky Bowman,bowmaky01,GSW,"$350,189 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$350,189 "
-Juan Toscano-Anderson,toscaju01,GSW,"$350,189 ","$1,517,981 ","$1,782,621 ",,,,MLE,"$350,189 "
-A.J. Hammons,hammoaj01,MIA,"$350,087 ","$350,087 ",,,,,,"$700,174 "
-Festus Ezeli,ezelife01,POR,"$333,333 ",,,,,,,"$333,333 "
-C.J. Watson,watsocj01,ORL,"$333,333 ",,,,,,,"$333,333 "
-Anthony Tolliver,tollian01,MEM,"$289,803 ",,,,,,Minimum Salary,"$434,704 "
-Joakim Noah,noahjo01,LAC,"$289,803 ","$1,737,274 ",,,,,Minimum Salary,"$434,704 "
-Corey Brewer,breweco01,SAC,"$289,803 ",,,,,,Minimum Salary,"$289,803 "
-J.R. Smith,smithjr01,LAL,"$289,803 ",,,,,,Minimum Salary,"$289,803 "
-Luc Mbah a Moute,mbahalu01,HOU,"$289,803 ",,,,,,Minimum Salary,"$289,803 "
-Jamal Crawford,crawfja01,BRK,"$289,803 ",,,,,,Minimum Salary,"$289,803 "
-Lance Thomas,thomala01,BRK,"$262,152 ",,,,,,Minimum Salary,"$262,152 "
-Stanton Kidd,kiddst01,UTA,"$250,000 ",,,,,,,"$250,000 "
-Jordan Bell,belljo01,CLE,"$250,000 ",,,,,,MLE,"$250,000 "
-Tyler Zeller,zellety01,SAS,"$245,686 ","$2,436,046 ",,,,,Minimum Salary,"$245,686 "
-Trey Burke,burketr01,DAL,"$229,220 ",,,,,,Minimum Salary,"$229,220 "
-Joe Johnson,johnsjo02,DET,"$220,000 ",,,,,,,"$220,000 "
-Tyler Johnson,johnsty01,BRK,"$212,753 ",,,,,,Minimum Salary,"$212,753 "
-Jemerrio Jones,jonesje01,WAS,"$199,000 ",,,,,,,"$199,000 "
-Jontay Porter,portejo01,MEM,"$197,933 ","$1,517,981 ",,,,,Minimum Salary,"$197,933 "
-Justin Anderson,anderju01,BRK,"$196,288 ",,,,,,Minimum Salary,"$294,432 "
-Jerian Grant,grantje02,WAS,"$196,288 ",,,,,,Minimum Salary,"$196,288 "
-Cameron Payne,payneca01,PHO,"$196,288 ","$1,977,011 ",,,,,Minimum Salary,"$196,288 "
-Timothé Luwawu-Cabarrot,luwawti01,BRK,"$189,702 ",,,,,,,"$844,170 "
-Dragan Bender,bendedr01,GSW,"$189,702 ",,,,,,,"$189,702 "
-Mychal Mulder,muldemy01,GSW,"$187,782 ","$1,517,981 ","$1,782,621 ",,,,Minimum Salary,"$238,534 "
-Sindarius Thornwell,thornsi01,NOP,"$183,115 ",,,,,,Minimum Salary,"$183,115 "
-Justin Patton,pattoju01,DET,"$183,115 ","$1,762,796 ",,,,,Minimum Salary,"$183,115 "
-PJ Dozier,doziepj01,DEN,"$183,115 ",,,,,,MLE,"$183,115 "
-Alfonzo McKinnie,mckinal01,CLE,"$183,114 ",,,,,,,"$2,253,031 "
-Gary Clark,clarkga01,ORL,"$163,356 ",,,,,,,"$718,765 "
-Jarrod Uthoff,uthofja01,WAS,"$163,356 ",,,,,,Minimum Salary,"$163,356 "
-Jaylen Adams,adamsja01,POR,"$163,356 ",,,,,,Minimum Salary,"$163,356 "
-Joe Chealey,chealjo01,CHO,"$163,356 ",,,,,,,"$163,356 "
-Luguentz Dort,dortlu01,OKC,"$155,647 ","$1,517,981 ","$1,782,621 ","$1,930,681 ",,,Minimum Salary,"$2,298,628 "
-Cameron Payne,payneca01,TOR,"$150,000 ",,,,,,,"$150,000 "
-Jeff Green,greenje02,HOU,"$144,901 ",,,,,,,"$840,427 "
-Anthony Tolliver,tollian01,MEM,"$144,901 ",,,,,,,"$434,704 "
-Joakim Noah,noahjo01,LAC,"$144,901 ",,,,,,,"$434,704 "
-Troy Williams,willitr02,HOU,"$122,741 ","$122,741 ","$122,741 ","$122,741 ",,,,"$490,964 "
-Johnathan Williams,willijo04,WAS,"$106,181 ",,,,,,,"$106,181 "
-Tyler Cook,cookty01,CLE,"$101,504 ",,,,,,,"$151,504 "
-Donta Hall,halldo01,DET,"$101,504 ",,,,,,,"$101,504 "
-Donta Hall,halldo01,BRK,"$101,504 ",,,,,,Minimum Salary,"$101,504 "
-Yante Maten,matenya01,MIA,"$100,000 ",,,,,,,"$100,000 "
-Jaylen Adams,adamsja01,ATL,"$100,000 ",,,,,,,"$100,000 "
-Justin Anderson,anderju01,BRK,"$98,144 ",,,,,,,"$294,432 "
-Demetrius Jackson,jacksde01,BOS,"$92,857 ","$92,857 ","$92,857 ","$92,857 ","$92,857 ",,,"$464,285 "
-Chasson Randle,randlch01,GSW,"$91,557 ",,,,,,,"$91,557 "
-Jeremy Pargo,pargoje01,GSW,"$91,557 ",,,,,,,"$91,557 "
-Jonah Bolden,boldejo01,PHO,"$81,678 ",,,,,,,"$81,678 "
-Josh Magette,magetjo01,ORL,"$81,678 ",,,,,,,"$81,678 "
-Jarrod Uthoff,uthofja01,MEM,"$81,678 ",,,,,,,"$81,678 "
-Dusty Hannahs,hannadu01,MEM,"$81,678 ",,,,,,,"$81,678 "
-Derrick Walton,waltode01,DET,"$81,678 ",,,,,,,"$81,678 "
-Sheldon Mac,mcclesh01,CLE,"$81,678 ",,,,,,,"$81,678 "
-J.P. Macura,macurjp01,CLE,"$81,678 ",,,,,,,"$81,678 "
-Mychal Mulder,muldemy01,GSW,"$50,752 ",,,,,,,"$238,534 "
-Eric Mika,mikaer01,SAC,"$50,752 ",,,,,,,"$50,752 "
-Zach Norvell,norveza01,GSW,"$50,752 ",,,,,,,"$50,752 "
-Malik Newman,newmama01,CLE,"$50,752 ",,,,,,,"$50,752 "
-Marques Bolden,boldema01,CLE,"$50,752 ",,,,,,,"$50,752 "
-Sir'Dominic Pointer,pointsi01,CLE,"$50,752 ",,,,,,,"$50,752 "
-Paul Watson,watsopa01,ATL,"$50,752 ",,,,,,,"$50,752 "
-Tyler Cook,cookty01,CLE,"$50,000 ",,,,,,,"$151,504 "
-William Howard,howarwi01,UTA,"$50,000 ",,,,,,,"$50,000 "
-Isaiah Taylor,taylois01,TOR,"$50,000 ",,,,,,,"$50,000 "
-Tyler Lydon,lydonty01,SAC,"$50,000 ",,,,,,,"$50,000 "
-Hollis Thompson,thompho01,SAC,"$50,000 ",,,,,,,"$50,000 "
-Tyler Ulis,ulisty01,SAC,"$50,000 ",,,,,,,"$50,000 "
+﻿playername,playerid,team,salary1920,salary2021,salary2122,salary2223,salary2324,salary2425,signedusing,guaranteed
+Stephen Curry,curryst01,GSW,40231758,43006362,45780966,,,,Bird Rights,129019086
+Chris Paul,paulch01,OKC,38506482,41358814,44211146,,,,Bird Rights,79865296
+Russell Westbrook,westbru01,HOU,38178000,41006000,43848000,46662000,,,Bird Rights,123032000
+John Wall,walljo01,WAS,37800000,40824000,43848000,46872000,,,Bird Rights,122472000
+James Harden,hardeja01,HOU,37800000,40824000,43848000,46872000,,,Bird Rights,122472000
+LeBron James,jamesle01,LAL,37436858,39219565,41002273,,,,Cap Space,76656423
+Kevin Durant,duranke01,BRK,37199000,39058950,40918900,42778850,,,Sign and Trade,117176850
+Blake Griffin,griffbl01,DET,34234964,36595996,38957028,,,,Bird Rights,70830960
+Kyle Lowry,lowryky01,TOR,33296296,30000000,,,,,Bird Rights,63296296
+Paul George,georgpa01,LAC,33005556,35450412,37895268,,,,Maximum Salary,68455968
+Klay Thompson,thompkl01,GSW,32742000,35361360,37980720,40600080,43219440,,Bird Rights,189903600
+Jimmy Butler,butleji01,MIA,32742000,34379100,36016200,37653300,,,Sign and Trade,103137300
+Kemba Walker,walkeke02,BOS,32742000,34379100,36016200,37653300,,,Sign and Trade,103137300
+Kawhi Leonard,leonaka01,LAC,32742000,34379100,36016200,,,,Cap Space,67121100
+Gordon Hayward,haywago01,BOS,32700690,34187085,,,,,Cap space,32700690
+Mike Conley,conlemi01,UTA,32511623,34504132,,,,,Cap Space,54938006
+Kyrie Irving,irvinky01,BRK,31742000,33329100,34916200,36503300,,,Cap space,136490600
+Tobias Harris,harrito02,PHI,31034483,33517241,36000000,38482759,40965517,,Bird Rights,180000000
+Khris Middleton,middlkh01,MIL,30603448,33051724,35500000,37948276,40396552,,Bird Rights,137103448
+Paul Millsap,millspa01,DEN,30500000,,,,,,Cap space,30500000
+Damian Lillard,lillada01,POR,29802321,31626953,43750000,47250000,50750000,54250000,1st Round Pick,257429274
+Kevin Love,loveke01,CLE,28900000,31300000,31300000,28900000,,,Bird Rights,120400000
+Nikola Vučević,vucevni01,ORL,28000000,26000000,24000000,22000000,,,Bird Rights,100000000
+Al Horford,horfoal01,PHI,28000000,27500000,27000000,26500000,,,Cap Space,97000000
+DeMar DeRozan,derozde01,SAS,27739975,27739975,,,,,Cap Space,27739975
+CJ McCollum,mccolcj01,POR,27556959,29354152,30864198,33333333,35802469,,1st Round Pick,156911111
+Joel Embiid,embiijo01,PHI,27504630,29542010,31579390,33616770,,,1st Round Pick,122242800
+Andrew Wiggins,wiggian01,GSW,27504630,29542010,31579390,33616770,,,1st Round Pick,122242800
+Kristaps Porziņģis,porzikr01,DAL,27285000,29467800,31650600,33833400,36016200,,Bird Rights,122236800
+D'Angelo Russell,russeda01,MIN,27285000,28649250,30013500,31377750,,,Sign and Trade,117325500
+Otto Porter,porteot01,CHI,27250576,28489239,,,,,Bird Rights,27250576
+Devin Booker,bookede01,PHO,27250000,29430000,31610000,33790000,35970000,,1st round pick,158050000
+Karl-Anthony Towns,townska01,MIN,27250000,29430000,31610000,33790000,35970000,,1st Round Pick,155870000
+Bradley Beal,bealbr01,WAS,27093019,28751775,34502130,37262300,,,Cap Space,90346924
+Anthony Davis,davisan02,LAL,27093019,28751775,,,,,1st Round Pick,27093019
+Andre Drummond,drumman01,CLE,27093019,28751775,,,,,Cap Space,27093019
+Hassan Whiteside,whiteha01,POR,27093018,,,,,,Cap Space,27093018
+Nikola Jokić,jokicni01,DEN,26573595,28542009,30510423,32478837,,,Bird Rights,118104864
+Jrue Holiday,holidjr01,NOP,26131111,26131111,27020000,,,,Bird Rights,52262222
+LaMarcus Aldridge,aldrila01,SAS,26000000,24000000,,,,,Cap Space,50000000
+Steven Adams,adamsst01,OKC,25842697,27528090,,,,,1st Round Pick,53370787
+Giannis Antetokounmpo,antetgi01,MIL,25842697,27528090,,,,,1st Round Pick,53370787
+Marc Gasol,gasolma01,TOR,25595700,,,,,,Bird Rights,25595700
+Nicolas Batum,batumni01,CHO,25565217,27130434,,,,,Cap Space,25565217
+Chandler Parsons,parsoch01,ATL,25102511,,,,,,,25102511
+Rudy Gobert,goberru01,UTA,25008427,26525281,,,,,1st Round Pick,51533708
+Harrison Barnes,barneha02,SAC,24147727,22215909,20284091,18352273,,,Bird Rights,85000000
+Serge Ibaka,ibakase01,TOR,23271604,,,,,,Cap space,23271604
+Danilo Gallinari,gallida01,OKC,22615559,,,,,,Sign and Trade,22615559
+Victor Oladipo,oladivi01,IND,21000000,21000000,,,,,1st Round Pick,42000000
+Malcolm Brogdon,brogdma01,IND,20000000,20700000,21700000,22600000,,,Sign and Trade,85000000
+Terry Rozier,roziete01,CHO,19894737,18900000,17905263,,,,Sign and Trade,56700000
+Aaron Gordon,gordoaa01,ORL,19863636,18136364,16409091,,,,Bird Rights,54409091
+Zach LaVine,lavinza01,CHI,19500000,19500000,19500000,,,,Cap space,58500000
+Kent Bazemore,bazemke01,SAC,19269662,,,,,,Cap Space,19269662
+Tyler Johnson,johnsty01,PHO,19245370,,,,,,,19245370
+Goran Dragić,dragigo01,MIA,19217900,,,,,,Bird Rights,19217900
+Jeff Teague,teaguje01,ATL,19000000,,,,,,Cap space,19000000
+Evan Turner,turneev01,MIN,18606557,,,,,,Cap Space,18606557
+Draymond Green,greendr01,GSW,18539130,22246956,24026712,25806469,27586225,,Bird Rights,90619267
+Tristan Thompson,thomptr01,CLE,18539130,,,,,,Bird Rights,18539130
+Tim Hardaway,hardati02,DAL,18150000,18975000,,,,,Cap space,18150000
+Myles Turner,turnemy01,IND,18000000,18000000,18000000,18000000,,,1st Round pick,72000000
+Julius Randle,randlju01,NYK,18000000,18900000,19800000,,,,Cap Space,40900000
+Gary Harris,harriga01,DEN,17839286,19160714,20482143,,,,1st Round Pick,57482143
+Allen Crabbe,crabbal01,MIN,17818456,,,,,,,17818456
+Derrick Favors,favorde01,NOP,17650000,,,,,,Bird Rights,17650000
+Reggie Jackson,jacksre01,DET,17286956,,,,,,,17286956
+Andre Iguodala,iguodan01,MIA,17185185,15000000,15000000,,,,Bird Rights,32185185
+Bojan Bogdanović,bogdabo02,UTA,17000000,17850000,18700000,19550000,,,Cap Space,73100000
+Evan Fournier,fournev01,ORL,17000000,17000000,,,,,Cap Space,17000000
+Bismack Biyombo,biyombi01,CHO,17000000,,,,,,Cap Space,17000000
+Clint Capela,capelca01,ATL,16456522,17500000,18543478,19586957,,,Bird Rights,72086957
+Gorgui Dieng,dienggo01,MEM,16229213,17287640,,,,,1st Round Pick,33516853
+Ricky Rubio,rubiori01,PHO,16190476,17000000,17809524,,,,Cap Space,51000000
+Jonas Valančiūnas,valanjo01,MEM,16000000,15000000,14000000,,,,Bird Rights,45000000
+Brandon Knight,knighbr03,DET,15643750,,,,,,Bird Rights,15643750
+Eric Bledsoe,bledser01,MIL,15625000,16875000,18125000,19375000,,,Bird Rights,54525000
+Kelly Oubre,oubreke01,PHO,15625000,14375000,,,,,Bird Rights,30000000
+Dennis Schröder,schrode01,OKC,15500000,15500000,,,,,1st Round Pick,31000000
+Ian Mahinmi,mahinia01,WAS,15450051,,,,,,Cap Space,15450051
+James Johnson,johnsja01,MIN,15349400,16047100,,,,,Cap space,15349400
+Marvin Williams,willima02,CHO,15006250,,,,,,,15006250
+Bobby Portis,portibo01,NYK,15000000,15750000,,,,,Cap Space,15000000
+Marcus Morris,morrima03,LAC,15000000,,,,,,Cap Space,15000000
+Danny Green,greenda02,LAL,14634146,15365854,,,,,Cap Space,30000000
+Cody Zeller,zelleco01,CHO,14471910,15415730,,,,,1st Round Pick,29887640
+Eric Gordon,gordoer01,HOU,14057730,16869276,18218818,19568360,20917902,,Cap Space,68714184
+Mason Plumlee,plumlma01,DEN,14041096,,,,,,Cap space,14041096
+Rudy Gay,gayru01,SAS,14000000,14000000,,,,,Early Bird Rights,28000000
+J.J. Redick,redicjj01,NOP,13486300,13013700,,,,,Cap Space,26500000
+Jordan Clarkson,clarkjo01,UTA,13437500,,,,,,Cap Space,13437500
+Dewayne Dedmon,dedmode01,ATL,13333334,13333333,13333333,,,,Cap space,40000000
+Solomon Hill,hillso01,MIA,13258781,,,,,,Cap Space,13258781
+Justise Winslow,winslju01,MEM,13000000,13000000,13000000,,,,1st Round Pick,26000000
+Michael Kidd-Gilchrist,kiddgmi01,CHO,13000000,,,,,,,13000000
+Will Barton,bartowi01,DEN,12960000,13920000,14880000,,,,Bird Rights,26880000
+Thaddeus Young,youngth01,CHI,12900000,13545000,14190000,,,,Cap space,32445000
+Courtney Lee,leeco01,DAL,12759670,,,,,,Cap Space,12759670
+Larry Nance,nancela02,CLE,12727273,11709091,10690909,9672727,,,1st Round pick,44800000
+Marcus Smart,smartma01,BOS,12553471,13446428,14339285,,,,Bird Rights,40339184
+Terrence Ross,rosste01,ORL,12500000,13500000,12500000,11500000,,,Bird Rights,50000000
+Miles Plumlee,plumlmi01,MEM,12500000,,,,,,,12500000
+Patty Mills,millspa02,SAS,12428571,13285714,,,,,Bird Rights,25714285
+Patrick Beverley,beverpa01,LAC,12345679,13333333,14320988,,,,Bird Rights,40000000
+Trevor Ariza,arizatr01,POR,12200000,12800000,,,,,Cap Space,14000000
+Dion Waiters,waitedi01,MEM,12100000,12650000,,,,,,24750000
+Brook Lopez,lopezbr01,MIL,12093024,12697675,13302325,13906976,,,Cap Space,52000000
+Jusuf Nurkić,nurkiju01,POR,12000000,12000000,12000000,,,,Bird Rights,28000000
+Cory Joseph,josepco01,SAC,12000000,12600000,12600000,,,,Cap Space,24600000
+Joe Ingles,inglejo01,UTA,11954546,10863637,14000000,,,,Bird Rights,36818183
+Kelly Olynyk,olynyke01,MIA,11667885,12198243,,,,,Cap space,11667885
+Maurice Harkless,harklma01,NYK,11511234,,,,,,Cap Space,11511234
+Tony Snell,snellto01,DET,11392857,12178571,,,,,Cap space,11392857
+Robert Covington,covinro01,HOU,11301219,12138345,12975471,,,,Cap Space,36415035
+Meyers Leonard,leoname01,MIA,11286515,,,,,,Cap Space,11286515
+T.J. Warren,warretj01,IND,10810000,11750000,12690000,,,,1st Round Pick,35250000
+Andre Roberson,roberan03,OKC,10740741,,,,,,Bird Rights,10740741
+Spencer Dinwiddie,dinwisp01,BRK,10600000,11400000,12300000,,,,Minimum Salary,22000000
+Jeremy Lamb,lambje01,IND,10500000,10500000,10500000,,,,Cap Space,31500000
+Dwight Powell,poweldw01,DAL,10259375,10185185,11000000,11814815,,,Cap Space,43259375
+Norman Powell,powelno01,TOR,10116576,10865952,11615328,,,,Cap Space,20982528
+Josh Richardson,richajo01,PHI,10100000,10800000,11600000,,,,Minimum Salary,20900000
+Tomáš Satoranský,satorto01,CHI,10000000,10000000,10000000,,,,Sign and Trade,25000000
+DeAndre Jordan,jordade01,BRK,9881598,10375678,9881598,9821842,,,Cap space,39960716
+Taj Gibson,gibsota01,NYK,9800000,10290000,,,,,Cap Space,9800000
+Zion Williamson,willizi01,NOP,9757440,10245480,10733400,13534817,,,1st Round Pick,20002920
+Markelle Fultz,fultzma01,ORL,9745200,12288697,,,,,1st Round Pick,22033897
+John Henson,hensojo01,DET,9732396,,,,,,1st Round Pick,9732396
+Matthew Dellavedova,dellama01,CLE,9607500,,,,,,Cap Space,9607500
+Dante Exum,exumda01,CLE,9600000,9600000,,,,,Cap Space,18200000
+Deandre Ayton,aytonde01,PHO,9562920,10018200,12632950,,,,1st Round Pick,19581120
+Delon Wright,wrighde01,DAL,9473684,9000000,8526316,,,,Sign and Trade,27000000
+Jerami Grant,grantje01,DEN,9346153,9346153,,,,,Bird Rights,9346153
+Al-Farouq Aminu,aminual01,ORL,9258000,9720900,10183800,,,,MLE,29162700
+George Hill,hillge01,MIL,9133907,9590602,10047297,,,,Cap Space,21000000
+Kyle Anderson,anderky01,MEM,9073050,9505100,9937150,,,,MLE,28515300
+Fred VanVleet,vanvlfr01,TOR,9000000,,,,,,Bird Rights,9000000
+Ja Morant,moranja01,MEM,8730240,9166800,9603360,12119440,,,1st Round Pick,17897040
+C.J. Miles,milescj01,WAS,8730158,,,,,,,8730158
+Lonzo Ball,balllo01,NOP,8719320,11003782,,,,,1st Round Pick,19723102
+E'Twaun Moore,mooreet01,NOP,8664928,,,,,,Cap Space,8664928
+Marvin Bagley,baglema01,SAC,8556120,8963640,11312114,,,,1st Round Pick,17519760
+Bogdan Bogdanović,bogdabo01,SAC,8529386,,,,,,Cap space,8529386
+Tyus Jones,jonesty01,MEM,8408000,7965100,7522200,,,,MLE,23895300
+P.J. Tucker,tuckepj01,HOU,8349039,7969537,,,,,MLE,16318576
+Cristiano Felício,feliccr01,CHI,8156500,7529020,,,,,Cap space,15685520
+Ben Simmons,simmobe01,PHI,8113930,29250000,31590000,33930000,36270000,38610000,1st Round pick,177763930
+Kentavious Caldwell-Pope,caldwke01,LAL,8089282,8493746,,,,,Cap Space,8089282
+Maxi Kleber,klebima01,DAL,8000000,8250000,8750000,9000000,,,Early Bird Rights,25000000
+Lou Williams,willilo02,LAC,8000000,8000000,,,,,Cap Space,16000000
+Elfrid Payton,paytoel01,NYK,8000000,8000000,,,,,Cap Space,9000000
+Thomas Bryant,bryanth01,WAS,7936508,8333333,8730159,,,,Early Bird Rights,25000000
+RJ Barrett,barrerj01,NYK,7839960,8231760,8623920,10900635,,,1st Round Pick,16071720
+Jayson Tatum,tatumja01,BOS,7830000,9897120,,,,,1st Round Pick,17727120
+Jae Crowder,crowdja01,MIA,7815533,,,,,,Bird Rights,7815533
+Wayne Ellington,ellinwa01,NYK,7804878,8195122,,,,,Cap Space,7804878
+Luka Dončić,doncilu01,DAL,7683360,8049360,10174391,,,,1st Round Pick,15732720
+Joe Harris,harrijo01,BRK,7670000,,,,,,Early Bird Rights,7670000
+Seth Curry,curryse01,DAL,7441860,7813953,8186047,8558140,,,MLE,32000000
+Doug McDermott,mcderdo01,IND,7333334,7333333,,,,,Cap Space,14666667
+Langston Galloway,gallola01,DET,7333333,,,,,,MLE,7333333
+Derrick Rose,rosede01,DET,7317073,7682927,,,,,MLE,15000000
+Brandon Ingram,ingrabr01,NOP,7265485,,,,,,1st Round pick,7265485
+D.J. Augustin,augusdj01,ORL,7250000,,,,,,Cap Space,7250000
+Darius Miller,milleda01,NOP,7250000,7000000,,,,,Early Bird Rights,7250000
+De'Andre Hunter,huntede01,ATL,7068360,7422000,7775400,9835881,,,1st Round Pick,14490360
+Josh Jackson,jacksjo02,MEM,7059480,,,,,,1st Round Pick,7059480
+Dāvis Bertāns,bertada01,WAS,7000000,,,,,,Early Bird Rights,7000000
+Ersan İlyasova,ilyaser01,MIL,7000000,7000000,,,,,MLE,7000000
+Jaren Jackson,jacksja02,MEM,6927480,7257360,9180560,,,,1st Round Pick,14184840
+DeMarre Carroll,carrode01,SAS,6842307,6167887,1252127,,,,,14262321
+Nemanja Bjelica,bjeline01,SAC,6825000,7150000,,,,,Cap Space,6825000
+Jaylen Brown,brownja02,BOS,6534829,22991071,24830357,26669643,28508929,,1st Round pick,109534829
+Jabari Parker,parkeja01,SAC,6500000,6500000,,,,,Cap Space,6500000
+Ivica Zubac,zubaciv01,LAC,6481482,7000000,7518518,7518518,,,Bird Rights,21000000
+Joakim Noah,noahjo01,NYK,6431666,6431666,6431666,,,,,19294998
+Darius Garland,garlada01,CLE,6400920,6720720,7040880,8920795,,,1st Round Pick,13121640
+De'Aaron Fox,foxde01,SAC,6392760,8099627,,,,,1st Round Pick,14492387
+Trae Young,youngtr01,ATL,6273000,6571800,8326471,,,,1st Round Pick,12844800
+Montrezl Harrell,harremo01,LAC,6000000,,,,,,Bird Rights,6000000
+Ish Smith,smithis01,WAS,5853659,6146341,,,,,MLE,12000000
+Marco Belinelli,belinma01,SAS,5846154,,,,,,MLE,5846154
+Jarrett Culver,culveja01,MIN,5813640,6104280,6395160,8109063,,,1st Round Pick,11917920
+Jonathan Isaac,isaacjo01,ORL,5806440,7362566,,,,,1st Round Pick,13169006
+Rodney Hood,hoodro01,POR,5718000,6003900,,,,,MLE,5718000
+Mohamed Bamba,bambamo01,ORL,5697600,5969040,7568742,,,,1st Round Pick,11666640
+Timofey Mozgov,mozgoti01,ORL,5573333,5573333,5573334,,,,,16720000
+Trey Lyles,lylestr01,SAS,5500000,5500000,,,,,MLE,5500000
+Deron Williams,willide01,BRK,5474787,,,,,,,5474787
+Aron Baynes,baynear01,PHO,5453280,,,,,,Non-Bird Exception,5453280
+Kris Dunn,dunnkr01,CHI,5348007,,,,,,1st Round pick,5348007
+Josh Smith,smithjo03,DET,5331729,,,,,,,5331729
+Coby White,whiteco01,CHI,5307120,5572680,5837760,7413955,,,1st Round Pick,10879800
+Lauri Markkanen,markkla01,CHI,5300400,6731508,,,,,1st Round Pick,12031908
+Ryan Anderson,anderry01,MIA,5214583,5214583,5214584,,,,,15643750
+Wendell Carter,cartewe01,CHI,5201400,5448840,6920027,,,,1st Round Pick,10650240
+Pau Gasol,gasolpa01,SAS,5100000,,,,,,,5100000
+Daniel Theis,theisda01,BOS,5000000,5000000,,,,,Early Bird Rights,5000000
+Luol Deng,denglu01,LAL,4990000,4990000,4990000,,,,,14970000
+Jaxson Hayes,hayesja02,NOP,4862040,5105160,5348280,6803012,,,1st Round Pick,9967200
+Buddy Hield,hieldbu01,SAC,4861208,24431818,22477273,20522727,18568182,,1st Round pick,90861208
+Frank Ntilikina,ntilila01,NYK,4855800,6176578,,,,,1st Round Pick,11032378
+Ed Davis,davised01,UTA,4767000,5005350,,,,,Room Exception,9772350
+Richaun Holmes,holmeri01,SAC,4767000,5005350,,,,,Room Exception,9772350
+Frank Kaminsky,kaminfr01,PHO,4767000,5005350,,,,,Room Exception,9772350
+Mike Scott,scottmi01,PHI,4767000,5005350,,,,,Room Exception,9772350
+Avery Bradley,bradlav01,LAL,4767000,5005350,,,,,Room Exception,9772350
+Robin Lopez,lopezro01,MIL,4767000,5005350,,,,,Room Exception,4767000
+JaMychal Green,greenja01,LAC,4767000,5005350,,,,,Room Exception,4767000
+Justin Holiday,holidju01,IND,4767000,,,,,,Room Exception,4767000
+Garrett Temple,templga01,BRK,4767000,5005350,,,,,Room Exception,4767000
+Enes Kanter,kanteen01,BOS,4767000,5005350,,,,,Room Exception,4767000
+Collin Sexton,sextoco01,CLE,4764960,4991880,6349671,,,,1st Round Pick,9756840
+Rodney McGruder,mcgruro01,LAC,4629630,5000000,5370370,,,,Cap Space,15000000
+Rui Hachimura,hachiru01,WAS,4469160,4692840,4916160,6263188,,,1st Round Pick,9162000
+Kevon Looney,looneke01,GSW,4464286,4821429,5178572,,,,Bird Rights,9285715
+Dennis Smith,smithde03,NYK,4463640,5686677,,,,,1st Round Pick,10150317
+Jamal Murray,murraja01,DEN,4444746,29250000,31590000,33930000,36270000,38610000,1st Round pick,174094746
+Kevin Knox,knoxke01,NYK,4380120,4588680,5845978,,,,1st Round Pick,8968800
+Cam Reddish,reddica01,ATL,4245720,4458000,4670160,5954454,,,1st Round Pick,8703720
+Zach Collins,colliza01,POR,4240200,5406255,,,,,1st Round Pick,9646455
+Mikal Bridges,bridgmi01,PHO,4161000,4359000,5557725,,,,1st Round Pick,8520000
+Alex Len,lenal01,SAC,4160000,,,,,,Room Exception,4160000
+Cameron Johnson,johnsca02,PHO,4033440,4235160,4437000,5887899,,,1st Round Pick,8268600
+Malik Monk,monkma01,CHO,4028400,5345687,,,,,1st Round Pick,9374087
+Dorian Finney-Smith,finnedo01,DAL,4000000,4000000,4000000,,,,Bird Rights,12000000
+JaVale McGee,mcgeeja01,LAL,4000000,4200000,,,,,Cap Space,8200000
+Patrick McCaw,mccawpa01,TOR,4000000,4000000,,,,,MLE,8000000
+Reggie Bullock,bullore01,NYK,4000000,4200000,,,,,Room Exception,5000000
+Shai Gilgeous-Alexander,gilgesh01,OKC,3952920,4141320,5495532,,,,1st Round Pick,8094240
+Nicolò Melli,mellini01,NOP,3902439,4097561,,,,,Room Exception,8000000
+P.J. Washington,washipj01,CHO,3831840,4023600,4215120,5808435,,,1st Round Pick,7855440
+Luke Kennard,kennalu01,DET,3827160,5273826,,,,,1st Round Pick,9100986
+Miles Bridges,bridgmi02,CHO,3755400,3934320,5421493,,,,1st Round Pick,7689720
+Jakob Poeltl,poeltja01,SAS,3754886,,,,,,1st Round pick,3754886
+Tyler Herro,herroty01,MIA,3640200,3822240,4004280,5722116,,,1st Round Pick,7462440
+Donovan Mitchell,mitchdo01,UTA,3635760,5195501,,,,,1st Round Pick,8831261
+Stanley Johnson,johnsst04,TOR,3623000,3801000,,,,,Bi-annual Exception,3623000
+Jake Layman,laymaja01,MIN,3581986,3761085,3940184,,,,Sign and Trade,11283255
+Thon Maker,makerth01,DET,3569643,,,,,,1st Round pick,3569643
+Jerome Robinson,robinje01,WAS,3567720,3737520,5340916,,,,1st Round Pick,7305240
+Allonzo Trier,trieral01,NYK,3551100,,,,,,,3551100
+Danuel House,houseda01,HOU,3540000,3717000,3894000,,,,MLE,11151000
+Domantas Sabonis,sabondo01,IND,3529555,17187500,18562500,19937500,21312500,,1st Round pick,80529555
+Mirza Teletović,teletmi01,MIL,3500000,3500000,,,,,,7000000
+Boban Marjanović,marjabo01,DAL,3500000,3500000,,,,,Bi-Annual Exception,7000000
+T.J. McConnell,mccontj01,IND,3500000,3500000,,,,,Cap Space,4500000
+DeMarcus Cousins,couside01,LAL,3500000,,,,,,,3500000
+Taurean Waller-Prince,princta02,BRK,3481986,13942308,15057692,,,,1st Round pick,32481986
+Dario Šarić,saricda01,PHO,3481986,,,,,,1st Round pick,3481986
+Romeo Langford,langfro01,BOS,3458400,3631200,3804360,5634257,,,1st Round Pick,7089600
+Bam Adebayo,adebaba01,MIA,3454080,5115492,,,,,1st Round Pick,8569572
+Kyle Korver,korveky01,PHO,3440000,,,,,,,3440000
+Michael Porter,portemi01,DEN,3389400,3550800,5258735,,,,1st Round Pick,6940200
+Denzel Valentine,valende01,CHI,3377569,,,,,,1st Round pick,3377569
+Juan Hernangómez,hernaju01,MIN,3321030,,,,,,1st Round pick,3321030
+Sekou Doumbouya,doumbse01,DET,3285120,3449400,3613680,5539771,,,1st Round Pick,6734520
+Justin Jackson,jacksju01,DAL,3280920,5029650,,,,,1st Round Pick,8310570
+Troy Brown,browntr01,WAS,3219480,3372840,5170564,,,,1st Round Pick,6592320
+Jon Leuer,leuerjo01,MIL,3169348,3169348,3169347,,,,,9508043
+Yogi Ferrell,ferreyo01,SAC,3150000,,,,,,Cap Space,3150000
+Guerschon Yabusele,yabusgu01,BOS,3117240,,,,,,,3117240
+Zhaire Smith,smithzh01,PHI,3058800,3204600,4915856,,,,1st Round Pick,6263400
+Dwight Howard,howardw01,MEM,3039097,,,,,,,3039097
+Khem Birch,birchkh01,ORL,3000000,3000000,,,,,Early Bird Rights,6000000
+Ryan Arcidiacono,arcidry01,CHI,3000000,3000000,3000000,,,,Cap space,6000000
+Quinn Cook,cookqu01,LAL,3000000,3000000,,,,,Cap Space,4000000
+Ömer Aşık,asikom01,CHI,3000000,,,,,,,3000000
+Nickeil Alexander-Walker,alexani01,NOP,2964840,3113160,3261480,5009633,,,1st Round Pick,6078000
+D.J. Wilson,wilsodj01,MIL,2961120,4548280,,,,,1st Round Pick,7509400
+Cedi Osman,osmande01,CLE,2907143,8750000,8050000,7350000,6650000,,MLE,27057143
+Donte DiVincenzo,divindo01,MIL,2905800,3044160,4675830,,,,1st Round Pick,5949960
+Bryn Forbes,forbebr01,SAS,2875000,,,,,,Early Bird Rights,2875000
+Andrew Nicholson,nichoan01,POR,2844429,2844429,2844429,2844429,2844429,,,14222145
+Goga Bitadze,bitadgo01,IND,2816760,2957520,3098400,4765339,,,1st Round Pick,5774280
+T.J. Leaf,leaftj01,IND,2813280,4326825,,,,,1st Round Pick,7140105
+Lonnie Walker,walkelo01,SAS,2760480,2892000,4447896,,,,1st Round Pick,5652480
+Alex Caruso,carusal01,LAL,2750000,2750000,,,,,Room Exception,5500000
+Malik Beasley,beaslma01,MIN,2731714,,,,,,1st Round pick,2731714
+Luka Šamanić,samanlu01,SAS,2689920,2824320,2959080,4556983,,,1st Round Pick,5514240
+John Collins,collijo01,ATL,2686560,4137302,,,,,1st Round Pick,6823862
+Kevin Huerter,huertke01,ATL,2636280,2761920,4253357,,,,1st Round Pick,5398200
+Caris LeVert,leverca01,BRK,2625718,16203704,17500000,18796296,,,1st Round pick,55125718
+Marko Guduric,gudurma01,MEM,2625000,2750000,,,,,Bi-annual Exception,5375000
+DeAndre' Bembry,bembrde01,ATL,2603982,,,,,,1st Round pick,2603982
+Matisse Thybulle,thybuma01,PHI,2582160,2711280,2840160,4379527,,,1st Round Pick,5293440
+Harry Giles,gilesha01,SAC,2578800,,,,,,1st Round Pick,2578800
+Jeff Green,greenje02,UTA,2564753,,,,,,,2564753
+Pau Gasol,gasolpa01,POR,2564753,,,,,,,2564753
+Wesley Matthews,matthwe02,MIL,2564753,2692991,,,,,Minimum Salary,2564753
+Kyle Korver,korveky01,MIL,2564753,,,,,,Minimum Salary,2564753
+Udonis Haslem,hasleud01,MIA,2564753,,,,,,Minimum Salary,2564753
+Jared Dudley,dudleja01,LAL,2564753,,,,,,Minimum Salary,2564753
+Rajon Rondo,rondora01,LAL,2564753,2619605,,,,,Minimum Salary,2564753
+Dwight Howard,howardw01,LAL,2564753,,,,,,Minimum Salary,2564753
+Thabo Sefolosha,sefolth01,HOU,2564753,,,,,,Minimum Salary,2564753
+Tyson Chandler,chandty01,HOU,2564753,,,,,,Minimum Salary,2564753
+Gerald Green,greenge01,DEN,2564753,,,,,,,2564753
+J.J. Barea,bareajo01,DAL,2564753,,,,,,Minimum Salary,2564753
+Wilson Chandler,chandwi01,BRK,2564753,,,,,,Minimum Salary,2564753
+Nenê Hilário,hilarne01,ATL,2564753,,,,,,,2564753
+Vince Carter,cartevi01,ATL,2564753,,,,,,Minimum Salary,2564753
+Josh Okogie,okogijo01,MIN,2530680,2651040,4087904,,,,1st Round Pick,5181720
+Vincent Poirier,poirivi01,BOS,2505793,2619207,,,,,Minimum Salary,5125000
+Rondae Hollis-Jefferson,holliro01,TOR,2500000,,,,,,MLE,2500000
+Brandon Clarke,clarkbr01,MEM,2478840,2602920,2726880,4343920,,,1st Round Pick,5081760
+Terrance Ferguson,fergute01,OKC,2475840,3944013,,,,,1st Round Pick,6419853
+Grayson Allen,allengr01,MEM,2429400,2545320,4054695,,,,1st Round Pick,4974720
+Anthony Tolliver,tollian01,SAC,2419852,,,,,,,2419852
+Grant Williams,willigr01,BOS,2379840,2498760,2617800,4306281,,,1st Round Pick,4878600
+Jarrett Allen,allenja01,BRK,2376840,3909902,,,,,1st Round Pick,6286742
+Pascal Siakam,siakapa01,TOR,2351839,29000000,31320000,33640000,35960000,,1st Round pick,132271839
+Skal Labissière,labissk01,ATL,2338847,,,,,,1st Round pick,2338847
+Chandler Hutchison,hutchch01,CHI,2332320,2443440,4019459,,,,1st Round Pick,4775760
+Patrick Patterson,pattepa01,LAC,2331593,,,,,,Minimum Salary,2331593
+Dejounte Murray,murrade01,SAS,2321735,14285714,15428571,16571429,17714286,,1st Round pick,66321735
+Alec Burks,burksal01,PHI,2320044,,,,,,Minimum Salary,2320044
+Isaiah Thomas,thomais02,LAC,2320044,,,,,,,2320044
+Damian Jones,jonesda03,ATL,2305057,,,,,,1st Round pick,2305057
+Darius Bazley,bazleda01,OKC,2284800,2399160,2513040,4264629,,,1st Round Pick,4683960
+OG Anunoby,anunoog01,TOR,2281800,3872215,,,,,1st Round Pick,6154015
+Ante Žižić,zizican01,CLE,2281800,,,,,,1st Round Pick,2281800
+Monta Ellis,ellismo01,IND,2245400,2245400,2245400,,,,,6736200
+Markieff Morris,morrima02,DET,2241808,,,,,,,2241808
+Aaron Holiday,holidaa01,IND,2239200,2345640,3980551,,,,1st Round Pick,4584840
+Luke Kornet,kornelu01,CHI,2195122,2304878,,,,,Room Exception,4500000
+Ty Jerome,jeromty01,PHO,2193480,2303040,2412840,4220057,,,1st Round Pick,4496520
+Willie Cauley-Stein,caulewi01,DAL,2177483,2286357,,,,,MLE,2177483
+Austin Rivers,riverau01,HOU,2174318,2369663,,,,,Minimum Salary,2174318
+Carmelo Anthony,anthoca01,POR,2159029,,,,,,Minimum Salary,2159029
+Anfernee Simons,simonan01,POR,2149560,2252040,3938818,,,,1st Round Pick,4401600
+Matt Barnes,barnema02,SAC,2133541,,,,,,,2133541
+Nassir Little,littlna01,POR,2105520,2210640,2316240,4171548,,,1st Round Pick,4316160
+Torrey Craig,craigto01,DEN,2100000,,,,,,Cap Space,2100000
+Moritz Wagner,wagnemo01,WAS,2063520,2161920,3893618,,,,1st Round Pick,4225440
+Dylan Windler,windldy01,CLE,2035800,2137440,2239200,4037278,,,1st Round Pick,4173240
+Caleb Swanigan,swanica01,POR,2033160,,,,,,1st Round Pick,2033160
+Trey Burke,burketr01,PHI,2028594,,,,,,,2028594
+Kyle O'Quinn,oquinky01,PHI,2028594,,,,,,Minimum Salary,2028594
+Michael Carter-Williams,cartemi01,ORL,2028594,,,,,,Minimum Salary,2028594
+Mike Muscala,muscami01,OKC,2028594,2283034,,,,,Minimum Salary,2028594
+Nerlens Noel,noelne01,OKC,2028594,,,,,,Minimum Salary,2028594
+Troy Daniels,danietr01,LAL,2028594,,,,,,,2028594
+Ben McLemore,mclembe01,HOU,2028594,2283034,,,,,Minimum Salary,2028594
+Spencer Hawes,hawessp01,MIL,2007058,,,,,,,2007058
+Edmond Sumner,sumneed01,IND,2000000,2160000,2320000,,,,Cap Space,4160000
+Avery Bradley,bradlav01,MEM,2000000,,,,,,,2000000
+Noah Vonleh,vonleno01,DEN,2000000,,,,,,MLE,2000000
+Landry Shamet,shamela01,LAC,1995120,2090040,3768342,,,,1st Round Pick,4085160
+Mfiondu Kabengele,kabenmf01,LAC,1977000,2075880,2174880,3923484,,,1st Round Pick,4052880
+Kyle Kuzma,kuzmaky01,LAL,1974600,3562178,,,,,1st Round Pick,5536778
+Jordan Poole,poolejo01,GSW,1964760,2063280,2161440,3901399,,,1st Round Pick,4028040
+Tony Bradley,bradlto01,UTA,1962360,3542060,,,,,1st Round Pick,5504420
+Keldon Johnson,johnske04,SAS,1950600,2048040,2145720,3873025,,,1st Round Pick,3998640
+Derrick White,whitede01,SAS,1948080,3516284,,,,,1st Round Pick,5464364
+Robert Williams,williro04,BOS,1937520,2029920,3661976,,,,1st Round Pick,3967440
+Josh Hart,hartjo01,NOP,1934160,3491159,,,,,1st Round Pick,5425319
+Jacob Evans,evansja02,MIN,1925880,2017320,3641263,,,,1st Round Pick,3943200
+Anderson Varejão,varejan01,POR,1913345,1913345,,,,,,3826690
+Džanan Musa,musadz01,BRK,1911600,2002800,3615054,,,,1st Round Pick,3914400
+Omari Spellman,spellom01,MIN,1897800,1988280,3588845,,,,1st Round Pick,3886080
+Shabazz Napier,napiesh01,WAS,1882867,,,,,,Cap Space,1882867
+Glenn Robinson,robingl02,PHI,1882867,2071978,,,,,Minimum Salary,1882867
+James Ennis,ennisja01,ORL,1882867,2071978,,,,,Minimum Salary,1882867
+Tim Frazier,fraziti01,DET,1882867,,,,,,,1882867
+Larry Sanders,sandela01,MIL,1865547,1865547,1865547,,,,,5596641
+Bruno Caboclo,cabocbr01,HOU,1845301,,,,,,Minimum Salary,1845301
+Markieff Morris,morrima02,LAL,1750000,,,,,,DPE,1750000
+Mario Hezonja,hezonma01,POR,1737145,1882867,,,,,Minimum Salary,3620012
+Emmanuel Mudiay,mudiaem01,UTA,1737145,,,,,,Minimum Salary,1737145
+Raul Neto,netora01,PHI,1737145,,,,,,Minimum Salary,1737145
+JaKarr Sampson,sampsja02,IND,1737145,,,,,,Minimum Salary,1737145
+Pat Connaughton,connapa01,MIL,1723050,,,,,,MLE,1723050
+Jahlil Okafor,okafoja01,NOP,1702486,,,,,,Minimum Salary,1702486
+Rodions Kurucs,kurucro01,BRK,1699236,1780152,1861068,,,,Cap space,3479388
+Jonah Bolden,boldejo01,PHI,1698450,,,,,,,1698450
+Georges Niang,niangge01,UTA,1678854,1783557,,,,,Non-Bird Exception,1678854
+Cheick Diallo,diallch01,PHO,1678854,1824003,,,,,Minimum Salary,1678854
+Dragan Bender,bendedr01,MIL,1678854,,,,,,,1678854
+David Nwaba,nwabada01,BRK,1678854,,,,,,,1678854
+Treveon Graham,grahatr01,ATL,1678854,,,,,,Minimum Salary,1678854
+Willy Hernangómez,hernawi01,CHO,1676735,,,,,,Cap Space,1676735
+Derrick Jones,jonesde02,MIA,1645357,,,,,,Minimum Salary,1645357
+Jordan McRae,mcraejo01,DET,1645357,,,,,,Minimum Salary,1645357
+Christian Wood,woodch01,DET,1645357,,,,,,Minimum Salary,1645357
+Furkan Korkmaz,korkmfu01,PHI,1620564,1762796,,,,,Minimum Salary,1620564
+Jordan Bell,belljo01,MEM,1620564,,,,,,,1620564
+Justin Patton,pattoju01,DAL,1620564,,,,,,,1620564
+Royce O'Neale,onealro01,UTA,1618520,8035714,8678571,9321429,9964286,,Cap space,37618520
+Dillon Brooks,brookdi01,MEM,1618520,11400000,12200000,11400000,,,MLE,36618520
+Wesley Iwundu,iwundwe01,ORL,1618520,,,,,,Cap Space,1618520
+Abdel Nader,naderab01,OKC,1618520,1752950,,,,,Cap Space,1618520
+Damyean Dotson,dotsoda01,NYK,1618520,,,,,,Minimum Salary,1618520
+Frank Jackson,jacksfr01,NOP,1618520,,,,,,MLE,1618520
+Sterling Brown,brownst02,MIL,1618520,,,,,,MLE,1618520
+Dwayne Bacon,bacondw01,CHO,1618520,,,,,,MLE,1618520
+Semi Ojeleye,ojelese01,BOS,1618520,1752950,,,,,Cap space,1618520
+Chris Boucher,bouchch01,TOR,1588231,,,,,,Minimum Salary,1588231
+Malcolm Miller,millema01,TOR,1588231,,,,,,Minimum Salary,1588231
+Monte Morris,morrimo01,DEN,1588231,1663861,,,,,Minimum Salary,1588231
+Mitchell Robinson,robinmi01,NYK,1559712,1663861,1802057,,,,MLE,1559712
+Vlatko Čančar,cancavl01,DEN,1517981,898310,1782621,,,,MLE,2416291
+Isaiah Roby,robyis01,OKC,1500000,1517981,1782621,1930681,,,MLE,3017981
+Nigel Williams-Goss,willini01,UTA,1500000,1517981,1782621,,,,Cap Space,1500000
+J.R. Smith,smithjr01,CLE,1456667,1456667,1456666,,,,,4370000
+Shake Milton,miltosh01,PHI,1445697,1701593,1846738,1997718,,,Cap Space,4994028
+Thanasis Antetokounmpo,antetth01,MIL,1445697,1701593,,,,,Minimum Salary,3147290
+Amile Jefferson,jeffeam01,ORL,1445697,,,,,,,1445697
+Theo Pinson,pinsoth01,NYK,1445697,1701593,,,,,Minimum Salary,1445697
+Brad Wanamaker,wanambr01,BOS,1445697,,,,,,Minimum Salary,1445697
+Derrick Walton,waltode01,ATL,1445697,,,,,,,1445697
+Ryan Broekhoff,broekry01,DAL,1443842,,,,,,,1443842
+Gary Trent,trentga02,POR,1416852,1663861,,,,,MLE,3080713
+Isaac Bonga,bongais01,WAS,1416852,1663861,,,,,Cap Space,1416852
+Chimezie Metu,metuch01,SAS,1416852,1663861,,,,,MLE,1416852
+Jevon Carter,carteje01,PHO,1416852,,,,,,MInimum Salary,1416852
+Elie Okobo,okoboel01,PHO,1416852,1663861,1802057,,,,Cap Space,1416852
+Melvin Frazier,frazime01,ORL,1416852,1663861,,,,,MLE,1416852
+Deonte Burton,burtode02,OKC,1416852,1663861,,,,,Minimum Salary,1416852
+Hamidou Diallo,diallha01,OKC,1416852,1663861,,,,,MLE,1416852
+Kenrich Williams,willike04,NOP,1416852,,,,,,Minimum Salary,1416852
+Jarred Vanderbilt,vandeja01,MIN,1416852,1663861,,,,,Cap Space,1416852
+Duncan Robinson,robindu01,MIA,1416852,1663861,,,,,MLE,1416852
+Kendrick Nunn,nunnke01,MIA,1416852,1663861,,,,,Minimum Salary,1416852
+De'Anthony Melton,meltode01,MEM,1416852,,,,,,Cap Space,1416852
+Alize Johnson,johnsal02,IND,1416852,,,,,,Minimum Salary,1416852
+Isaiah Hartenstein,harteis01,HOU,1416852,,,,,,,1416852
+Sviatoslav Mykhailiuk,mykhasv01,DET,1416852,1663861,,,,,Cap Space,1416852
+Bruce Brown,brownbr01,DET,1416852,1663861,,,,,MLE,1416852
+Keita Bates-Diop,bateske01,DEN,1416852,1663861,,,,,MLE,1416852
+Devonte' Graham,grahade01,CHO,1416852,1663861,,,,,MLE,1416852
+Jalen Brunson,brunsja01,DAL,1416582,1663861,1802057,,,,Cap Space,3080443
+Bruno Fernando,fernabr01,ATL,1400000,1517981,1782621,,,,Cap space,4700602
+Jaylen Nowell,nowelja01,MIN,1400000,1517981,1782621,1930681,,,MLE,1400000
+Alfonzo McKinnie,mckinal01,CLE,1361046,1762796,1910860,2165298,,,MLE,2253031
+Kevin Porter,porteke02,CLE,1290960,2033160,2130240,3845083,,,1st Round Pick,3324120
+Carsen Edwards,edwarca01,BOS,1228026,1517981,1782621,1930681,,,Cap space,4528628
+Cody Martin,martico01,CHO,1173310,1517981,1782621,,,,MLE,4473912
+Gary Payton,paytoga02,WAS,1090781,,,,,,Minimum Salary,1090781
+George Hill,hillge01,MIL,1000000,,,,,,,21000000
+Terance Mann,mannte01,LAC,1000000,1517984,1782621,1930681,,,Minimum Salary,2517984
+Jonathon Simmons,simmojo02,WAS,1000000,,,,,,,1000000
+Justin Hamilton,hamilju01,TOR,1000000,,,,,,,1000000
+Kyle Singler,singlky01,OKC,999200,999200,999200,999200,,,,3996800
+Marvin Williams,willima02,MIL,956349,,,,,,Minimum Salary,956349
+David Nwaba,nwabada01,HOU,903111,1862250,,,,,MLE,903111
+Admiral Schofield,schofad01,WAS,898310,1517981,1782621,,,,MLE,4198912
+KZ Okpala,okpalkz01,MIA,898310,1517981,1782621,,,,MLE,4198912
+Eric Paschall,pascher01,GSW,898310,1517981,1782621,,,,MLE,4198912
+Nicolas Claxton,claxtni01,BRK,898310,1517981,1782621,,,,Minimum Salary,4198912
+Justin James,jamesju01,SAC,898310,1517981,1782621,,,,Minimum Salary,2416291
+Jalen Lecque,lecquja01,PHO,898310,1517981,1782621,1930681,,,Cap Space,2416291
+Ignas Brazdeikis,brazdig01,NYK,898310,1517981,1782621,,,,Minimum Salary,2416291
+Talen Horton-Tucker,hortota01,LAL,898310,1517981,,,,,Minimum Salary,2416291
+Daniel Gafford,gaffoda01,CHI,898310,1517981,1782621,1930681,,,Minimum Salary,2416291
+Alen Smailagić,smailal01,GSW,898310,1517981,1782621,1930681,,,MLE,2415891
+Matt Thomas,thomama02,TOR,898310,1517981,1782621,,,,MLE,1623310
+Miye Oni,onimi01,UTA,898310,1517981,1782621,,,,Minimum Salary,898310
+Dewan Hernandez,hernade01,TOR,898310,1517981,1782621,,,,MLE,898310
+Terence Davis,daviste02,TOR,898310,1517981,,,,,Minimum Salary,898310
+Wenyen Gabriel,gabriwe01,POR,898310,,,,,,Minimum Salary,898310
+Naz Reid,reidna01,MIN,898310,1517981,1782621,1930681,,,MLE,898310
+Jalen McDaniels,mcdanja01,CHO,898310,1517981,1782621,1930681,,,Minimum Salary,898310
+Caleb Martin,martica02,CHO,898310,1517981,1782621,,,,Minimum Salary,898310
+Shaquille Harrison,harrish01,CHI,898310,,,,,,Minimum Salary,898310
+Javonte Green,greenja02,BOS,898310,1517981,,,,,Minimum Salary,898310
+Damion Lee,leeda03,GSW,842327,1762796,1910860,,,,MLE,1442327
+Khyri Thomas,thomakh01,DET,838464,1663861,,,,,MLE,838464
+DeMarre Carroll,carrode01,HOU,811447,,,,,,Minimum Salary,811447
+Michael Kidd-Gilchrist,kiddgmi01,DAL,810763,,,,,,Minimum Salary,810763
+Marquese Chriss,chrisma01,GSW,758804,,,,,,,2213272
+Juwan Morgan,morgaju01,UTA,746054,,,,,,Minimum Salary,746054
+Patrick Patterson,pattepa01,OKC,737067,737067,737066,,,,,2211200
+Reggie Jackson,jacksre01,LAC,734025,,,,,,Minimum Salary,734025
+Alfonzo McKinnie,mckinal01,CLE,708871,,,,,,,2253031
+Gary Clark,clarkga01,HOU,708426,,,,,,,708426
+Jeff Green,greenje02,HOU,695526,,,,,,Minimum Salary,840427
+Cole Aldrich,aldrico01,MIN,685340,685340,,,,,,1370680
+Shaun Livingston,livinsh01,GSW,666667,666667,666666,,,,,2666666
+Marquese Chriss,chrisma01,GSW,654468,1824003,,,,,Minimum Salary,2213272
+Timothé Luwawu-Cabarrot,luwawti01,BRK,654468,1824003,,,,,Minimum Salary,844170
+Rayjon Tucker,tuckera01,UTA,578573,1517981,,,,,Minimum Salary,578574
+Chris Clemons,clemoch01,HOU,568422,1517981,1782621,,,,MLE,568422
+Gary Clark,clarkga01,ORL,555409,,,,,,Minimum Salary,718765
+Brandon Goodwin,goodwbr01,ATL,522738,1701593,,,,,Minimum Salary,522738
+Dion Waiters,waitedi01,LAL,503656,,,,,,Minimum Salary,503656
+Ryan Anderson,anderry01,HOU,500000,,,,,,,500000
+Anžejs Pasečņiks,pasecan01,WAS,482144,,,,,,Minimum Salary,482144
+Troy Daniels,danietr01,DEN,481000,,,,,,Minimum Salary,481000
+Chris Silva,silvach01,MIA,466918,1517981,1782621,,,,MLE,1984899
+Dakari Johnson,johnsda04,MEM,459414,459414,,,,,,918828
+Iman Shumpert,shumpim01,BRK,419443,,,,,,,419443
+Max Strus,strusma01,BOS,415414,,,,,,,415414
+Justin Robinson,robinju01,WAS,395866,,,,,,,395866
+Dean Wade,wadede01,CLE,375000,1517981,1782621,1930681,,,MLE,375000
+Ivan Rabb,rabbiv01,MEM,371758,,,,,,,371758
+Norvel Pelle,pelleno01,PHI,350189,,,,,,Minimum Salary,350189
+Ky Bowman,bowmaky01,GSW,350189,1517981,1782621,,,,MLE,350189
+Juan Toscano-Anderson,toscaju01,GSW,350189,1517981,1782621,,,,MLE,350189
+A.J. Hammons,hammoaj01,MIA,350087,350087,,,,,,700174
+Festus Ezeli,ezelife01,POR,333333,,,,,,,333333
+C.J. Watson,watsocj01,ORL,333333,,,,,,,333333
+Anthony Tolliver,tollian01,MEM,289803,,,,,,Minimum Salary,434704
+Joakim Noah,noahjo01,LAC,289803,1737274,,,,,Minimum Salary,434704
+Corey Brewer,breweco01,SAC,289803,,,,,,Minimum Salary,289803
+J.R. Smith,smithjr01,LAL,289803,,,,,,Minimum Salary,289803
+Luc Mbah a Moute,mbahalu01,HOU,289803,,,,,,Minimum Salary,289803
+Jamal Crawford,crawfja01,BRK,289803,,,,,,Minimum Salary,289803
+Lance Thomas,thomala01,BRK,262152,,,,,,Minimum Salary,262152
+Stanton Kidd,kiddst01,UTA,250000,,,,,,,250000
+Jordan Bell,belljo01,CLE,250000,,,,,,MLE,250000
+Tyler Zeller,zellety01,SAS,245686,2436046,,,,,Minimum Salary,245686
+Trey Burke,burketr01,DAL,229220,,,,,,Minimum Salary,229220
+Joe Johnson,johnsjo02,DET,220000,,,,,,,220000
+Tyler Johnson,johnsty01,BRK,212753,,,,,,Minimum Salary,212753
+Jemerrio Jones,jonesje01,WAS,199000,,,,,,,199000
+Jontay Porter,portejo01,MEM,197933,1517981,,,,,Minimum Salary,197933
+Justin Anderson,anderju01,BRK,196288,,,,,,Minimum Salary,294432
+Jerian Grant,grantje02,WAS,196288,,,,,,Minimum Salary,196288
+Cameron Payne,payneca01,PHO,196288,1977011,,,,,Minimum Salary,196288
+Timothé Luwawu-Cabarrot,luwawti01,BRK,189702,,,,,,,844170
+Dragan Bender,bendedr01,GSW,189702,,,,,,,189702
+Mychal Mulder,muldemy01,GSW,187782,1517981,1782621,,,,Minimum Salary,238534
+Sindarius Thornwell,thornsi01,NOP,183115,,,,,,Minimum Salary,183115
+Justin Patton,pattoju01,DET,183115,1762796,,,,,Minimum Salary,183115
+PJ Dozier,doziepj01,DEN,183115,,,,,,MLE,183115
+Alfonzo McKinnie,mckinal01,CLE,183114,,,,,,,2253031
+Gary Clark,clarkga01,ORL,163356,,,,,,,718765
+Jarrod Uthoff,uthofja01,WAS,163356,,,,,,Minimum Salary,163356
+Jaylen Adams,adamsja01,POR,163356,,,,,,Minimum Salary,163356
+Joe Chealey,chealjo01,CHO,163356,,,,,,,163356
+Luguentz Dort,dortlu01,OKC,155647,1517981,1782621,1930681,,,Minimum Salary,2298628
+Cameron Payne,payneca01,TOR,150000,,,,,,,150000
+Jeff Green,greenje02,HOU,144901,,,,,,,840427
+Anthony Tolliver,tollian01,MEM,144901,,,,,,,434704
+Joakim Noah,noahjo01,LAC,144901,,,,,,,434704
+Troy Williams,willitr02,HOU,122741,122741,122741,122741,,,,490964
+Johnathan Williams,willijo04,WAS,106181,,,,,,,106181
+Tyler Cook,cookty01,CLE,101504,,,,,,,151504
+Donta Hall,halldo01,DET,101504,,,,,,,101504
+Donta Hall,halldo01,BRK,101504,,,,,,Minimum Salary,101504
+Yante Maten,matenya01,MIA,100000,,,,,,,100000
+Jaylen Adams,adamsja01,ATL,100000,,,,,,,100000
+Justin Anderson,anderju01,BRK,98144,,,,,,,294432
+Demetrius Jackson,jacksde01,BOS,92857,92857,92857,92857,92857,,,464285
+Chasson Randle,randlch01,GSW,91557,,,,,,,91557
+Jeremy Pargo,pargoje01,GSW,91557,,,,,,,91557
+Jonah Bolden,boldejo01,PHO,81678,,,,,,,81678
+Josh Magette,magetjo01,ORL,81678,,,,,,,81678
+Jarrod Uthoff,uthofja01,MEM,81678,,,,,,,81678
+Dusty Hannahs,hannadu01,MEM,81678,,,,,,,81678
+Derrick Walton,waltode01,DET,81678,,,,,,,81678
+Sheldon Mac,mcclesh01,CLE,81678,,,,,,,81678
+J.P. Macura,macurjp01,CLE,81678,,,,,,,81678
+Mychal Mulder,muldemy01,GSW,50752,,,,,,,238534
+Eric Mika,mikaer01,SAC,50752,,,,,,,50752
+Zach Norvell,norveza01,GSW,50752,,,,,,,50752
+Malik Newman,newmama01,CLE,50752,,,,,,,50752
+Marques Bolden,boldema01,CLE,50752,,,,,,,50752
+Sir'Dominic Pointer,pointsi01,CLE,50752,,,,,,,50752
+Paul Watson,watsopa01,ATL,50752,,,,,,,50752
+Tyler Cook,cookty01,CLE,50000,,,,,,,151504
+William Howard,howarwi01,UTA,50000,,,,,,,50000
+Isaiah Taylor,taylois01,TOR,50000,,,,,,,50000
+Tyler Lydon,lydonty01,SAC,50000,,,,,,,50000
+Hollis Thompson,thompho01,SAC,50000,,,,,,,50000
+Tyler Ulis,ulisty01,SAC,50000,,,,,,,50000
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
+,,,,,,,,,,
