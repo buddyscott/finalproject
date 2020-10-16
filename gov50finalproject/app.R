@@ -1,17 +1,65 @@
 library(shiny)
 library(tidyverse)
-library(shiny)
 library(fec16)
 library(dplyr, warn.conflicts = FALSE)
 library(ggplot2)
 library(ggforce)
 library(readr)
-library(DT)
 
 # reading in data sets
-nbainfo
-playercontracts
-playercontracts_table
+nbainfo <- read_csv("raw_data/nbainfo2.csv", 
+                    col_type = cols(team = col_character(), 
+                                    "1920winpct" = col_number(), 
+                                    winpctrank = col_number(), 
+                                    "1920ortg" = col_number(),
+                                    ortgrank = col_number(), 
+                                    "1920drtg" = col_number(), 
+                                    drtgrank = col_number(), 
+                                    "1920nrtg" = col_number(), 
+                                    nrtgrank = col_number(), 
+                                    "1920pace" = col_number(), 
+                                    pacerank = col_number(), 
+                                    gtcontracts = col_number(), 
+                                    po_ngs = col_number(), 
+                                    avgage = col_number(), 
+                                    medage = col_number(), 
+                                    avgexp = col_number(), 
+                                    medexp = col_number(), 
+                                    "2021projsalary" = col_number(), 
+                                    "2021projcapspace" = col_number(), 
+                                    "2021projexceptions" = col_character(), 
+                                    tenyrwin = col_number(), 
+                                    tenyrloss = col_number(), 
+                                    tenyrwinpct = col_number(), 
+                                    winpctrank_10 = col_number(), 
+                                    playoffpct = col_number(), 
+                                    principal_owner = col_character(), 
+                                    nw = col_number(), 
+                                    owned_since = col_number(), 
+                                    business = col_character(), 
+                                    other_owners = col_character(), 
+                                    valuation = col_number(), 
+                                    percent_change = col_number(), 
+                                    debt_to_value = col_number(), 
+                                    revenue = col_number(), 
+                                    operating_income = col_number())) %>%
+    rename_with(~ str_replace(.x, "1920", "current")) %>% 
+    rename_with(~ str_replace(.x, "2021", "future")) %>% 
+    slice(1:30) %>%
+    subset(select = -futureprojcapspace)
+
+playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
+    playername = col_character(),
+    playerid = col_character(),
+    team = col_character(),
+    salary1920 = col_double(),
+    salary2021 = col_double(),
+    salary2122 = col_double(),
+    salary2223 = col_double(),
+    salary2324 = col_double(),
+    salary2425 = col_double(),
+    signedusing = col_character(),
+    guaranteed = col_double()))
 
 
 ui <- navbarPage(
