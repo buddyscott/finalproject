@@ -3,7 +3,8 @@ library(tidyverse)
 library(ggplot2)
 library(ggforce)
 library(readr)
-library(gt)
+library(DT)
+library(dplyr)
 ```
 
 ```{r}
@@ -59,12 +60,7 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
     salary2324 = col_double(),
     salary2425 = col_double(),
     signedusing = col_character(),
-    guaranteed = col_double()
-))
-
-playercontracts_modified <- playercontracts %>%
-    filter(salary2021 >= 20000000) %>%
-    arrange(desc(salary2021))
+    guaranteed = col_double()))
 ```
 
 ```{r}

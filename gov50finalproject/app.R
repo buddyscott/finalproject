@@ -11,7 +11,8 @@ library(DT)
 # reading in data sets
 nbainfo
 playercontracts
-playercontracts_modified
+playercontracts_table
+
 
 ui <- navbarPage(
     "Buddy Ball: Understanding NBA Finances Amidst COVID-19",
@@ -24,10 +25,11 @@ ui <- navbarPage(
              Association (NBA) teams and the market for NBA players. NBA 
              Commissioner Adam Silver revealed in May 2020 that ticket sales for 
              in-person fan attendance comprises an estimated 40% of the NBA’s 
-             revenue.In a doomdsay scenario that would have no fans in the 
+             revenue. In a doomdsay scenario that would have no fans in the 
              arenas for next season, both the players’ and the owners’ share of 
              Basketball Related Income would decrease from $4 billion to $2.4 
-             billion. If this is the case, the league might have to withhold an 
+             billion according to Silver's projection. If this is the case, 
+             the league might have to withhold an 
              increased percentage of players’ salaries in escrow for the 
              upcoming season to finance the league’s operations, potentially 
              leading to heavily contested debates at the bargaining
@@ -40,7 +42,7 @@ ui <- navbarPage(
              balance in a zero-sum league."),
              h3("Data Sources"),
              p("Most of the data used is from a massive spreadsheet that I
-               update that has updated NBA rosters, player contracts, and info
+               update that has NBA rosters, player contracts, and info
                about each team. The two external data sources I pulled were
                salary data from Basketball Reference to complement the salary 
                data that I maintain, as well as information from Forbes 
@@ -88,13 +90,15 @@ ui <- navbarPage(
     
     tabPanel("Player Salary Info",
             h2("NBA Salary Data"), 
+            p("Type your favorite player's name into the search bar to see 
+              their current contract."),
             DT::dataTableOutput("playercontracts")
             ),
     
     tabPanel("Discussion",
              titlePanel("Discussion Title"),
              p("This will be a discussion about what the model shows as well as 
-             potential policy suggestions to mitigate this damage"))
+             potential policy suggestions to mitigate this potential damage."))
 )
 
     
