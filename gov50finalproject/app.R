@@ -1,3 +1,5 @@
+# loading in libraries
+
 library(shiny)
 library(tidyverse)
 library(fec16)
@@ -7,6 +9,7 @@ library(ggforce)
 library(readr)
 
 # reading in data sets
+
 nbainfo <- read_csv("raw_data/nbainfo2.csv", 
                     col_type = cols(team = col_character(), 
                                     "1920winpct" = col_number(), 
@@ -43,9 +46,17 @@ nbainfo <- read_csv("raw_data/nbainfo2.csv",
                                     debt_to_value = col_number(), 
                                     revenue = col_number(), 
                                     operating_income = col_number())) %>%
+    
+    # This makes the variables names easier to work with if they do not start
+    # with numbers.
+    
     rename_with(~ str_replace(.x, "1920", "current")) %>% 
-    rename_with(~ str_replace(.x, "2021", "future")) %>% 
+    rename_with(~ str_replace(.x, "2021", "future")) %>%
     slice(1:30) %>%
+    
+    # This column did not carry over well and I do not anticipate using it 
+    # so I am just excluding it.
+    
     subset(select = -futureprojcapspace)
 
 playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
@@ -112,7 +123,8 @@ ui <- navbarPage(
     tabPanel("NBA Team Info",
              mainPanel(
                  p("This section allows you to plot two variables with each 
-                   other, either as a scatterplot, bar graph, or jittered plot."),
+                   other, either as a scatterplot, bar graph, 
+                   or jittered plot."),
                  br(),
                  p("1. Try plotting 'team' as the x variable, 'valuation' as 
                    the y variable (you have to scroll down a bit), and 'column'
@@ -126,8 +138,15 @@ ui <- navbarPage(
                    team's winning percentage over the past ten years. There
                    seems to be a relatively positive correlation between the 
                    two, and the correlation would probably be even more positive 
-                   if not for the two richest teams - the Knicks and the Lakers - 
-                   having two of the worst winning percentages over the past ten years."),
+                   if not for the two richest teams - the Knicks and the 
+                   Lakers - having two of the worst winning percentages over 
+                   the past ten years."),
+                 
+             # This allows for the user to select their own variables of choice
+             # as opposed to pre-determined ggplots that they have to look at.
+             # I decided to use geom_point(), geom_col(), and geom_jitter(),
+             # but I might change these selections moving forward.
+             
              fluidPage(
                  selectInput("x", "X variable", choices = names(nbainfo)),
                  selectInput("y", "Y variable", choices = names(nbainfo)),
@@ -140,6 +159,14 @@ ui <- navbarPage(
             h2("NBA Salary Data"), 
             p("Type your favorite player's name into the search bar to see 
               their current contract."),
+            
+            # This gives the data set playercontracts (read in earlier) as a
+            # somewhat interactive table - interactive in the sense that 
+            # a user can search a specific player and see their salary. This 
+            # will eventually be updated to be a more detailed analysis that 
+            # will give a lot more information than just the player and his
+            # contract. 
+            
             DT::dataTableOutput("playercontracts")
             ),
     
@@ -152,6 +179,11 @@ ui <- navbarPage(
     
     # Define server logic
     server <- function(input, output, session) {
+        
+        # This corresponds to the fluidPage() code above that allows the user 
+        # to make the plot that they so choose. The syntax here was pretty
+        # straight forward.
+        
         plot_geom <- reactive({
             switch(input$geom,
                    point = geom_point(),

@@ -63,7 +63,8 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
 ```
 
 ```{r}
-atl <- read_csv("raw_data/atlantahawks.csv", col_type = cols(.default = col_double(), 
+atl <- read_csv("raw_data/atlantahawks.csv", 
+                col_type = cols(.default = col_double(), 
                                                     name = col_character(), 
                                                     position = col_character(), 
                                                     height = col_character(),
@@ -73,14 +74,18 @@ atl <- read_csv("raw_data/atlantahawks.csv", col_type = cols(.default = col_doub
                                                     beforenba = col_character(),
                                                     acquired = col_character(),
                                                     signedusing = col_character(),
-                                                    currentcontract = col_character(),
-                                                    contractdetails = col_character(),
-                                                    positionbreakdown = col_character()
+                                                    currentcontract = 
+                                  col_character(),
+                                                    contractdetails = 
+                                  col_character(),
+                                                    positionbreakdown =
+                                  col_character()
                                                     )) %>%
   slice(1:19) %>%
   subset(select = -c(position_1, X41, X42))
 
-bos <- read_csv("raw_data/bostonceltics.csv", col_type = cols(.default = col_double(), 
+bos <- read_csv("raw_data/bostonceltics.csv", col_type = 
+                  cols(.default = col_double(), 
                                                     name = col_character(), 
                                                     position = col_character(), 
                                                     height = col_character(),
@@ -89,15 +94,20 @@ bos <- read_csv("raw_data/bostonceltics.csv", col_type = cols(.default = col_dou
                                                     dob = col_character(), 
                                                     beforenba = col_character(),
                                                     acquired = col_character(),
-                                                    signedusing = col_character(),
-                                                    currentcontract = col_character(),
-                                                    contractdetails = col_character(),
-                                                    positionbreakdown = col_character()
+                                                    signedusing = 
+                         col_character(),
+                                                    currentcontract = 
+                         col_character(),
+                                                    contractdetails = 
+                         col_character(),
+                                                    positionbreakdown = 
+                         col_character()
                                                     )) %>%
   slice(1:23) %>%
   subset(select = -c(position_1, X41))
 
-bkn <- read_csv("raw_data/brooklynnets.csv", col_type = cols(.default = col_double(), 
+bkn <- read_csv("raw_data/brooklynnets.csv", col_type = 
+                  cols(.default = col_double(), 
                                                     name = col_character(), 
                                                     position = col_character(), 
                                                     height = col_character(),
@@ -106,15 +116,20 @@ bkn <- read_csv("raw_data/brooklynnets.csv", col_type = cols(.default = col_doub
                                                     dob = col_character(), 
                                                     beforenba = col_character(),
                                                     acquired = col_character(),
-                                                    signedusing = col_character(),
-                                                    currentcontract = col_character(),
-                                                    contractdetails = col_character(),
-                                                    positionbreakdown = col_character()
+                                                    signedusing = 
+                         col_character(),
+                                                    currentcontract = 
+                         col_character(),
+                                                    contractdetails = 
+                         col_character(),
+                                                    positionbreakdown = 
+                         col_character()
                                                     )) %>%
   slice(1:25) %>%
   subset(select = -position_1)
 
-cha <- read_csv("raw_data/charlottehornets.csv", col_type = cols(.default = col_double(), 
+cha <- read_csv("raw_data/charlottehornets.csv", 
+                col_type = cols(.default = col_double(), 
                                                     name = col_character(), 
                                                     position = col_character(), 
                                                     height = col_character(),
@@ -123,10 +138,14 @@ cha <- read_csv("raw_data/charlottehornets.csv", col_type = cols(.default = col_
                                                     dob = col_character(), 
                                                     beforenba = col_character(),
                                                     acquired = col_character(),
-                                                    signedusing = col_character(),
-                                                    currentcontract = col_character(),
-                                                    contractdetails = col_character(),
-                                                    positionbreakdown = col_character()
+                                                    signedusing = 
+                                  col_character(),
+                                                    currentcontract = 
+                                  col_character(),
+                                                    contractdetails = 
+                                  col_character(),
+                                                    positionbreakdown =
+                                  col_character()
                                                     )) %>%
   slice(1:20) %>%
   subset(select = -c(position_1, X41))
