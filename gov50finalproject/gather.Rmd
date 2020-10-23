@@ -3,7 +3,6 @@ library(tidyverse)
 library(ggplot2)
 library(ggforce)
 library(readr)
-library(dplyr)
 ```
 
 ```{r}
@@ -43,23 +42,39 @@ nbainfo <- read_csv("raw_data/nbainfo2.csv",
                                     debt_to_value = col_number(), 
                                     revenue = col_number(), 
                                     operating_income = col_number())) %>%
-    rename_with(~ str_replace(.x, "1920", "current")) %>% 
-    rename_with(~ str_replace(.x, "2021", "future")) %>% 
+    rename_with(~ str_replace(.x, "1920", "lastseason")) %>% 
+    rename_with(~ str_replace(.x, "2021", "nextseason")) %>% 
     slice(1:30) %>%
-    subset(select = -futureprojcapspace)
+    subset(select = -nextseasonprojcapspace) %>%
+    select(team, lastseasonwinpct, lastseasonortg, lastseasondrtg, 
+           lastseasonnrtg, lastseasonpace, gtcontracts, avgage, medage, avgexp,
+           medexp, nextseasonprojsalary, nextseasonprojexceptions, 
+           tenyrwinpct, playoffpct, principal_owner, nw, valuation, 
+           percent_change, debt_to_value, revenue, operating_income)
 
 playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
-    playername = col_character(),
-    playerid = col_character(),
-    team = col_character(),
-    salary1920 = col_double(),
-    salary2021 = col_double(),
-    salary2122 = col_double(),
-    salary2223 = col_double(),
-    salary2324 = col_double(),
-    salary2425 = col_double(),
-    signedusing = col_character(),
-    guaranteed = col_double()))
+  playername = col_character(),
+  playerid = col_character(),
+  team = col_character(),
+  salary1920 = col_double(),
+  salary2021 = col_double(),
+  salary2122 = col_double(),
+  salary2223 = col_double(),
+  salary2324 = col_double(),
+  salary2425 = col_double(),
+  signedusing = col_character(),
+  guaranteed = col_double())) %>%
+  subset(select = -c(salary1920, guaranteed)) %>%
+  mutate(pctsalary2021 = salary2021 / 109140000)
+
+playercontracts_modified <- playercontracts %>%
+  filter(!is.na(salary2021)) %>%
+  filter(salary2021> (109140000*0.15)) %>%
+  group_by(team) %>%
+  summarize(bigcontracts = sum(pctsalary2021), .groups = "drop") %>%
+  arrange(desc(bigcontracts))
+
+
 ```
 
 ```{r}

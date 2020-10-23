@@ -46,18 +46,15 @@ nbainfo <- read_csv("raw_data/nbainfo2.csv",
                                     debt_to_value = col_number(), 
                                     revenue = col_number(), 
                                     operating_income = col_number())) %>%
-    
-    # This makes the variables names easier to work with if they do not start
-    # with numbers.
-    
-    rename_with(~ str_replace(.x, "1920", "current")) %>% 
-    rename_with(~ str_replace(.x, "2021", "future")) %>%
+    rename_with(~ str_replace(.x, "1920", "lastseason")) %>% 
+    rename_with(~ str_replace(.x, "2021", "nextseason")) %>% 
     slice(1:30) %>%
-    
-    # This column did not carry over well and I do not anticipate using it 
-    # so I am just excluding it.
-    
-    subset(select = -futureprojcapspace)
+    subset(select = -nextseasonprojcapspace) %>%
+    select(team, lastseasonwinpct, lastseasonortg, lastseasondrtg, 
+           lastseasonnrtg, lastseasonpace, gtcontracts, avgage, medage, avgexp,
+           medexp, nextseasonprojsalary, nextseasonprojexceptions, 
+           tenyrwinpct, playoffpct, principal_owner, nw, valuation, 
+           percent_change, debt_to_value, revenue, operating_income)
 
 playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
     playername = col_character(),
@@ -70,7 +67,16 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
     salary2324 = col_double(),
     salary2425 = col_double(),
     signedusing = col_character(),
-    guaranteed = col_double()))
+    guaranteed = col_double())) %>%
+    subset(select = -c(salary1920, guaranteed)) %>%
+    mutate(pctsalary2021 = salary2021 / 109140000)
+
+playercontracts_modified <- playercontracts %>%
+    filter(!is.na(salary2021)) %>%
+    filter(salary2021> (109140000*0.15)) %>%
+    group_by(team) %>%
+    summarize(bigcontracts = sum(pctsalary2021), .groups = "drop") %>%
+    arrange(desc(bigcontracts))
 
 
 ui <- navbarPage(
@@ -99,6 +105,13 @@ ui <- navbarPage(
              potential inequalities emerging from teams’ varying levels of cash 
              flows and spending power that could potentially harm competitive 
              balance in a zero-sum league."),
+             br(), 
+             HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/mzEilNDSh-c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+             p("This is a video of my favorite NBA player ever hitting a 
+               game-winning shot. All of this research and analysis is being 
+               done to better understand how teams can improve their rosters 
+               amidst a worldwide pandemic and make fans as julibant as Nuggets
+               fans sound at 0:16 of the video."),
              h3("Data Sources"),
              p("Most of the data used is from a massive spreadsheet that I
                update that has NBA rosters, player contracts, and info
@@ -156,7 +169,7 @@ ui <- navbarPage(
              ),
     
     tabPanel("Player Salary Info",
-            h2("NBA Salary Data"), 
+            h2("NBA Player Salary Data"), 
             p("Type your favorite player's name into the search bar to see 
               their current contract."),
             
@@ -167,8 +180,15 @@ ui <- navbarPage(
             # will give a lot more information than just the player and his
             # contract. 
             
-            DT::dataTableOutput("playercontracts")
+            DT::dataTableOutput("playercontracts"),
+            
+            h3("Teams with Player Contracts Over 15% of Projected Salary Cap"), 
+            p("This is a plot of the teams with player contracts over 15% of 
+              the salary cap."),
+            plotOutput("plot2")
             ),
+            
+    
     
     tabPanel("Discussion",
              titlePanel("Discussion Title"),
@@ -194,13 +214,27 @@ ui <- navbarPage(
 
         output$plot <- renderPlot({
             ggplot(nbainfo, aes(.data[[input$x]], .data[[input$y]])) +
-                plot_geom()
+                plot_geom() + theme_bw()
                 
         }, res = 96)
         
         output$playercontracts = DT::renderDataTable({
             playercontracts
         })
+        
+        output$plot2 <- 
+            renderPlot({
+                playercontracts_modified %>%
+                    ggplot(aes(x = team, 
+                               y = bigcontracts)) +
+                    geom_col() +
+                    labs(title = 
+                             "Number of Contracts over 15% of Salary Cap", 
+                         subtitle = "For 2020-2021 Season",
+                         x = "Team", 
+                         y = "Sum of Contracts over 15% of Salary Cap") +
+                    theme_classic()
+            })
         
     }
     
