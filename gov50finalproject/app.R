@@ -1,13 +1,17 @@
 # loading in libraries
 
-library(shiny)
 library(tidyverse)
-library(fec16)
-library(dplyr, warn.conflicts = FALSE)
 library(ggplot2)
 library(ggforce)
+library(ggthemes)
 library(readr)
-library(realxl)
+library(readxl)
+library(plyr, warn.conflicts = FALSE)
+library(tibble)
+library(rvest)
+library(XML)
+library(RCurl)
+library(rlist)
 
 # reading in data sets
 
@@ -69,6 +73,7 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
     salary2425 = col_double(),
     signedusing = col_character(),
     guaranteed = col_double())) %>%
+    filter(!is.na(salary2021)) %>%
     subset(select = -c(salary1920, guaranteed)) %>%
     mutate(pctsalary2021 = salary2021 / 109140000)
 
@@ -78,6 +83,31 @@ playercontracts_modified <- playercontracts %>%
     group_by(team) %>%
     summarize(bigcontracts = sum(pctsalary2021), .groups = "drop") %>%
     arrange(desc(bigcontracts))
+
+nbacapsheets <- "raw_data/nbacapsheets.xlsx"
+excel_sheets(path = nbacapsheets)
+tab_names <- excel_sheets(path = nbacapsheets)
+list_all <- lapply(tab_names, function(x) read_excel(path = nbacapsheets, 
+                                                     sheet = x))
+agg_capsheets <- rbind.fill(list_all) %>%
+    filter(!is.na(num)) %>%
+    filter(!is.na(currentcontract)) %>%
+    select(name, position, age, experience:contractdetails)
+
+forbes2020 <- read_csv("raw_data/forbes2020.csv") %>%
+    mutate(rank = str_sub(rank, start = 2)) %>%
+    mutate(valuation = substr(valuation, 2, nchar(valuation)-1)) %>%
+    mutate(value_change = gsub('.{1}$', '', value_change)) %>%
+    mutate(debt_to_value = gsub('.{1}$', '', debt_to_value)) %>%
+    mutate(revenue = substr(revenue, 2, nchar(revenue)-1)) %>%
+    mutate(operating_income = substr(operating_income, 2, 
+                                     nchar(operating_income)-1)) %>%
+    mutate(rank = as.numeric(rank)) %>%
+    mutate(valuation = as.numeric(valuation)) %>%
+    mutate(value_change = as.numeric(value_change)) %>%
+    mutate(debt_to_value = as.numeric(debt_to_value)) %>%
+    mutate(revenue = as.numeric(revenue)) %>%
+    mutate(operating_income = as.numeric(operating_income))
 
 
 ui <- navbarPage(
@@ -165,7 +195,10 @@ ui <- navbarPage(
                  selectInput("x", "X variable", choices = names(nbainfo)),
                  selectInput("y", "Y variable", choices = names(nbainfo)),
                  selectInput("geom", "geom", c("point", "column", "jitter")),
-                 plotOutput("plot"))
+                 plotOutput("plot")),
+             
+             p("This is a plot"),
+             plotOutput("plot2")
              )
              ),
     
@@ -182,11 +215,6 @@ ui <- navbarPage(
             # contract. 
             
             DT::dataTableOutput("playercontracts"),
-            
-            h3("Teams with Player Contracts Over 15% of Projected Salary Cap"), 
-            p("This is a plot of the teams with player contracts over 15% of 
-              the salary cap."),
-            plotOutput("plot2")
             ),
             
     
@@ -225,16 +253,13 @@ ui <- navbarPage(
         
         output$plot2 <- 
             renderPlot({
-                playercontracts_modified %>%
-                    ggplot(aes(x = team, 
-                               y = bigcontracts)) +
-                    geom_col() +
-                    labs(title = 
-                             "Number of Contracts over 15% of Salary Cap", 
-                         subtitle = "For 2020-2021 Season",
-                         x = "Team", 
-                         y = "Sum of Contracts over 15% of Salary Cap") +
-                    theme_classic()
+                forbes2020 %>%
+                    ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
+                    geom_col() + 
+                    scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5)) + 
+                    theme(axis.text = element_text(size = 8)) +
+                    labs(title = "Team Valuations", x = "Team", y = "Valuation (in Billions)") + 
+                    coord_flip()
             })
         
     }
