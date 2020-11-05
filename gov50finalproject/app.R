@@ -1,5 +1,6 @@
 # loading in libraries
 
+library(plyr)
 library(tidyverse)
 library(ggplot2)
 library(ggforce)
@@ -11,7 +12,6 @@ library(rvest)
 library(XML)
 library(RCurl)
 library(rlist)
-library(plyr)
 
 # reading in data sets
 
@@ -208,8 +208,13 @@ ui <- navbarPage(
                  selectInput("geom", "geom", c("point", "column", "jitter")),
                  plotOutput("plot")),
              
-             p("This is a plot"),
-             plotOutput("plot2")
+             p("This is a plot of team valuations."),
+             plotOutput("plot2"), 
+             
+             p("This is a scatterplot of the metro area population of a 
+               franchise versus the team's valuation by Forbes in Feb 2020."),
+             plotOutput("plot3"), 
+             
              )
              ),
     
@@ -269,8 +274,28 @@ ui <- navbarPage(
                     geom_col() + 
                     scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5)) + 
                     theme(axis.text = element_text(size = 8)) +
-                    labs(title = "Team Valuations", x = "Team", y = "Valuation (in Billions)") + 
+                    labs(title = "Team Valuations", 
+                         x = "Team", y = "Valuation (in Billions)") + 
                     coord_flip()
+            })
+        
+        output$plot3 <- 
+            renderPlot({
+                full_dataset %>%
+                    ggplot(aes(x = metro_area_pop, y = valuation)) + 
+                    geom_point() + 
+                    geom_text_repel(aes(label = team)) + 
+                    geom_smooth(method = "lm") + 
+                    labs(title = "Metro Area Population vs. Team's Valuation", 
+                         subtitle = "Correlation = 0.72", 
+                         x = "Metro Area Population", y = "Valuation") + 
+                    theme_bw() + 
+                    scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25), 
+                                       label = c("0M", "5M", "10M", "15M", 
+                                                 "20M", "25M")) + 
+                    scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                                       label = c("$1B", "$2B", "$3B", "$4B", 
+                                                 "$5B"))
             })
         
     }

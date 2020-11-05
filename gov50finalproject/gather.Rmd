@@ -1,6 +1,8 @@
 ```{r}
+library(plyr)
 library(tidyverse)
 library(ggplot2)
+library(ggrepel)
 library(ggforce)
 library(ggthemes)
 library(readr)
@@ -10,7 +12,6 @@ library(rvest)
 library(XML)
 library(RCurl)
 library(rlist)
-library(plyr)
 ```
 
 ```{r}
@@ -129,9 +130,15 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(operating_income = operating_income.x) %>%
   subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
                      operating_income.x))
-  
+
+round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
+
+round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
 
 
+```
+
+```{r}
 full_dataset %>%
   ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
   geom_col() + 
@@ -139,7 +146,28 @@ full_dataset %>%
   theme(axis.text = element_text(size = 8)) +
   labs(title = "Team Valuations", x = "Team", y = "Valuation (in Billions)") + 
   coord_flip()
+
+# Scatterplot between metro area population and team's valuation
+full_dataset %>%
+  ggplot(aes(x = metro_area_pop, y = valuation)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(method = "lm") + 
+  labs(title = "Metro Area Population vs. Team's Valuation", subtitle = 
+         "Correlation = 0.72", x = "Metro Area Population", y = "Valuation") + 
+  theme_bw() + 
+  scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25), 
+                     label = c("0M", "5M", "10M", "15M", "20M", "25M")) + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
+
+full_dataset %>%
+  ggplot(aes(x = year_purchased, y = price_paid)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(method = "lm", se = FALSE)
+
+
   
-          
 ```
 
