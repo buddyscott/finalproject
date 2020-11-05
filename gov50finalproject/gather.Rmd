@@ -5,12 +5,12 @@ library(ggforce)
 library(ggthemes)
 library(readr)
 library(readxl)
-library(plyr, warn.conflicts = FALSE)
 library(tibble)
 library(rvest)
 library(XML)
 library(RCurl)
 library(rlist)
+library(plyr)
 ```
 
 ```{r}
@@ -79,8 +79,6 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
 playercontracts_modified <- playercontracts %>%
   filter(!is.na(salary2021)) %>%
   filter(salary2021 > (109140000*0.15))
-
-
 ```
 
 ```{r}
@@ -97,74 +95,10 @@ agg_capsheets <- rbind.fill(list_all) %>%
   select(name, position, age, experience:contractdetails)
 ```
 
-```{r}
-ATL_owner <- read_html("https://www.forbes.com/profile/antony-ressler-1/?sh=1ed72d89be80")
-BOS_owner <- read_html()
-BKN_owner <- read_html("https://www.forbes.com/profile/joseph-tsai/?sh=b68b0677b32d")
-CHA_owner <- read_html("https://www.forbes.com/profile/michael-jordan/?sh=6d3915ef2d83")
-CHI_owner <- read_html("https://www.forbes.com/profile/jerry-reinsdorf/?sh=25996a046d28")
-CLE_owner <- read_html("https://www.forbes.com/profile/daniel-gilbert/?sh=2f99dd887128")
-DAL_owner <- read_html("https://www.forbes.com/profile/mark-cuban/?sh=519a3ade6a04")
-DEN_owner <- read_html("https://www.forbes.com/profile/ann-walton-kroenke/?sh=317b8d393785")
-DET_owner <- read_html("https://www.forbes.com/profile/tom-gores/?sh=52bc02556b39")
-GSW_owner <- read_html("https://www.forbes.com/profile/joe-lacob/?sh=740c4a603f9c")
-HOU_owner <- read_html("https://www.forbes.com/profile/tilman-fertitta/?sh=1a0cc5ad271b")
-IND_owner <- read_html("https://www.forbes.com/profile/herb-simon/?sh=54bd0e802c1f")
-LAC_owner <- read_html("https://www.forbes.com/profile/steve-ballmer/?sh=79ed56ee4818")
-LAL_owner <- read_html()
-MEM_owner <- read_html("https://www.forbes.com/profile/robert-pera/?sh=31ceb46935c7")
-MIA_owner <- read_html("https://www.forbes.com/profile/micky-arison/?sh=a6efe6d7e62a")
-MIL_owner <- read_html("https://www.forbes.com/profile/marc-lasry/?sh=62ff423a76a0")
-MIN_owner <- read_html("https://www.forbes.com/profile/glen-taylor/?sh=256f8f34719b")
-NOP_owner <- read_html("https://www.forbes.com/profile/gayle-benson/?sh=185fd5255102")
-NYK_owner <- read_html("https://www.forbes.com/profile/dolan/?sh=5702334f60ee")
-OKC_owner <- read_html()
-ORL_owner <- read_html("https://www.forbes.com/profile/richard-devos/?sh=76b1a404ff44")
-PHI_owner <- read_html("https://www.forbes.com/profile/joshua-harris/?sh=3d22cff7666c")
-PHX_owner <- read_html()
-POR_owner <- read_html("https://www.forbes.com/profile/paul-allen/?sh=22f426114417")
-SAC_owner <- read_html()
-SAS_owner <- read_html()
-TOR_owner <- read_html()
-UTA_owner <- read_html("https://www.forbes.com/profile/ryan-smith/?sh=6a6fe5345f04")
-WSH_owner <- read_html("https://www.forbes.com/profile/theodore-leonsis/?sh=7ac702346e84")
-
-NYK_valuation <- read_html("https://www.forbes.com/teams/new-york-knicks/?sh=23681367676d")
-LAL_valuation <- read_html("https://www.forbes.com/teams/los-angeles-lakers/?sh=1b9a79e73101")
-GSW_valuation <- read_html("https://www.forbes.com/teams/golden-state-warriors/?sh=2e0aa83ef0a7")
-CHI_valuation <- read_html("https://www.forbes.com/teams/chicago-bulls/?sh=7e9b11705c11")
-BOS_valuation <- read_html("https://www.forbes.com/teams/boston-celtics/?sh=369b5755767b")
-LAC_valuation <- read_html("https://www.forbes.com/teams/los-angeles-clippers/?sh=34ebe90a5ebf")
-BKN_valuation <- read_html("https://www.forbes.com/teams/brooklyn-nets/?sh=7f5c1d49f57e")
-HOU_valuation <- read_html("https://www.forbes.com/teams/houston-rockets/?sh=29cc5129202b")
-DAL_valuation <- read_html("https://www.forbes.com/teams/dallas-mavericks/?sh=eac9f8075b95")
-TOR_valuation <- read_html("https://www.forbes.com/teams/toronto-raptors/?sh=689cd8f67f9a")
-PHI_valuation <- read_html("https://www.forbes.com/teams/philadelphia-76ers/?sh=542d1ce5764f")
-MIA_valuation <- read_html("https://www.forbes.com/teams/miami-heat/?sh=270d5889684c")
-POR_valuation <- read_html("https://www.forbes.com/teams/portland-trail-blazers/?sh=6f9d938627d7")
-SAS_valuation <- read_html("https://www.forbes.com/teams/san-antonio-spurs/?sh=311dd50f38a2")
-SAC_valuation <- read_html("https://www.forbes.com/teams/sacramento-kings/?sh=7c9e0b1862e6")
-WSH_valuation <- read_html("https://www.forbes.com/teams/washington-wizards/?sh=620e3cdd6501")
-PHX_valuation <- read_html("https://www.forbes.com/teams/phoenix-suns/?sh=384e75665d0d")
-DEN_valuation <- read_html("https://www.forbes.com/teams/denver-nuggets/?sh=590eb6ed10ae")
-MIL_valuation <- read_html("https://www.forbes.com/teams/milwaukee-bucks/?sh=2c2ef1d5690f")
-OKC_valuation <- read_html("https://www.forbes.com/teams/oklahoma-city-thunder/?sh=261f26cd1184")
-UTA_valuation <- read_html("https://www.forbes.com/teams/utah-jazz/?sh=69ef5c0768b3")
-IND_valuation <- read_html("https://www.forbes.com/teams/indiana-pacers/?sh=6dcf8d1021d9")
-ATL_valuation <- read_html("https://www.forbes.com/teams/atlanta-hawks/?sh=7e1fbf7f3032")
-CLE_valuation <- read_html("https://www.forbes.com/teams/cleveland-cavaliers/?sh=45dff0c25109")
-CHA_valuation <- read_html("https://www.forbes.com/teams/charlotte-hornets/?sh=64501eb7364f")
-DET_valuation <- read_html("https://www.forbes.com/teams/detroit-pistons/?sh=53404ec43a62")
-ORL_valuation <- read_html("https://www.forbes.com/teams/orlando-magic/?sh=3f307d0862e5")
-MIN_valuation <- read_html("https://www.forbes.com/teams/minnesota-timberwolves/")
-NOP_valuation <- read_html("https://www.forbes.com/teams/new-orleans-pelicans/?sh=7530f2714c2e")
-MEM_valuation <- read_html("https://www.forbes.com/teams/memphis-grizzlies/?sh=34129c05e5e2")
-```
 
 ```{r}
-forbes_feb2020 <- read_html("https://www.forbes.com/nba-valuations/list/#tab:overall")
-
-forbes2020 <- read_csv("raw_data/forbes2020.csv") %>%
+forbes1 <- read_csv("raw_data/forbes2020.csv", 
+                    col_type = cols(.default = col_character())) %>%
   mutate(rank = str_sub(rank, start = 2)) %>%
   mutate(valuation = substr(valuation, 2, nchar(valuation)-1)) %>%
   mutate(value_change = gsub('.{1}$', '', value_change)) %>%
@@ -177,9 +111,28 @@ forbes2020 <- read_csv("raw_data/forbes2020.csv") %>%
   mutate(value_change = as.numeric(value_change)) %>%
   mutate(debt_to_value = as.numeric(debt_to_value)) %>%
   mutate(revenue = as.numeric(revenue)) %>%
-  mutate(operating_income = as.numeric(operating_income))
+  mutate(operating_income = as.numeric(operating_income)) %>%
+  subset(select = -rank)
 
-forbes2020 %>%
+forbes2 <- read_csv("raw_data/moreforbes.csv", 
+                    col_type = cols(.default = col_double(), 
+                                    team = col_character()))
+
+forbes_joined <- inner_join(forbes1, forbes2, by = "team")
+
+full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
+  subset(select = -c(valuation.y, debt_to_value.y, revenue.y, 
+                     operating_income.y, percent_change)) %>%
+  mutate(valuation = valuation.x) %>%
+  mutate(debt_to_value = debt_to_value.x) %>%
+  mutate(revenue = revenue.x) %>%
+  mutate(operating_income = operating_income.x) %>%
+  subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
+                     operating_income.x))
+  
+
+
+full_dataset %>%
   ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
   geom_col() + 
   scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5)) + 

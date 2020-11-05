@@ -6,12 +6,12 @@ library(ggforce)
 library(ggthemes)
 library(readr)
 library(readxl)
-library(plyr, warn.conflicts = FALSE)
 library(tibble)
 library(rvest)
 library(XML)
 library(RCurl)
 library(rlist)
+library(plyr)
 
 # reading in data sets
 
@@ -77,13 +77,6 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
     subset(select = -c(salary1920, guaranteed)) %>%
     mutate(pctsalary2021 = salary2021 / 109140000)
 
-playercontracts_modified <- playercontracts %>%
-    filter(!is.na(salary2021)) %>%
-    filter(salary2021> (109140000*0.15)) %>%
-    group_by(team) %>%
-    summarize(bigcontracts = sum(pctsalary2021), .groups = "drop") %>%
-    arrange(desc(bigcontracts))
-
 nbacapsheets <- "raw_data/nbacapsheets.xlsx"
 excel_sheets(path = nbacapsheets)
 tab_names <- excel_sheets(path = nbacapsheets)
@@ -94,7 +87,8 @@ agg_capsheets <- rbind.fill(list_all) %>%
     filter(!is.na(currentcontract)) %>%
     select(name, position, age, experience:contractdetails)
 
-forbes2020 <- read_csv("raw_data/forbes2020.csv") %>%
+forbes1 <- read_csv("raw_data/forbes2020.csv", 
+                    col_type = cols(.default = col_character())) %>%
     mutate(rank = str_sub(rank, start = 2)) %>%
     mutate(valuation = substr(valuation, 2, nchar(valuation)-1)) %>%
     mutate(value_change = gsub('.{1}$', '', value_change)) %>%
@@ -107,7 +101,24 @@ forbes2020 <- read_csv("raw_data/forbes2020.csv") %>%
     mutate(value_change = as.numeric(value_change)) %>%
     mutate(debt_to_value = as.numeric(debt_to_value)) %>%
     mutate(revenue = as.numeric(revenue)) %>%
-    mutate(operating_income = as.numeric(operating_income))
+    mutate(operating_income = as.numeric(operating_income)) %>%
+    subset(select = -rank)
+
+forbes2 <- read_csv("raw_data/moreforbes.csv", 
+                    col_type = cols(.default = col_double(), 
+                                    team = col_character()))
+
+forbes_joined <- inner_join(forbes1, forbes2, by = "team")
+
+full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
+    subset(select = -c(valuation.y, debt_to_value.y, revenue.y, 
+                       operating_income.y, percent_change)) %>%
+    mutate(valuation = valuation.x) %>%
+    mutate(debt_to_value = debt_to_value.x) %>%
+    mutate(revenue = revenue.x) %>%
+    mutate(operating_income = operating_income.x) %>%
+    subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
+                       operating_income.x))
 
 
 ui <- navbarPage(
@@ -192,8 +203,8 @@ ui <- navbarPage(
              # but I might change these selections moving forward.
              
              fluidPage(
-                 selectInput("x", "X variable", choices = names(nbainfo)),
-                 selectInput("y", "Y variable", choices = names(nbainfo)),
+                 selectInput("x", "X variable", choices = names(full_dataset)),
+                 selectInput("y", "Y variable", choices = names(full_dataset)),
                  selectInput("geom", "geom", c("point", "column", "jitter")),
                  plotOutput("plot")),
              
@@ -242,8 +253,8 @@ ui <- navbarPage(
         })
 
         output$plot <- renderPlot({
-            ggplot(nbainfo, aes(.data[[input$x]], .data[[input$y]])) +
-                plot_geom() + theme_bw()
+            ggplot(full_dataset, aes(.data[[input$x]], .data[[input$y]])) +
+                plot_geom() + theme_bw() + geom_smooth(method = "lm")
                 
         }, res = 96)
         
@@ -253,7 +264,7 @@ ui <- navbarPage(
         
         output$plot2 <- 
             renderPlot({
-                forbes2020 %>%
+                full_dataset %>%
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
                     geom_col() + 
                     scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5)) + 
