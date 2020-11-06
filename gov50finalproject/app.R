@@ -77,6 +77,18 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
     subset(select = -c(salary1920, guaranteed)) %>%
     mutate(pctsalary2021 = salary2021 / 109140000)
 
+playercontracts_modified <- playercontracts %>%
+    filter(!is.na(salary2021)) %>%
+    filter(salary2021 > (109140000*0.15))
+
+payrolls <- read_csv("raw_data/payrolls.csv", col_type = 
+                         cols(.default = col_double(), team = col_character(), 
+                              `team code` = col_character()))
+
+payroll_rank <- read_csv("raw_data/payroll_rank.csv", col_type = 
+                             cols(.default = col_double(), 
+                                  team = col_character()))
+
 nbacapsheets <- "raw_data/nbacapsheets.xlsx"
 excel_sheets(path = nbacapsheets)
 tab_names <- excel_sheets(path = nbacapsheets)
@@ -136,19 +148,21 @@ ui <- navbarPage(
              arenas for next season, both the players’ and the owners’ share of 
              Basketball Related Income would decrease from $4 billion to $2.4 
              billion according to Silver's projection. If this is the case, 
-             the league might have to withhold an 
-             increased percentage of players’ salaries in escrow for the 
-             upcoming season to finance the league’s operations, potentially 
-             leading to heavily contested debates at the bargaining
-             table for an updated Collective Bargaining Agreement that has led 
-             to lockouts in the past. The two main topics covered will be the 
-             league’s potentially inaccurate forward guidance provided to teams 
-             about salary cap levels for the upcoming season, as well as 
-             potential inequalities emerging from teams’ varying levels of cash 
-             flows and spending power that could potentially harm competitive 
-             balance in a zero-sum league."),
+             the league might have to withhold an increased percentage of 
+             players’ salaries in escrow for the upcoming season to finance the 
+             league’s operations, potentially leading to heavily contested 
+             debates at the bargaining table for an updated Collective 
+             Bargaining Agreement that has led to lockouts (complete stoppages 
+             of play) in the past. This project will take a deep dive of the 
+             most recent update on each team's finances to better understand 
+             the situations and constraints each individual team faces in a 
+             COVID-19 world."),
              br(), 
-             HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/mzEilNDSh-c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+             HTML('<iframe width="560" height="315" 
+                  src="https://www.youtube.com/embed/mzEilNDSh-c" 
+                  frameborder="0" allow="accelerometer; autoplay; 
+                  clipboard-write; encrypted-media; gyroscope; 
+                  picture-in-picture" allowfullscreen></iframe>'),
              p("This is a video of my favorite NBA player ever hitting a 
                game-winning shot. All of this research and analysis is being 
                done to better understand how teams can improve their rosters 
@@ -181,32 +195,12 @@ ui <- navbarPage(
                    other, either as a scatterplot, bar graph, 
                    or jittered plot."),
                  br(),
-                 p("1. Try plotting 'team' as the x variable, 'valuation' as 
-                   the y variable (you have to scroll down a bit), and 'column'
-                   as the geom. Notice the wide range of team values (meaning 
-                   how much the team) is worth. The y axis is in billions of 
-                   dollars."),
-                 p("2. Now try plotting 'tenyrwinpct' as the x variable, 
-                   'revenue' as the y variable (again, you have to scroll down
-                   to the bottom), and 'point' as the geom. This shows the
-                   revenue of the team (as of February 2020) versus the
-                   team's winning percentage over the past ten years. There
-                   seems to be a relatively positive correlation between the 
-                   two, and the correlation would probably be even more positive 
-                   if not for the two richest teams - the Knicks and the 
-                   Lakers - having two of the worst winning percentages over 
-                   the past ten years."),
-                 
-             # This allows for the user to select their own variables of choice
-             # as opposed to pre-determined ggplots that they have to look at.
-             # I decided to use geom_point(), geom_col(), and geom_jitter(),
-             # but I might change these selections moving forward.
              
              fluidPage(
                  selectInput("x", "X variable", choices = names(full_dataset)),
                  selectInput("y", "Y variable", choices = names(full_dataset)),
                  selectInput("geom", "geom", c("point", "column", "jitter")),
-                 plotOutput("plot")),
+                 plotOutput("plot1")),
              
              p("This is a plot of team valuations."),
              plotOutput("plot2"), 
@@ -214,6 +208,15 @@ ui <- navbarPage(
              p("This is a scatterplot of the metro area population of a 
                franchise versus the team's valuation by Forbes in Feb 2020."),
              plotOutput("plot3"), 
+             
+             p("This is a scatterplot of the year a team was purchased 
+               compared to the price paid by the buyer of the team."),
+             plotOutput("plot4"),
+             
+             p("This is a scatterplot of each team's winning percentage in 
+               the most recent NBA season compared to a team's valuation by 
+               Forbes in Feb 2020."),
+             plotOutput("plot5")
              
              )
              ),
@@ -232,8 +235,10 @@ ui <- navbarPage(
             
             DT::dataTableOutput("playercontracts"),
             ),
-            
     
+    tabPanel("Model",
+             p("This will be a regression model"),
+            ),
     
     tabPanel("Discussion",
              titlePanel("Discussion Title"),
@@ -257,7 +262,7 @@ ui <- navbarPage(
             )
         })
 
-        output$plot <- renderPlot({
+        output$plot1 <- renderPlot({
             ggplot(full_dataset, aes(.data[[input$x]], .data[[input$y]])) +
                 plot_geom() + theme_bw() + geom_smooth(method = "lm")
                 
@@ -296,6 +301,36 @@ ui <- navbarPage(
                     scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
                                        label = c("$1B", "$2B", "$3B", "$4B", 
                                                  "$5B"))
+            })
+        
+        output$plot4 <- 
+            renderPlot({
+                full_dataset %>%
+                    ggplot(aes(x = year_purchased, y = price_paid)) + 
+                    geom_point() + 
+                    geom_text_repel(aes(label = team)) + 
+                    geom_smooth(method = "lm") + 
+                    labs(title = "Franchise's Year Purchased vs. Price Paid", 
+                         subtitle = "Correlation = 0.72", x = "Year Purchased", 
+                         y = "Price Paid") + 
+                    theme_bw() + 
+                    scale_y_continuous(breaks = c(0, 1000, 2000, 3000), 
+                                       label = c("$0", "$1B", "$2B", "$3B"))
+            })
+        
+        output$plot5 <- 
+            renderPlot({
+                full_dataset %>%
+                    ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
+                    geom_point() + 
+                    geom_text_repel(aes(label = team)) + 
+                    geom_smooth(method = "lm") + 
+                    labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
+                         subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
+                         y = "Valuation") + 
+                    scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                                       label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
+                    theme_bw()
             })
         
     }

@@ -80,24 +80,25 @@ playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
 playercontracts_modified <- playercontracts %>%
   filter(!is.na(salary2021)) %>%
   filter(salary2021 > (109140000*0.15))
-```
 
-```{r}
+payrolls <- read_csv("raw_data/payrolls.csv", col_type = 
+                       cols(.default = col_double(), team = col_character(), 
+                            `team code` = col_character()))
+
+payroll_rank <- read_csv("raw_data/payroll_rank.csv", col_type = 
+                           cols(.default = col_double(), 
+                                team = col_character()))
+
 nbacapsheets <- "raw_data/nbacapsheets.xlsx"
 excel_sheets(path = nbacapsheets)
-
 tab_names <- excel_sheets(path = nbacapsheets)
 list_all <- lapply(tab_names, function(x) read_excel(path = nbacapsheets, 
                                                      sheet = x))
-
 agg_capsheets <- rbind.fill(list_all) %>%
   filter(!is.na(num)) %>%
   filter(!is.na(currentcontract)) %>%
   select(name, position, age, experience:contractdetails)
-```
 
-
-```{r}
 forbes1 <- read_csv("raw_data/forbes2020.csv", 
                     col_type = cols(.default = col_character())) %>%
   mutate(rank = str_sub(rank, start = 2)) %>%
@@ -130,24 +131,26 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(operating_income = operating_income.x) %>%
   subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
                      operating_income.x))
-
-round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
-
-round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
-
-
+                    
 ```
 
+
+
 ```{r}
+
+round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
+round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
+round(cor(full_dataset$valuation, full_dataset$lastseasonwinpct), 2)
 full_dataset %>%
   ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
   geom_col() + 
-  scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5)) + 
   theme(axis.text = element_text(size = 8)) +
-  labs(title = "Team Valuations", x = "Team", y = "Valuation (in Billions)") + 
-  coord_flip()
+  labs(title = "Team Valuations", x = "Team", y = "Valuation") + 
+  coord_flip() + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B")) 
 
-# Scatterplot between metro area population and team's valuation
 full_dataset %>%
   ggplot(aes(x = metro_area_pop, y = valuation)) + 
   geom_point() + 
@@ -165,9 +168,25 @@ full_dataset %>%
   ggplot(aes(x = year_purchased, y = price_paid)) + 
   geom_point() + 
   geom_text_repel(aes(label = team)) + 
-  geom_smooth(method = "lm", se = FALSE)
+  geom_smooth(method = "lm") + 
+  labs(title = "Franchise's Year Purchased vs. Price Paid", 
+       subtitle = "Correlation = 0.72", x = "Year Purchased", 
+       y = "Price Paid") + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(0, 1000, 2000, 3000), 
+                     label = c("$0", "$1B", "$2B", "$3B"))
 
-
+full_dataset %>%
+  ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(method = "lm") + 
+  labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
+       subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
+       y = "Valuation") + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
+  theme_bw()
   
 ```
 
