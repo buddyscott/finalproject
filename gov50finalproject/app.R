@@ -264,7 +264,7 @@ ui <- navbarPage(
 
         output$plot1 <- renderPlot({
             ggplot(full_dataset, aes(.data[[input$x]], .data[[input$y]])) +
-                plot_geom() + theme_bw() + geom_smooth(method = "lm")
+                plot_geom() + theme_bw() + geom_smooth(method = lm, formula = y ~ x)
                 
         }, res = 96)
         
@@ -290,7 +290,7 @@ ui <- navbarPage(
                     ggplot(aes(x = metro_area_pop, y = valuation)) + 
                     geom_point() + 
                     geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x, method = "lm") + 
+                    geom_smooth(method = lm, formula = y ~ x) + 
                     labs(title = "Metro Area Population vs. Team's Valuation", 
                          subtitle = "Correlation = 0.72", 
                          x = "Metro Area Population", y = "Valuation") + 
@@ -309,7 +309,7 @@ ui <- navbarPage(
                     ggplot(aes(x = year_purchased, y = price_paid)) + 
                     geom_point() + 
                     geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x, method = "lm") + 
+                    geom_smooth(method = lm, formula = y ~ x) + 
                     labs(title = "Franchise's Year Purchased vs. Price Paid", 
                          subtitle = "Correlation = 0.72", x = "Year Purchased", 
                          y = "Price Paid") + 
@@ -324,7 +324,7 @@ ui <- navbarPage(
                     ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
                     geom_point() + 
                     geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x, method = "lm") + 
+                    geom_smooth(method = lm, formula = y ~ x) + 
                     labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
                          subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
                          y = "Valuation") + 
