@@ -12,6 +12,7 @@ library(rvest)
 library(XML)
 library(RCurl)
 library(rlist)
+library(ggrepel)
 
 # reading in data sets
 

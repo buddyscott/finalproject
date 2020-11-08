@@ -12,6 +12,9 @@ library(rvest)
 library(XML)
 library(RCurl)
 library(rlist)
+library(rstanarm)
+library(rsample)
+library(ggridges)
 ```
 
 ```{r}
@@ -141,6 +144,9 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
 round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
 round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
 round(cor(full_dataset$valuation, full_dataset$lastseasonwinpct), 2)
+round(cor(full_dataset$metro_area_pop, full_dataset$operating_income), 2)
+round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
+
 full_dataset %>%
   ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
   geom_col() + 
@@ -187,6 +193,41 @@ full_dataset %>%
   scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
                      label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
   theme_bw()
+
+full_dataset %>%
+  ggplot(aes(x = metro_area_pop, y = operating_income)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x, method = "lm") + 
+  labs(title = "Metro Area Population vs. Opearating Income", 
+       subtitle = "Correlation = 0.55", x = "Metro Area Population", 
+       y = "Opearating Income") + 
+  theme_bw()
+
+full_dataset %>%
+  ggplot(aes(x = metro_area_pop, y = revenue)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x, method = "lm") + 
+  labs(title = "Metro Area Population vs. Revenue", 
+       subtitle = "Correlation = 0.65", x = "Metro Area Population", 
+       y = "Revenue") + 
+  theme_bw()
+
+
+
+
   
+```
+
+```{r}
+model_1 <- stan_glm(data = full_dataset, valuation ~ lastseasonwinpct + 
+                      gate_receipts + wins_to_player + revenue_per_fan + 
+                      tenyrwinpct + debt_to_value + revenue + operating_income,
+                    family = gaussian(), refresh = 0)
+```
+
+```{r}
+write.csv(full_dataset,"raw_data/full_dataset.csv", row.names = FALSE)
 ```
 
