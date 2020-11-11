@@ -15,6 +15,8 @@ library(rlist)
 library(rstanarm)
 library(rsample)
 library(ggridges)
+library(rpart)
+library(rpart.plot)
 ```
 
 ```{r}
@@ -174,7 +176,7 @@ full_dataset %>%
   ggplot(aes(x = year_purchased, y = price_paid)) + 
   geom_point() + 
   geom_text_repel(aes(label = team)) + 
-  geom_smooth(formula = y ~ x, method = "lm") + 
+  geom_smooth(formula = y ~ x) + 
   labs(title = "Franchise's Year Purchased vs. Price Paid", 
        subtitle = "Correlation = 0.72", x = "Year Purchased", 
        y = "Price Paid") + 
@@ -214,17 +216,33 @@ full_dataset %>%
        y = "Revenue") + 
   theme_bw()
 
-
+full_dataset %>%
+  ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
+  geom_col() + 
+  theme(axis.text = element_text(size = 8)) +
+  labs(title = "Team Valuations", x = "Team", y = "Valuation") + 
+  coord_flip() + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B")) 
 
 
   
 ```
 
 ```{r}
-model_1 <- stan_glm(data = full_dataset, valuation ~ lastseasonwinpct + 
-                      gate_receipts + wins_to_player + revenue_per_fan + 
-                      tenyrwinpct + debt_to_value + revenue + operating_income,
+model_1 <- stan_glm(data = full_dataset, valuation ~ revenue + I(revenue^2),
                     family = gaussian(), refresh = 0)
+
+print(model_1, digits = 4)
+
+posterior_interval(model_1, prob = 0.95)
+```
+```{r}
+tree <- rpart(valuation ~ operating_income + gate_receipts + metro_area_pop, 
+              data = full_dataset, cp = 0.01)
+
+rpart.plot(tree, type = 2)
 ```
 
 ```{r}
