@@ -1,0 +1,263 @@
+```{r}
+library(plyr)
+library(tidyverse)
+library(ggplot2)
+library(ggrepel)
+library(ggforce)
+library(ggthemes)
+library(readr)
+library(readxl)
+library(tibble)
+library(rvest)
+library(XML)
+library(RCurl)
+library(rlist)
+library(rstanarm)
+library(rsample)
+library(ggridges)
+library(rpart)
+library(rpart.plot)
+```
+
+```{r}
+nbainfo <- read_csv("raw_data/nbainfo2.csv", 
+                    col_type = cols(team = col_character(), 
+                                    "1920winpct" = col_number(), 
+                                    winpctrank = col_number(), 
+                                    "1920ortg" = col_number(),
+                                    ortgrank = col_number(), 
+                                    "1920drtg" = col_number(), 
+                                    drtgrank = col_number(), 
+                                    "1920nrtg" = col_number(), 
+                                    nrtgrank = col_number(), 
+                                    "1920pace" = col_number(), 
+                                    pacerank = col_number(), 
+                                    gtcontracts = col_number(), 
+                                    po_ngs = col_number(), 
+                                    avgage = col_number(), 
+                                    medage = col_number(), 
+                                    avgexp = col_number(), 
+                                    medexp = col_number(), 
+                                    "2021projsalary" = col_number(), 
+                                    "2021projcapspace" = col_number(), 
+                                    "2021projexceptions" = col_character(), 
+                                    tenyrwin = col_number(), 
+                                    tenyrloss = col_number(), 
+                                    tenyrwinpct = col_number(), 
+                                    winpctrank_10 = col_number(), 
+                                    playoffpct = col_number(), 
+                                    principal_owner = col_character(), 
+                                    nw = col_number(), 
+                                    owned_since = col_number(), 
+                                    business = col_character(), 
+                                    other_owners = col_character(), 
+                                    valuation = col_number(), 
+                                    percent_change = col_number(), 
+                                    debt_to_value = col_number(), 
+                                    revenue = col_number(), 
+                                    operating_income = col_number())) %>%
+    rename_with(~ str_replace(.x, "1920", "lastseason")) %>% 
+    rename_with(~ str_replace(.x, "2021", "nextseason")) %>% 
+    slice(1:30) %>%
+    subset(select = -nextseasonprojcapspace) %>%
+    select(team, lastseasonwinpct, lastseasonortg, lastseasondrtg, 
+           lastseasonnrtg, lastseasonpace, gtcontracts, avgage, medage, avgexp,
+           medexp, nextseasonprojsalary, nextseasonprojexceptions, 
+           tenyrwinpct, playoffpct, principal_owner, nw, valuation, 
+           percent_change, debt_to_value, revenue, operating_income)
+
+playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
+  playername = col_character(),
+  playerid = col_character(),
+  team = col_character(),
+  salary1920 = col_double(),
+  salary2021 = col_double(),
+  salary2122 = col_double(),
+  salary2223 = col_double(),
+  salary2324 = col_double(),
+  salary2425 = col_double(),
+  signedusing = col_character(),
+  guaranteed = col_double())) %>%
+  filter(!is.na(salary2021)) %>%
+  subset(select = -c(salary1920, guaranteed)) %>%
+  mutate(pctsalary2021 = salary2021 / 109140000)
+
+playercontracts_modified <- playercontracts %>%
+  filter(!is.na(salary2021)) %>%
+  filter(salary2021 > (109140000*0.15))
+
+payrolls <- read_csv("raw_data/payrolls.csv", col_type = 
+                       cols(.default = col_double(), team = col_character(), 
+                            `team code` = col_character()))
+
+payroll_rank <- read_csv("raw_data/payroll_rank.csv", col_type = 
+                           cols(.default = col_double(), 
+                                team = col_character()))
+
+nbacapsheets <- "raw_data/nbacapsheets.xlsx"
+excel_sheets(path = nbacapsheets)
+tab_names <- excel_sheets(path = nbacapsheets)
+list_all <- lapply(tab_names, function(x) read_excel(path = nbacapsheets, 
+                                                     sheet = x))
+agg_capsheets <- rbind.fill(list_all) %>%
+  filter(!is.na(num)) %>%
+  filter(!is.na(currentcontract)) %>%
+  select(name, position, age, experience:contractdetails)
+
+forbes1 <- read_csv("raw_data/forbes2020.csv", 
+                    col_type = cols(.default = col_character())) %>%
+  mutate(rank = str_sub(rank, start = 2)) %>%
+  mutate(valuation = substr(valuation, 2, nchar(valuation)-1)) %>%
+  mutate(value_change = gsub('.{1}$', '', value_change)) %>%
+  mutate(debt_to_value = gsub('.{1}$', '', debt_to_value)) %>%
+  mutate(revenue = substr(revenue, 2, nchar(revenue)-1)) %>%
+  mutate(operating_income = substr(operating_income, 2, 
+                                   nchar(operating_income)-1)) %>%
+  mutate(rank = as.numeric(rank)) %>%
+  mutate(valuation = as.numeric(valuation)) %>%
+  mutate(value_change = as.numeric(value_change)) %>%
+  mutate(debt_to_value = as.numeric(debt_to_value)) %>%
+  mutate(revenue = as.numeric(revenue)) %>%
+  mutate(operating_income = as.numeric(operating_income)) %>%
+  subset(select = -rank)
+
+forbes2 <- read_csv("raw_data/moreforbes.csv", 
+                    col_type = cols(.default = col_double(), 
+                                    team = col_character()))
+
+forbes_joined <- inner_join(forbes1, forbes2, by = "team")
+
+full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
+  subset(select = -c(valuation.y, debt_to_value.y, revenue.y, 
+                     operating_income.y, percent_change)) %>%
+  mutate(valuation = valuation.x) %>%
+  mutate(debt_to_value = debt_to_value.x) %>%
+  mutate(revenue = revenue.x) %>%
+  mutate(operating_income = operating_income.x) %>%
+  subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
+                     operating_income.x))
+                    
+```
+
+
+
+```{r}
+
+round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
+round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
+round(cor(full_dataset$valuation, full_dataset$lastseasonwinpct), 2)
+round(cor(full_dataset$metro_area_pop, full_dataset$operating_income), 2)
+round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
+
+full_dataset %>%
+  ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
+  geom_col() + 
+  theme(axis.text = element_text(size = 8)) +
+  labs(title = "Team Valuations", x = "Team", y = "Valuation") + 
+  coord_flip() + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B")) 
+
+full_dataset %>%
+  ggplot(aes(x = metro_area_pop, y = valuation)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x, method = "lm") + 
+  labs(title = "Metro Area Population vs. Team's Valuation", subtitle = 
+         "Correlation = 0.72", x = "Metro Area Population", y = "Valuation") + 
+  theme_bw() + 
+  scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25), 
+                     label = c("0M", "5M", "10M", "15M", "20M", "25M")) + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
+
+full_dataset %>%
+  ggplot(aes(x = year_purchased, y = price_paid)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x) + 
+  labs(title = "Franchise's Year Purchased vs. Price Paid", 
+       subtitle = "Correlation = 0.72", x = "Year Purchased", 
+       y = "Price Paid") + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(0, 1000, 2000, 3000), 
+                     label = c("$0", "$1B", "$2B", "$3B"))
+
+full_dataset %>%
+  ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x, method = "lm") + 
+  labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
+       subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
+       y = "Valuation") + 
+  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
+  theme_bw()
+
+full_dataset %>%
+  ggplot(aes(x = metro_area_pop, y = operating_income)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x, method = "lm") + 
+  labs(title = "Metro Area Population vs. Opearating Income", 
+       subtitle = "Correlation = 0.55", x = "Metro Area Population", 
+       y = "Opearating Income") + 
+  theme_bw()
+
+full_dataset %>%
+  ggplot(aes(x = metro_area_pop, y = revenue)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x, method = "lm") + 
+  labs(title = "Metro Area Population vs. Revenue", 
+       subtitle = "Correlation = 0.65", x = "Metro Area Population", 
+       y = "Revenue") + 
+  theme_bw()
+
+full_dataset %>%
+  ggplot(aes(x = fct_reorder(team, gate_receipts), y = gate_receipts)) + 
+  geom_col() + 
+  theme(axis.text = element_text(size = 8)) +
+  labs(title = "Gate Receipts by Team", x = "Team", y = "Gate Receipts") + 
+  coord_flip() + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
+                     label = c("$0", "$50M", "$100M", "$150M", "$200M")) 
+
+full_dataset %>%
+  ggplot(aes(x = valuation, y = gate_receipts)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x) + 
+  labs(title = "Team Valuation vs. Gate Receipts", 
+       subtitle = "Correlation = 0.65", x = "Team Valuation", 
+       y = "Gate Receipts") + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
+                     label = c("$0", "$50M", "$100M", "$150M", "$200M")) + 
+  scale_x_continuous(breaks = c(1, 2, 3, 4, 5), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
+  
+```
+
+```{r}
+model_1 <- stan_glm(data = full_dataset, valuation ~ revenue + I(revenue^2),
+                    family = gaussian(), refresh = 0)
+
+print(model_1, digits = 4)
+
+posterior_interval(model_1, prob = 0.95)
+```
+```{r}
+tree <- rpart(valuation ~ operating_income + gate_receipts + metro_area_pop, 
+              data = full_dataset, cp = 0.01)
+
+rpart.plot(tree, type = 2)
+```
+
+```{r}
+write.csv(full_dataset,"raw_data/full_dataset.csv", row.names = FALSE)
+```
+

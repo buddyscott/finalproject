@@ -1,0 +1,12 @@
+name: milestone5
+title: milestone5
+username:
+account: buddyscott
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3084603
+bundleId: 3775884
+url: https://buddyscott.shinyapps.io/milestone5/
+when: 1603489507.79193
+asMultiple: FALSE
+asStatic: FALSE
