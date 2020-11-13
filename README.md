@@ -5,4 +5,5 @@ from February 2020. Models effect of various inputs on both a team's valuation
 and its revenue.
 
 ![NBA Logo]
-(https://github.com/buddyscott/nba-team-business-models/blob/main/data-files/nbalogo.png?raw=true)
+(https://user-images.githubusercontent.com/55417203/99098877-a13fa100-25a7-11eb-8515-866d82747d41.png)
+
