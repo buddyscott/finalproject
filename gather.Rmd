@@ -20,7 +20,7 @@ library(rpart.plot)
 ```
 
 ```{r}
-nbainfo <- read_csv("raw_data/nbainfo2.csv", 
+nbainfo <- read_csv("data-files/nbainfo.csv", 
                     col_type = cols(team = col_character(), 
                                     "1920winpct" = col_number(), 
                                     winpctrank = col_number(), 
@@ -66,7 +66,7 @@ nbainfo <- read_csv("raw_data/nbainfo2.csv",
            tenyrwinpct, playoffpct, principal_owner, nw, valuation, 
            percent_change, debt_to_value, revenue, operating_income)
 
-playercontracts <- read_csv("raw_data/bbrefcontractdata2.csv", col_type = cols(
+playercontracts <- read_csv("data-files/bbrefcontractdata.csv", col_type = cols(
   playername = col_character(),
   playerid = col_character(),
   team = col_character(),
@@ -86,15 +86,7 @@ playercontracts_modified <- playercontracts %>%
   filter(!is.na(salary2021)) %>%
   filter(salary2021 > (109140000*0.15))
 
-payrolls <- read_csv("raw_data/payrolls.csv", col_type = 
-                       cols(.default = col_double(), team = col_character(), 
-                            `team code` = col_character()))
-
-payroll_rank <- read_csv("raw_data/payroll_rank.csv", col_type = 
-                           cols(.default = col_double(), 
-                                team = col_character()))
-
-nbacapsheets <- "raw_data/nbacapsheets.xlsx"
+nbacapsheets <- "data-files/nbacapsheets.xlsx"
 excel_sheets(path = nbacapsheets)
 tab_names <- excel_sheets(path = nbacapsheets)
 list_all <- lapply(tab_names, function(x) read_excel(path = nbacapsheets, 
@@ -104,7 +96,7 @@ agg_capsheets <- rbind.fill(list_all) %>%
   filter(!is.na(currentcontract)) %>%
   select(name, position, age, experience:contractdetails)
 
-forbes1 <- read_csv("raw_data/forbes2020.csv", 
+forbes1 <- read_csv("data-files/forbes2020.csv", 
                     col_type = cols(.default = col_character())) %>%
   mutate(rank = str_sub(rank, start = 2)) %>%
   mutate(valuation = substr(valuation, 2, nchar(valuation)-1)) %>%
@@ -121,7 +113,7 @@ forbes1 <- read_csv("raw_data/forbes2020.csv",
   mutate(operating_income = as.numeric(operating_income)) %>%
   subset(select = -rank)
 
-forbes2 <- read_csv("raw_data/moreforbes.csv", 
+forbes2 <- read_csv("data-files/moreforbes.csv", 
                     col_type = cols(.default = col_double(), 
                                     team = col_character()))
 
@@ -258,6 +250,6 @@ rpart.plot(tree, type = 2)
 ```
 
 ```{r}
-write.csv(full_dataset,"raw_data/full_dataset.csv", row.names = FALSE)
+write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
 ```
 
