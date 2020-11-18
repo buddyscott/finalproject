@@ -17,6 +17,7 @@ library(rsample)
 library(ggridges)
 library(rpart)
 library(rpart.plot)
+library(neuralnet)
 ```
 
 ```{r}
@@ -155,7 +156,7 @@ full_dataset %>%
   ggplot(aes(x = metro_area_pop, y = valuation)) + 
   geom_point() + 
   geom_text_repel(aes(label = team)) + 
-  geom_smooth(formula = y ~ x, method = "lm") + 
+  geom_smooth(formula = y ~ x) + 
   labs(title = "Metro Area Population vs. Team's Valuation", subtitle = 
          "Correlation = 0.72", x = "Metro Area Population", y = "Valuation") + 
   theme_bw() + 
@@ -180,7 +181,7 @@ full_dataset %>%
   ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
   geom_point() + 
   geom_text_repel(aes(label = team)) + 
-  geom_smooth(formula = y ~ x, method = "lm") + 
+  geom_smooth(formula = y ~ x) + 
   labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
        subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
        y = "Valuation") + 
@@ -192,7 +193,7 @@ full_dataset %>%
   ggplot(aes(x = metro_area_pop, y = operating_income)) + 
   geom_point() + 
   geom_text_repel(aes(label = team)) + 
-  geom_smooth(formula = y ~ x, method = "lm") + 
+  geom_smooth(formula = y ~ x) + 
   labs(title = "Metro Area Population vs. Opearating Income", 
        subtitle = "Correlation = 0.55", x = "Metro Area Population", 
        y = "Opearating Income") + 
@@ -202,7 +203,7 @@ full_dataset %>%
   ggplot(aes(x = metro_area_pop, y = revenue)) + 
   geom_point() + 
   geom_text_repel(aes(label = team)) + 
-  geom_smooth(formula = y ~ x, method = "lm") + 
+  geom_smooth(formula = y ~ x) + 
   labs(title = "Metro Area Population vs. Revenue", 
        subtitle = "Correlation = 0.65", x = "Metro Area Population", 
        y = "Revenue") + 
@@ -243,13 +244,48 @@ print(model_1, digits = 4)
 posterior_interval(model_1, prob = 0.95)
 ```
 ```{r}
-tree <- rpart(valuation ~ operating_income + gate_receipts + metro_area_pop, 
+valuation_tree <- rpart(valuation ~ operating_income + gate_receipts + 
+                metro_area_pop + tenyrwinpct, 
               data = full_dataset, cp = 0.01)
 
-rpart.plot(tree, type = 2)
+rpart.plot(valuation_tree, type = 2)
+
+revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
+                metro_area_pop + tenyrwinpct, data = full_dataset, cp = 0.01)
+
+rpart.plot(revenue_tree, type = 2)
+
+revenue_on_valuation <- rpart(valuation ~ revenue, data = full_dataset, cp = 0.01)
+
+rpart.plot(revenue)
 ```
 
 ```{r}
 write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
+```
+
+```{r}
+full_dataset %>%
+  arrange(desc(gate_receipts))
+```
+
+```{r}
+nn=neuralnet(revenue ~ operating_income + gate_receipts + 
+                metro_area_pop + tenyrwinpct, data = full_dataset, hidden=c(5, 2),
+                linear.output = TRUE)
+
+plot(nn)
+```
+
+```{r}
+test_data <- full_dataset
+test_data$gate_receipts = 0
+
+prediction_1 <- compute(nn, test_data)
+prediction_1$net.result
+
+prediction_2 <- compute(nn, full_dataset)
+prediction_2$net.result
+
 ```
 
