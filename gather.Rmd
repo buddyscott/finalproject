@@ -87,16 +87,6 @@ playercontracts_modified <- playercontracts %>%
   filter(!is.na(salary2021)) %>%
   filter(salary2021 > (109140000*0.15))
 
-nbacapsheets <- "data-files/nbacapsheets.xlsx"
-excel_sheets(path = nbacapsheets)
-tab_names <- excel_sheets(path = nbacapsheets)
-list_all <- lapply(tab_names, function(x) read_excel(path = nbacapsheets, 
-                                                     sheet = x))
-agg_capsheets <- rbind.fill(list_all) %>%
-  filter(!is.na(num)) %>%
-  filter(!is.na(currentcontract)) %>%
-  select(name, position, age, experience:contractdetails)
-
 forbes1 <- read_csv("data-files/forbes2020.csv", 
                     col_type = cols(.default = col_character())) %>%
   mutate(rank = str_sub(rank, start = 2)) %>%
@@ -128,7 +118,8 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(revenue = revenue.x) %>%
   mutate(operating_income = operating_income.x) %>%
   subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
-                     operating_income.x))
+                     operating_income.x)) %>%
+  
                     
 ```
 
@@ -257,7 +248,7 @@ rpart.plot(revenue_tree, type = 2)
 
 revenue_on_valuation <- rpart(valuation ~ revenue, data = full_dataset, cp = 0.01)
 
-rpart.plot(revenue)
+rpart.plot(revenue_on_valuation, type = 2)
 ```
 
 ```{r}
