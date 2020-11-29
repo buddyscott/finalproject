@@ -119,6 +119,14 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(operating_income = operating_income.x) %>%
   subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
                      operating_income.x)) %>%
+  mutate(valuation = valuation*1000) %>%
+  mutate(sport_pct = sport/valuation) %>%
+  mutate(market_pct = market/valuation) %>%
+  mutate(stadium_pct = stadium/valuation) %>%
+  mutate(brand_pct = brand/valuation)
+
+breakdown <- c(full_dataset$sport_pct, full_dataset$market_pct, 
+                        full_dataset$stadium_pct, full_dataset$brand_pct)
   
                     
 ```
@@ -137,10 +145,10 @@ full_dataset %>%
   ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
   geom_col() + 
   theme(axis.text = element_text(size = 8)) +
-  labs(title = "Team Valuations", x = "Team", y = "Valuation") + 
+  labs(title = "February 2020 Team Valuations", x = "Team", y = "Valuation") + 
   coord_flip() + 
   theme_bw() + 
-  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+  scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
                      label = c("$1B", "$2B", "$3B", "$4B", "$5B")) 
 
 full_dataset %>%
@@ -223,11 +231,12 @@ full_dataset %>%
                      label = c("$0", "$50M", "$100M", "$150M", "$200M")) + 
   scale_x_continuous(breaks = c(1, 2, 3, 4, 5), 
                      label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
+
   
 ```
 
 ```{r}
-model_1 <- stan_glm(data = full_dataset, valuation ~ revenue + I(revenue^2),
+model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts,
                     family = gaussian(), refresh = 0)
 
 print(model_1, digits = 4)

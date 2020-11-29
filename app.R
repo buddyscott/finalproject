@@ -81,16 +81,6 @@ playercontracts <- read_csv("data-files/bbrefcontractdata.csv", col_type = cols(
     subset(select = -c(salary1920, guaranteed)) %>%
     mutate(pctsalary2021 = salary2021 / 109140000)
 
-nbacapsheets <- "data-files/nbacapsheets.xlsx"
-excel_sheets(path = nbacapsheets)
-tab_names <- excel_sheets(path = nbacapsheets)
-list_all <- lapply(tab_names, function(x) read_excel(path = nbacapsheets, 
-                                                     sheet = x))
-agg_capsheets <- rbind.fill(list_all) %>%
-    filter(!is.na(num)) %>%
-    filter(!is.na(currentcontract)) %>%
-    select(name, position, age, experience:contractdetails)
-
 forbes1 <- read_csv("data-files/forbes2020.csv", 
                     col_type = cols(.default = col_character())) %>%
     mutate(rank = str_sub(rank, start = 2)) %>%
@@ -122,7 +112,13 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(revenue = revenue.x) %>%
     mutate(operating_income = operating_income.x) %>%
     subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
-                       operating_income.x))
+                       operating_income.x)) %>%
+    mutate(valuation = valuation*1000) %>%
+    mutate(sport_pct = sport/valuation) %>%
+    mutate(market_pct = market/valuation) %>%
+    mutate(stadium_pct = stadium/valuation) %>%
+    mutate(brand_pct = brand/valuation) %>%
+    select(team:lastseasonpace, nw:brand_pct)
 
 
 ui <- navbarPage(
@@ -151,26 +147,24 @@ ui <- navbarPage(
              COVID-19 world."),
              br(), 
              HTML('<iframe width="560" height="315" 
-                  src="https://www.youtube.com/embed/mzEilNDSh-c" 
+                  src="https://www.youtube.com/embed/a-M3x-eZpV8" 
                   frameborder="0" allow="accelerometer; autoplay; 
                   clipboard-write; encrypted-media; gyroscope; 
                   picture-in-picture" allowfullscreen></iframe>'),
-             p("This is a video of my favorite NBA player ever hitting a 
-               game-winning shot. All of this research and analysis is being 
-               done to better understand how teams can improve their rosters 
-               amidst a worldwide pandemic and make fans as julibant as Nuggets
-               fans sound at 0:16 of the video."),
+             p("This is a video of one of the greatest buzzer-beater shots in 
+               NBA history. This analysis is being done to better understand
+               the new normal we are in that involves limited to no fans in 
+               arenas, but hopefully we get back to jubilant moments like this
+               one soon."),
              h3("Data Sources"),
-             p("Most of the data used is from a massive spreadsheet that I
-               update that has NBA rosters, player contracts, and info
-               about each team. The two external data sources I pulled were
-               salary data from Basketball Reference to complement the salary 
-               data that I maintain, as well as information from Forbes 
-               about the wealth of the majority owners of these 30 NBA teams."),
+             p("Most of this data comes from the Forbes February 2020 NBA Team
+               Valuations publication. Other data comes from data that I
+               maintain in my free time (the link to those spreadsheets is at 
+               the bottom of this page."),
              h3("About Me"),
-             p("My name is Buddy Scott and I study Economics with a secondary 
-              in Government at Harvard College. 
-             You can reach me at jamesscott@college.harvard.edu."), 
+             p("My name is Buddy Scott and I concentrate in Economics with a 
+               secondary in Government at Harvard College. You can reach me at 
+               jamesscott@college.harvard.edu."), 
              a("Connect with me on LinkedIn", 
                href = "https://www.linkedin.com/in/buddyscott13/"),
              br(),
@@ -178,7 +172,7 @@ ui <- navbarPage(
                href = "https://github.com/buddyscott/finalproject"),
              br(), 
              a("Please see my NBA spreadsheet work here", 
-               href = "https://tinyurl.com/buddyscottnba")
+               href = "https://hu-my.sharepoint.com/:x:/g/personal/jamesscott_college_harvard_edu/Ees1sxrxTG1AobHhy3Z_SEEBxzYTcnAFO1zm5XM22L-JGQ?e=gfcWXM")
              ),
     
     tabPanel("NBA Team Info",
@@ -191,7 +185,7 @@ ui <- navbarPage(
              fluidPage(
                  selectInput("x", "X variable", choices = names(full_dataset)),
                  selectInput("y", "Y variable", choices = names(full_dataset)),
-                 selectInput("geom", "geom", c("point", "column", "jitter")),
+                 selectInput("geom", "geom", c("point", "column")),
                  plotOutput("plot1")),
              
              p("This is a plot of team valuations."),
@@ -249,8 +243,7 @@ ui <- navbarPage(
         plot_geom <- reactive({
             switch(input$geom,
                    point = geom_point(),
-                   column = geom_col(),
-                   jitter = geom_jitter()
+                   column = geom_col()
             )
         })
 
