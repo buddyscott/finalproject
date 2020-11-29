@@ -129,22 +129,20 @@ ui <- navbarPage(
              h3("Project Background and Motivations"),
              p("This project will analyze the potential ramifications of the 
              ongoing COVID-19 pandemic on the finances of National Basketball
-             Association (NBA) teams and the market for NBA players. NBA 
-             Commissioner Adam Silver revealed in May 2020 that ticket sales for 
-             in-person fan attendance comprises an estimated 40% of the NBA’s 
-             revenue. In a doomdsay scenario that would have no fans in the 
-             arenas for next season, both the players’ and the owners’ share of 
-             Basketball Related Income would decrease from $4 billion to $2.4 
-             billion according to Silver's projection. If this is the case, 
-             the league might have to withhold an increased percentage of 
-             players’ salaries in escrow for the upcoming season to finance the 
-             league’s operations, potentially leading to heavily contested 
-             debates at the bargaining table for an updated Collective 
-             Bargaining Agreement that has led to lockouts (complete stoppages 
-             of play) in the past. This project will take a deep dive of the 
-             most recent update on each team's finances to better understand 
-             the situations and constraints each individual team faces in a 
-             COVID-19 world."),
+             Association (NBA) teams. NBA Commissioner Adam Silver revealed in 
+             May 2020 that ticket sales for in-person fan attendance comprises 
+             an estimated 40% of the NBA’s revenue. In a doomdsay scenario that 
+             would have no fans in the arenas for the 2020-2021, both the 
+             players’ and the owners’ share of Basketball Related Income would 
+             decrease from roughly $4 billion to $2.4 billion according to 
+             Silver's projection. If this is the case, the league will have to 
+             rethink its entire business model. The commisioner has already 
+             discussed the possibility of the league turning to sports betting, 
+             serving hard alcohol at games, and casinos (long thought of by the 
+             league as sinful endeavours) as a way to get cash into the hands 
+             of teams. This project will take a deep dive of the most recent 
+             update on each team's finances to better understand the situations 
+             and constraints each individual team faces in the COVID-19 world."),
              br(), 
              HTML('<iframe width="560" height="315" 
                   src="https://www.youtube.com/embed/a-M3x-eZpV8" 
@@ -154,13 +152,13 @@ ui <- navbarPage(
              p("This is a video of one of the greatest buzzer-beater shots in 
                NBA history. This analysis is being done to better understand
                the new normal we are in that involves limited to no fans in 
-               arenas, but hopefully we get back to jubilant moments like this
-               one soon."),
+               arenas, but hopefully we will get back to jubilant moments like 
+               this one soon."),
              h3("Data Sources"),
              p("Most of this data comes from the Forbes February 2020 NBA Team
-               Valuations publication. Other data comes from data that I
+               Valuations publication. Other data comes from spreadsheets that I
                maintain in my free time (the link to those spreadsheets is at 
-               the bottom of this page."),
+               the bottom of the page."),
              h3("About Me"),
              p("My name is Buddy Scott and I concentrate in Economics with a 
                secondary in Government at Harvard College. You can reach me at 
@@ -169,7 +167,7 @@ ui <- navbarPage(
                href = "https://www.linkedin.com/in/buddyscott13/"),
              br(),
              a("Please see my GitHub repo here", 
-               href = "https://github.com/buddyscott/finalproject"),
+               href = "https://github.com/buddyscott/nba-team-business-models"),
              br(), 
              a("Please see my NBA spreadsheet work here", 
                href = "https://hu-my.sharepoint.com/:x:/g/personal/jamesscott_college_harvard_edu/Ees1sxrxTG1AobHhy3Z_SEEBxzYTcnAFO1zm5XM22L-JGQ?e=gfcWXM")
@@ -178,8 +176,7 @@ ui <- navbarPage(
     tabPanel("NBA Team Info",
              mainPanel(
                  p("This section allows you to plot two variables with each 
-                   other, either as a scatterplot, bar graph, 
-                   or jittered plot."),
+                   other, either as a scatterplot or bar graph."),
                  br(),
              
              fluidPage(
