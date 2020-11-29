@@ -124,8 +124,7 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
 ui <- navbarPage(
     "Buddy Ball: Understanding NBA Finances Amidst COVID-19",
     
-    tabPanel("About", 
-             titlePanel("About"),
+    tabPanel("Introduction", 
              h3("Project Background and Motivations"),
              p("This project will analyze the potential ramifications of the 
              ongoing COVID-19 pandemic on the finances of National Basketball
@@ -144,36 +143,28 @@ ui <- navbarPage(
              update on each team's finances to better understand the situations 
              and constraints each individual team faces in the COVID-19 world."),
              br(), 
-             HTML('<iframe width="560" height="315" 
-                  src="https://www.youtube.com/embed/a-M3x-eZpV8" 
-                  frameborder="0" allow="accelerometer; autoplay; 
-                  clipboard-write; encrypted-media; gyroscope; 
-                  picture-in-picture" allowfullscreen></iframe>'),
              p("This is a video of one of the greatest buzzer-beater shots in 
                NBA history. This analysis is being done to better understand
                the new normal we are in that involves limited to no fans in 
                arenas, but hopefully we will get back to jubilant moments like 
                this one soon."),
-             h3("Data Sources"),
-             p("Most of this data comes from the Forbes February 2020 NBA Team
-               Valuations publication. Other data comes from spreadsheets that I
-               maintain in my free time (the link to those spreadsheets is at 
-               the bottom of the page."),
-             h3("About Me"),
-             p("My name is Buddy Scott and I concentrate in Economics with a 
-               secondary in Government at Harvard College. You can reach me at 
-               jamesscott@college.harvard.edu."), 
-             a("Connect with me on LinkedIn", 
-               href = "https://www.linkedin.com/in/buddyscott13/"),
-             br(),
-             a("Please see my GitHub repo here", 
-               href = "https://github.com/buddyscott/nba-team-business-models"),
-             br(), 
-             a("Please see my NBA spreadsheet work here", 
-               href = "https://hu-my.sharepoint.com/:x:/g/personal/jamesscott_college_harvard_edu/Ees1sxrxTG1AobHhy3Z_SEEBxzYTcnAFO1zm5XM22L-JGQ?e=gfcWXM")
+             HTML('<iframe width="800" height="600" 
+                  src="https://www.youtube.com/embed/a-M3x-eZpV8" 
+                  frameborder="0" allow="accelerometer; autoplay; 
+                  clipboard-write; encrypted-media; gyroscope; 
+                  picture-in-picture" allowfullscreen></iframe>'),
              ),
     
-    tabPanel("NBA Team Info",
+    tabPanel("Methodology",
+             h3("Methodology"),
+             p("Write about methodology."),
+             br(),
+             br(),
+             h3("Explanation of Variables in Dataset"),
+             p("Explanation..."),
+             ),
+    
+    tabPanel("Interactive Plot",
              mainPanel(
                  p("This section allows you to plot two variables with each 
                    other, either as a scatterplot or bar graph."),
@@ -185,6 +176,11 @@ ui <- navbarPage(
                  selectInput("geom", "geom", c("point", "column")),
                  plotOutput("plot1")),
              
+             )),
+    
+    tabPanel("Plots",
+             h3("Correlations"),
+    
              p("This is a plot of team valuations."),
              plotOutput("plot2"), 
              
@@ -201,7 +197,6 @@ ui <- navbarPage(
                Forbes in Feb 2020."),
              plotOutput("plot5")
              
-             )
              ),
     
     tabPanel("Player Salary Info",
@@ -224,10 +219,30 @@ ui <- navbarPage(
             ),
     
     tabPanel("Discussion",
-             titlePanel("Discussion Title"),
              p("This will be a discussion about what the model shows as well as 
-             potential policy suggestions to mitigate this potential damage."))
-)
+             potential policy suggestions to mitigate this potential damage."),
+             ),
+    
+    tabPanel("About",
+             h3("Data Sources"),
+             p("Most of this data comes from the Forbes February 2020 NBA Team
+               Valuations publication. Other data comes from spreadsheets that I
+               maintain in my free time (the link to those spreadsheets is at 
+               the bottom of the page."),
+             h3("About Me"),
+             p("My name is Buddy Scott and I concentrate in Economics with a 
+               secondary in Government at Harvard College. You can reach me at 
+               jamesscott@college.harvard.edu."), 
+             a("Connect with me on LinkedIn", 
+               href = "https://www.linkedin.com/in/buddyscott13/"),
+             br(),
+             a("Please see my GitHub repo here", 
+               href = "https://github.com/buddyscott/nba-team-business-models"),
+             br(), 
+             a("Please see my NBA spreadsheet work here", 
+               href = "https://hu-my.sharepoint.com/:x:/g/personal/jamesscott_college_harvard_edu/Ees1sxrxTG1AobHhy3Z_SEEBxzYTcnAFO1zm5XM22L-JGQ?e=gfcWXM")
+    ))
+
 
     
     # Define server logic
