@@ -120,6 +120,10 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(brand_pct = brand/valuation) %>%
     select(team:lastseasonpace, nw:brand_pct)
 
+pivoted_dataset <- full_dataset %>%
+    select(team, valuation, sport, market, stadium, brand) %>%
+    pivot_longer(sport:brand, names_to = "aspect", values_to = "values") %>%
+    arrange(desc(valuation))
 
 ui <- navbarPage(
     "Buddy Ball: Understanding NBA Finances Amidst COVID-19",
@@ -148,7 +152,7 @@ ui <- navbarPage(
                the new normal we are in that involves limited to no fans in 
                arenas, but hopefully we will get back to jubilant moments like 
                this one soon."),
-             HTML('<iframe width="800" height="600" 
+             HTML('<iframe width="1000" height="500" 
                   src="https://www.youtube.com/embed/a-M3x-eZpV8" 
                   frameborder="0" allow="accelerometer; autoplay; 
                   clipboard-write; encrypted-media; gyroscope; 
@@ -179,23 +183,26 @@ ui <- navbarPage(
              )),
     
     tabPanel("Plots",
-             h3("Correlations"),
     
              p("This is a plot of team valuations."),
              plotOutput("plot2"), 
              
+             p("This is a plot of the breakdown of the four components 
+               of team valuations."),
+             plotOutput("plot3"),
+             
              p("This is a scatterplot of the metro area population of a 
                franchise versus the team's valuation by Forbes in Feb 2020."),
-             plotOutput("plot3"), 
+             plotOutput("plot4"), 
              
              p("This is a scatterplot of the year a team was purchased 
                compared to the price paid by the buyer of the team."),
-             plotOutput("plot4"),
+             plotOutput("plot5"),
              
              p("This is a scatterplot of each team's winning percentage in 
                the most recent NBA season compared to a team's valuation by 
                Forbes in Feb 2020."),
-             plotOutput("plot5")
+             plotOutput("plot6")
              
              ),
     
@@ -269,19 +276,45 @@ ui <- navbarPage(
             playercontracts
         })
         
+        output$plot3 <- 
+            renderPlot({
+                pivoted_dataset %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
+                    facet_wrap(~ team, ncol = 10) + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Valuation Breakdown", 
+                         y = "Dollars") +
+                    scale_x_discrete(breaks = c("brand", "market", 
+                                                "sport", "stadium"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(500, 1000, 1500, 2000), 
+                                       labels = c("$500M", "$1B", "$1.5B", 
+                                                  "$2B")) + 
+                    theme_classic()
+            })
+        
         output$plot2 <- 
             renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
                     geom_col() + 
-                    scale_y_continuous(breaks = c(0, 1, 2, 3, 4, 5)) + 
+                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
+                                       labels = c("$1B", "$2B", "$3B", "$4B", 
+                                                  "$5B")) + 
                     theme(axis.text = element_text(size = 8)) +
                     labs(title = "Team Valuations", 
-                         x = "Team", y = "Valuation (in Billions)") + 
-                    coord_flip()
+                         x = "Team", y = "Valuation") + 
+                    coord_flip() + 
+                    theme_classic()
             })
         
-        output$plot3 <- 
+        output$plot4 <- 
             renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = metro_area_pop, y = valuation)) + 
@@ -291,16 +324,16 @@ ui <- navbarPage(
                     labs(title = "Metro Area Population vs. Team's Valuation", 
                          subtitle = "Correlation = 0.72", 
                          x = "Metro Area Population", y = "Valuation") + 
-                    theme_bw() + 
+                    theme_classic() + 
                     scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25), 
                                        label = c("0M", "5M", "10M", "15M", 
                                                  "20M", "25M")) + 
-                    scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
                                        label = c("$1B", "$2B", "$3B", "$4B", 
                                                  "$5B"))
             })
         
-        output$plot4 <- 
+        output$plot5 <- 
             renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = year_purchased, y = price_paid)) + 
@@ -310,12 +343,12 @@ ui <- navbarPage(
                     labs(title = "Franchise's Year Purchased vs. Price Paid", 
                          subtitle = "Correlation = 0.72", x = "Year Purchased", 
                          y = "Price Paid") + 
-                    theme_bw() + 
+                    theme_classic() + 
                     scale_y_continuous(breaks = c(0, 1000, 2000, 3000), 
                                        label = c("$0", "$1B", "$2B", "$3B"))
             })
         
-        output$plot5 <- 
+        output$plot6 <- 
             renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
@@ -325,9 +358,9 @@ ui <- navbarPage(
                     labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
                          subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
                          y = "Valuation") + 
-                    scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
+                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
                                        label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
-                    theme_bw()
+                    theme_classic()
             })
         
     }
