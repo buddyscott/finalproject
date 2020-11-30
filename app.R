@@ -120,9 +120,15 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(brand_pct = brand/valuation) %>%
     select(team:lastseasonpace, nw:brand_pct)
 
-pivoted_dataset <- full_dataset %>%
+pivoted_raw_dataset <- full_dataset %>%
     select(team, valuation, sport, market, stadium, brand) %>%
     pivot_longer(sport:brand, names_to = "aspect", values_to = "values") %>%
+    arrange(desc(valuation))
+
+pivoted_pct_dataset <- full_dataset %>%
+    select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+    pivot_longer(sport_pct:brand_pct, 
+                 names_to = "aspect", values_to = "values") %>%
     arrange(desc(valuation))
 
 ui <- navbarPage(
@@ -191,18 +197,21 @@ ui <- navbarPage(
                of team valuations."),
              plotOutput("plot3"),
              
+             p("This is the next one."),
+             plotOutput("plot4"),
+             
              p("This is a scatterplot of the metro area population of a 
                franchise versus the team's valuation by Forbes in Feb 2020."),
-             plotOutput("plot4"), 
+             plotOutput("plot5"), 
              
              p("This is a scatterplot of the year a team was purchased 
                compared to the price paid by the buyer of the team."),
-             plotOutput("plot5"),
+             plotOutput("plot6"),
              
              p("This is a scatterplot of each team's winning percentage in 
                the most recent NBA season compared to a team's valuation by 
                Forbes in Feb 2020."),
-             plotOutput("plot6")
+             plotOutput("plot7")
              
              ),
     
@@ -278,16 +287,16 @@ ui <- navbarPage(
         
         output$plot3 <- 
             renderPlot({
-                pivoted_dataset %>%
+                pivoted_raw_dataset %>%
                     ggplot(aes(x = aspect, y = values)) + 
                     geom_col() + 
-                    facet_wrap(~ team, ncol = 10) + 
+                    facet_wrap(~ team, ncol = 6) + 
                     theme(strip.text = element_text(size = 6), 
                           axis.text = element_text(size = 4), 
                           panel.grid = element_blank(), 
                           panel.spacing.x = unit(3, "mm")) + 
                     labs(title = "Team Valuation Breakdown", 
-                         x = "Valuation Breakdown", 
+                         x = "Raw Valuation Breakdown", 
                          y = "Dollars") +
                     scale_x_discrete(breaks = c("brand", "market", 
                                                 "sport", "stadium"), 
@@ -316,6 +325,28 @@ ui <- navbarPage(
         
         output$plot4 <- 
             renderPlot({
+                pivoted_pct_dataset %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
+                    facet_wrap(~ team, ncol = 6) + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Percent Valuation Breakdown", 
+                         y = "Percentage") +
+                    scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                                "sport_pct", "stadium_pct"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    theme_classic()
+            })
+        
+        output$plot5 <- 
+            renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = metro_area_pop, y = valuation)) + 
                     geom_point() + 
@@ -333,7 +364,7 @@ ui <- navbarPage(
                                                  "$5B"))
             })
         
-        output$plot5 <- 
+        output$plot6 <- 
             renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = year_purchased, y = price_paid)) + 
@@ -348,7 +379,7 @@ ui <- navbarPage(
                                        label = c("$0", "$1B", "$2B", "$3B"))
             })
         
-        output$plot6 <- 
+        output$plot7 <- 
             renderPlot({
                 full_dataset %>%
                     ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
