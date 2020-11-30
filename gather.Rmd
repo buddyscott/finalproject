@@ -125,6 +125,9 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(stadium_pct = stadium/valuation) %>%
   mutate(brand_pct = brand/valuation)
 
+full_dataset %>%
+  arrange(desc(build_cost))
+
 breakdown <- c(full_dataset$sport_pct, full_dataset$market_pct, 
                         full_dataset$stadium_pct, full_dataset$brand_pct)
   
