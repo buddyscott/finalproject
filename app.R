@@ -178,7 +178,7 @@ ui <- navbarPage(
              p("value_change: Percentage change in team's valuation between
                February 2019 and February 2020"),
              p("year_purchased: Year current ownership group purchased team"),
-             p("price_paid = Price (in millions) that current ownership group
+             p("price_paid: Price (in millions) that current ownership group
                paid when they bought the team"),
              p("player_expenses: Money spent on players, including benefits
                and bonuses"),
@@ -201,11 +201,25 @@ ui <- navbarPage(
              p("nw: Net worth (in billions) of majority owner"),
              p("valuation: Team's valuation (in millions)"),
              p("debt_to_value: Debt divided by value, including arena debt"),
-             
+             p("revenue: Amount of revenue (in millions)"),
+             p("operating_income: Earnings before interest, taxes, etc."),
+             p("sport_pct: Percentage of franchise's value attributable to 
+               revenue shared among all teams"),
+             p("market_pct: Percentage of franchise's value attributable to
+               its city and market size"),
+             p("stadium_pct: Percentage of franchise's value attributable to 
+               its arena"),
+             p("brand_pct: Percentage of franchise's value attributable to its 
+               brand"),
+             p("growth_rate: Team's valuation minus price paid, divded by 
+               difference between 2020 and year purchased")
              
              ),
     
-
+    tabPanel("Data",
+             
+             DT::dataTableOutput("full_dataset"),
+             ),
     
     tabPanel("Plots",
              
@@ -236,24 +250,23 @@ ui <- navbarPage(
              p("This is a scatterplot of the year a team was purchased 
                compared to the price paid by the buyer of the team."),
              plotOutput("plot6"),
-             
-             p("This is a scatterplot of each team's winning percentage in 
-               the most recent NBA season compared to a team's valuation by 
-               Forbes in Feb 2020."),
-             plotOutput("plot7")
+
              
              ),
     
-    tabPanel("Big Market Team",
+    tabPanel("Big Market",
              h3("Golden State Warriors"),
+             imageOutput("myImage2")
              ),
     
-    tabPanel("Middle Market Team",
+    tabPanel("Middle Market",
              h3("Portland Trail Blazers"),
+             imageOutput("myImage3")
     ),
     
-    tabPanel("Small Market Team",
+    tabPanel("Small Market",
              h3("Memphis Grizzlies"),
+             imageOutput("myImage4")
     ),
     
     tabPanel("Model",
@@ -270,7 +283,7 @@ ui <- navbarPage(
              p("My name is Buddy Scott and I concentrate in Economics with a 
                secondary in Government at Harvard College. You can reach me at 
                jamesscott@college.harvard.edu."), 
-             imageOutput("myImage"),
+             imageOutput("myImage1"),
              br(),
              br(),
              br(),
@@ -309,8 +322,8 @@ ui <- navbarPage(
                 
         }, res = 96)
         
-        output$playercontracts = DT::renderDataTable({
-            playercontracts
+        output$full_dataset = DT::renderDataTable({
+            full_dataset
         })
         
         output$plot3 <- 
@@ -422,13 +435,37 @@ ui <- navbarPage(
                     theme_classic()
             })
         
-        output$myImage <- 
+        output$myImage1 <- 
             renderImage({
             list(src = "buddyscott.png",
                  width = 300,
                  height = 500,
                  alt = "This is alternate text")
         }, deleteFile = FALSE)
+        
+        output$myImage2 <- 
+            renderImage({
+                list(src = "gsw.png",
+                     width = 300,
+                     height = 500,
+                     alt = "This is alternate text")
+            }, deleteFile = FALSE)
+        
+        output$myImage3 <- 
+            renderImage({
+                list(src = "por.png",
+                     width = 300,
+                     height = 500,
+                     alt = "This is alternate text")
+            }, deleteFile = FALSE)
+        
+        output$myImage4 <- 
+            renderImage({
+                list(src = "mem.png",
+                     width = 300,
+                     height = 500,
+                     alt = "This is alternate text")
+            }, deleteFile = FALSE)
         
     }
     

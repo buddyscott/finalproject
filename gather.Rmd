@@ -359,19 +359,4 @@ prediction_2$net.result
 
 ```
 
-```{r}
-    tabPanel("Player Salary Info",
-            h2("NBA Player Salary Data"), 
-            p("Type your favorite player's name into the search bar to see 
-              their current contract."),
-            
-            # This gives the data set playercontracts (read in earlier) as a
-            # somewhat interactive table - interactive in the sense that 
-            # a user can search a specific player and see their salary. This 
-            # will eventually be updated to be a more detailed analysis that 
-            # will give a lot more information than just the player and his
-            # contract. 
-            
-            DT::dataTableOutput("playercontracts"),),
-```
 
