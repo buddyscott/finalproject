@@ -125,12 +125,10 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(stadium_pct = stadium/valuation) %>%
     mutate(brand_pct = brand/valuation) %>%
     select(team:build_cost, nw:brand_pct) %>%
-    mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased))
+    mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased)) %>%
+    mutate(income_no_fans = operating_income - gate_receipts) %>%
+    mutate(revenue_no_fans = revenue - gate_receipts)
 
-full_data
-
-full_dataset %>%
-  arrange(desc(build_cost))
 
 breakdown <- c(full_dataset$sport_pct, full_dataset$market_pct, 
                         full_dataset$stadium_pct, full_dataset$brand_pct)
@@ -144,7 +142,6 @@ breakdown <- c(full_dataset$sport_pct, full_dataset$market_pct,
 
 round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
 round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
-round(cor(full_dataset$valuation, full_dataset$lastseasonwinpct), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$operating_income), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
 
@@ -195,18 +192,6 @@ full_dataset %>%
   theme_bw() + 
   scale_y_continuous(breaks = c(0, 1000, 2000, 3000), 
                      label = c("$0", "$1B", "$2B", "$3B"))
-
-full_dataset %>%
-  ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
-  geom_point() + 
-  geom_text_repel(aes(label = team)) + 
-  geom_smooth(formula = y ~ x) + 
-  labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
-       subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
-       y = "Valuation") + 
-  scale_y_continuous(breaks = c(1, 2, 3, 4, 5), 
-                     label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
-  theme_bw()
 
 full_dataset %>%
   ggplot(aes(x = metro_area_pop, y = operating_income)) + 
@@ -315,13 +300,13 @@ posterior_interval(model_1, prob = 0.95)
 ```
 ```{r}
 valuation_tree <- rpart(valuation ~ operating_income + gate_receipts + 
-                metro_area_pop + tenyrwinpct, 
+                metro_area_pop, 
               data = full_dataset, cp = 0.01)
 
 rpart.plot(valuation_tree, type = 2)
 
 revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
-                metro_area_pop + tenyrwinpct, data = full_dataset, cp = 0.01)
+                metro_area_pop, data = full_dataset, cp = 0.01)
 
 rpart.plot(revenue_tree, type = 2)
 
@@ -336,12 +321,13 @@ write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
 
 ```{r}
 full_dataset %>%
-  arrange(desc(gate_receipts))
+  select(team, valuation, operating_income, revenue, debt_to_value, gate_receipts, stadium, stadium_pct, income_no_fans, revenue_no_fans) %>%
+  arrange(desc(revenue))
 ```
 
 ```{r}
 nn=neuralnet(revenue ~ operating_income + gate_receipts + 
-                metro_area_pop + tenyrwinpct, data = full_dataset, hidden=c(5, 2),
+                metro_area_pop, data = full_dataset, hidden=c(5, 2),
                 linear.output = TRUE)
 
 plot(nn)

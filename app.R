@@ -119,7 +119,9 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(stadium_pct = stadium/valuation) %>%
     mutate(brand_pct = brand/valuation) %>%
     select(team:build_cost, nw:brand_pct) %>%
-    mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased))
+    mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased)) %>%
+    mutate(income_no_fans = operating_income - gate_receipts) %>%
+    mutate(revenue_no_fans = revenue - gate_receipts)
 
 pivoted_raw_dataset <- full_dataset %>%
     select(team, valuation, sport, market, stadium, brand) %>%
