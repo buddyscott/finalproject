@@ -217,14 +217,16 @@ ui <- navbarPage(
              ),
     
     tabPanel("Data",
-             
+             p("Please reference the methodology tab for explanations of what
+               the variables represent."),
              DT::dataTableOutput("full_dataset"),
              ),
     
     tabPanel("Plots",
-             
              p("This section allows you to plot two variables with each 
-                   other, either as a scatterplot or bar graph."),
+               other, either as a scatterplot or bar graph. Please reference
+               the methodology tab for explanations of what the variables
+               represent."),
              br(),
              
              fluidPage(
@@ -232,25 +234,25 @@ ui <- navbarPage(
                  selectInput("y", "Y variable", choices = names(full_dataset)),
                  selectInput("geom", "geom", c("point", "column")),
                  plotOutput("plot1")),
+             br(),
     
-             p("This is a plot of team valuations."),
+             p("This is a plot of raw team valuations"),
              plotOutput("plot2"), 
+             br(),
              
-             p("This is a plot of the breakdown of the four components 
-               of team valuations."),
+             p("This is a plot of the growth rate of team valuations, 
+               calculated as (valuation - price_paid)/(2020-year_purchased)"),
              plotOutput("plot3"),
+             br(),
              
-             p("This is the next one."),
+             p("This is a plot of the raw values of the four components of
+               a team's valuation"),
              plotOutput("plot4"),
+             br(),
              
-             p("This is a scatterplot of the metro area population of a 
-               franchise versus the team's valuation by Forbes in Feb 2020."),
+             p("This is a plot of the percentage breakdowns of the four
+               components of a team's valuation"),
              plotOutput("plot5"), 
-             
-             p("This is a scatterplot of the year a team was purchased 
-               compared to the price paid by the buyer of the team."),
-             plotOutput("plot6"),
-
              
              ),
     
@@ -309,6 +311,10 @@ ui <- navbarPage(
         # to make the plot that they so choose. The syntax here was pretty
         # straight forward.
         
+        output$full_dataset = DT::renderDataTable({
+            full_dataset
+        })
+        
         plot_geom <- reactive({
             switch(input$geom,
                    point = geom_point(),
@@ -322,11 +328,38 @@ ui <- navbarPage(
                 
         }, res = 96)
         
-        output$full_dataset = DT::renderDataTable({
-            full_dataset
-        })
+        output$plot2 <- 
+            renderPlot({
+                full_dataset %>%
+                    ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
+                    geom_col() + 
+                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
+                                       labels = c("$1B", "$2B", "$3B", "$4B", 
+                                                  "$5B")) + 
+                    theme(axis.text = element_text(size = 8)) +
+                    labs(title = "Team Valuations", 
+                         x = "Team", y = "Valuation") + 
+                    coord_flip() + 
+                    theme_classic()
+            })
         
         output$plot3 <- 
+            renderPlot({
+                full_dataset %>%
+                    ggplot(aes(x = fct_reorder(team, growth_rate), 
+                               y = growth_rate)) + 
+                    geom_col() + 
+                    coord_flip() + 
+                    theme_classic() + 
+                    labs(title = "Valuation Growth Rate by Team", x = "Team", 
+                         y = "Growth Rate (Dollars per Year)") + 
+                    scale_y_continuous(breaks = c(-800, -400, 0, 400), 
+                                       labels = c("-$800M", "-$400M", "$0", 
+                                                  "$400M"))
+            })
+        
+        
+        output$plot4 <- 
             renderPlot({
                 pivoted_raw_dataset %>%
                     ggplot(aes(x = aspect, y = values)) + 
@@ -349,22 +382,8 @@ ui <- navbarPage(
                     theme_classic()
             })
         
-        output$plot2 <- 
-            renderPlot({
-                full_dataset %>%
-                    ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
-                    geom_col() + 
-                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
-                                       labels = c("$1B", "$2B", "$3B", "$4B", 
-                                                  "$5B")) + 
-                    theme(axis.text = element_text(size = 8)) +
-                    labs(title = "Team Valuations", 
-                         x = "Team", y = "Valuation") + 
-                    coord_flip() + 
-                    theme_classic()
-            })
         
-        output$plot4 <- 
+        output$plot5 <- 
             renderPlot({
                 pivoted_pct_dataset %>%
                     ggplot(aes(x = aspect, y = values)) + 
@@ -383,55 +402,6 @@ ui <- navbarPage(
                                                 "Sport", "Stadium")) + 
                     scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
                                        labels = c("0%", "20%", "40%", "60%")) + 
-                    theme_classic()
-            })
-        
-        output$plot5 <- 
-            renderPlot({
-                full_dataset %>%
-                    ggplot(aes(x = metro_area_pop, y = valuation)) + 
-                    geom_point() + 
-                    geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x) + 
-                    labs(title = "Metro Area Population vs. Team's Valuation", 
-                         subtitle = "Correlation = 0.72", 
-                         x = "Metro Area Population", y = "Valuation") + 
-                    theme_classic() + 
-                    scale_x_continuous(breaks = c(0, 5, 10, 15, 20, 25), 
-                                       label = c("0M", "5M", "10M", "15M", 
-                                                 "20M", "25M")) + 
-                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
-                                       label = c("$1B", "$2B", "$3B", "$4B", 
-                                                 "$5B"))
-            })
-        
-        output$plot6 <- 
-            renderPlot({
-                full_dataset %>%
-                    ggplot(aes(x = year_purchased, y = price_paid)) + 
-                    geom_point() + 
-                    geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x) + 
-                    labs(title = "Franchise's Year Purchased vs. Price Paid", 
-                         subtitle = "Correlation = 0.72", x = "Year Purchased", 
-                         y = "Price Paid") + 
-                    theme_classic() + 
-                    scale_y_continuous(breaks = c(0, 1000, 2000, 3000), 
-                                       label = c("$0", "$1B", "$2B", "$3B"))
-            })
-        
-        output$plot7 <- 
-            renderPlot({
-                full_dataset %>%
-                    ggplot(aes(x = lastseasonwinpct, y = valuation)) + 
-                    geom_point() + 
-                    geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x) + 
-                    labs(title = "2019-2020 Winning Percentage vs. Team's Valuation", 
-                         subtitle = "Correlation = 0.01", x = "19-20 Winning Percentage", 
-                         y = "Valuation") + 
-                    scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
-                                       label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
                     theme_classic()
             })
         
