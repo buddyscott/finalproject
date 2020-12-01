@@ -118,7 +118,8 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(market_pct = market/valuation) %>%
     mutate(stadium_pct = stadium/valuation) %>%
     mutate(brand_pct = brand/valuation) %>%
-    select(team:lastseasonpace, nw:brand_pct)
+    select(team:build_cost, nw:brand_pct) %>%
+    mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased))
 
 pivoted_raw_dataset <- full_dataset %>%
     select(team, valuation, sport, market, stadium, brand) %>%
@@ -166,29 +167,57 @@ ui <- navbarPage(
              ),
     
     tabPanel("Methodology",
-             h3("Methodology"),
-             p("Write about methodology."),
-             br(),
+             h3("Data Sources"),
+             p("Most of this data comes from the Forbes February 2020 NBA Team
+               Valuations publication. Other data comes from spreadsheets that I
+               maintain in my free time (the link to those spreadsheets is at 
+               the bottom of the page."),
              br(),
              h3("Explanation of Variables in Dataset"),
-             p("Explanation..."),
+             p("team: Abbreviation of team name"),
+             p("value_change: Percentage change in team's valuation between
+               February 2019 and February 2020"),
+             p("year_purchased: Year current ownership group purchased team"),
+             p("price_paid = Price (in millions) that current ownership group
+               paid when they bought the team"),
+             p("player_expenses: Money spent on players, including benefits
+               and bonuses"),
+             p("gate_receipts: Amount (in millions) that team brings in 
+               through fan attendance"),
+             p("wins_to_player: Compares the number of wins per player payroll
+               relative to the rest of the NBA"),
+             p("revenue_per_fan: Local revenues divded by metro population
+               (New York and Los Angeles markets divided in half)"),
+             p("metro_area_pop: Population (in millions) of metropolitan area"),
+             p("sport: Portion of franchise's value attributable to revenue 
+               shared among all teams"),
+             p("market: Portion of franchise's value attributable to its city 
+               and market size"),
+             p("stadium: Portion of franchise's value attributable to its 
+               arena"),
+             p("brand: Portion of franchise's value attributable to its brand"),
+             p("avg_ticket: Average ticket price"),
+             p("build_cost: Amount (in millions) that arena cost to build"),
+             p("nw: Net worth (in billions) of majority owner"),
+             p("valuation: Team's valuation (in millions)"),
+             p("debt_to_value: Debt divided by value, including arena debt"),
+             
+             
              ),
     
-    tabPanel("Interactive Plot",
-             mainPanel(
-                 p("This section allows you to plot two variables with each 
+
+    
+    tabPanel("Plots",
+             
+             p("This section allows you to plot two variables with each 
                    other, either as a scatterplot or bar graph."),
-                 br(),
+             br(),
              
              fluidPage(
                  selectInput("x", "X variable", choices = names(full_dataset)),
                  selectInput("y", "Y variable", choices = names(full_dataset)),
                  selectInput("geom", "geom", c("point", "column")),
                  plotOutput("plot1")),
-             
-             )),
-    
-    tabPanel("Plots",
     
              p("This is a plot of team valuations."),
              plotOutput("plot2"), 
@@ -215,20 +244,17 @@ ui <- navbarPage(
              
              ),
     
-    tabPanel("Player Salary Info",
-            h2("NBA Player Salary Data"), 
-            p("Type your favorite player's name into the search bar to see 
-              their current contract."),
-            
-            # This gives the data set playercontracts (read in earlier) as a
-            # somewhat interactive table - interactive in the sense that 
-            # a user can search a specific player and see their salary. This 
-            # will eventually be updated to be a more detailed analysis that 
-            # will give a lot more information than just the player and his
-            # contract. 
-            
-            DT::dataTableOutput("playercontracts"),
-            ),
+    tabPanel("Big Market Team",
+             h3("Golden State Warriors"),
+             ),
+    
+    tabPanel("Middle Market Team",
+             h3("Portland Trail Blazers"),
+    ),
+    
+    tabPanel("Small Market Team",
+             h3("Memphis Grizzlies"),
+    ),
     
     tabPanel("Model",
              p("This will be a regression model"),
@@ -240,15 +266,17 @@ ui <- navbarPage(
              ),
     
     tabPanel("About",
-             h3("Data Sources"),
-             p("Most of this data comes from the Forbes February 2020 NBA Team
-               Valuations publication. Other data comes from spreadsheets that I
-               maintain in my free time (the link to those spreadsheets is at 
-               the bottom of the page."),
              h3("About Me"),
              p("My name is Buddy Scott and I concentrate in Economics with a 
                secondary in Government at Harvard College. You can reach me at 
                jamesscott@college.harvard.edu."), 
+             imageOutput("myImage"),
+             br(),
+             br(),
+             br(),
+             br(),
+             br(),
+             br(),
              a("Connect with me on LinkedIn", 
                href = "https://www.linkedin.com/in/buddyscott13/"),
              br(),
@@ -393,6 +421,14 @@ ui <- navbarPage(
                                        label = c("$1B", "$2B", "$3B", "$4B", "$5B")) + 
                     theme_classic()
             })
+        
+        output$myImage <- 
+            renderImage({
+            list(src = "buddyscott.png",
+                 width = 300,
+                 height = 500,
+                 alt = "This is alternate text")
+        }, deleteFile = FALSE)
         
     }
     
