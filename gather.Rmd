@@ -124,7 +124,6 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(market_pct = market/valuation) %>%
     mutate(stadium_pct = stadium/valuation) %>%
     mutate(brand_pct = brand/valuation) %>%
-    select(team:build_cost, nw:brand_pct) %>%
     mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased)) %>%
     mutate(income_no_fans = operating_income - gate_receipts) %>%
     mutate(revenue_no_fans = revenue - gate_receipts)
@@ -136,6 +135,15 @@ breakdown <- c(full_dataset$sport_pct, full_dataset$market_pct,
                     
 ```
 
+```{r}
+write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
+```
+
+```{r}
+full_dataset %>%
+  select(team, valuation, operating_income, revenue, debt_to_value, gate_receipts, stadium, stadium_pct, income_no_fans, revenue_no_fans) %>%
+  arrange(desc(revenue))
+```
 
 
 ```{r}
@@ -290,8 +298,9 @@ pivoted_pct_dataset %>%
   
 ```
 
+# Stan GLM Model
 ```{r}
-model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts,
+model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts + operating_income,
                     family = gaussian(), refresh = 0)
 
 print(model_1, digits = 4)
@@ -299,37 +308,21 @@ print(model_1, digits = 4)
 posterior_interval(model_1, prob = 0.95)
 ```
 ```{r}
-valuation_tree <- rpart(valuation ~ operating_income + gate_receipts + 
-                metro_area_pop, 
+valuation_tree <- rpart(valuation ~ market + stadium + sport + brand, 
               data = full_dataset, cp = 0.01)
-
 rpart.plot(valuation_tree, type = 2)
 
 revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
                 metro_area_pop, data = full_dataset, cp = 0.01)
-
 rpart.plot(revenue_tree, type = 2)
 
-revenue_on_valuation <- rpart(valuation ~ revenue, data = full_dataset, cp = 0.01)
-
-rpart.plot(revenue_on_valuation, type = 2)
 ```
 
-```{r}
-write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
-```
-
-```{r}
-full_dataset %>%
-  select(team, valuation, operating_income, revenue, debt_to_value, gate_receipts, stadium, stadium_pct, income_no_fans, revenue_no_fans) %>%
-  arrange(desc(revenue))
-```
 
 ```{r}
 nn=neuralnet(revenue ~ operating_income + gate_receipts + 
-                metro_area_pop, data = full_dataset, hidden=c(5, 2),
+                metro_area_pop + tenyrwinpct, data = full_dataset, hidden=c(5, 2),
                 linear.output = TRUE)
-
 plot(nn)
 ```
 
