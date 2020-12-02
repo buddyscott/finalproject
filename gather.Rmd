@@ -142,7 +142,7 @@ write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
 ```{r}
 full_dataset %>%
   select(team, valuation, operating_income, revenue, debt_to_value, gate_receipts, stadium, stadium_pct, income_no_fans, revenue_no_fans) %>%
-  arrange(desc(revenue))
+  arrange(desc(income_no_fans))
 ```
 
 
