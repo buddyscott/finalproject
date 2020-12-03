@@ -300,7 +300,7 @@ pivoted_pct_dataset %>%
 
 # Stan GLM Model
 ```{r}
-model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts + operating_income,
+model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts + operating_income + metro_area_pop,
                     family = gaussian(), refresh = 0)
 
 print(model_1, digits = 4)

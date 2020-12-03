@@ -15,6 +15,7 @@ library(rlist)
 library(ggrepel)
 library(shiny)
 library(plotly)
+library(gt)
 
 # reading in data sets
 
@@ -214,7 +215,11 @@ ui <- navbarPage(
              p("brand_pct: Percentage of franchise's value attributable to its 
                brand"),
              p("growth_rate: Team's valuation minus price paid, divded by 
-               difference between 2020 and year purchased")
+               difference between 2020 and year purchased"),
+             p("income_no_fans: The operating income for a franchise, minus 
+               the gate receipts that they project to lose with zero fan attendance"),
+             p("revenue_no_fans: The revenue for a franchise, minus 
+               the gate receipts that they project to lose with zero fan attendance"),
              
              ),
     
@@ -260,21 +265,33 @@ ui <- navbarPage(
     
     tabPanel("Big Market",
              h3("Golden State Warriors"),
-             imageOutput("myImage2")
+             imageOutput("myImage2"),
+             br(), 
+             br(),
+             gt_output(outputId = "table1")
              ),
+    
     
     tabPanel("Middle Market",
              h3("Portland Trail Blazers"),
-             imageOutput("myImage3")
+             imageOutput("myImage3"),
+             br(), 
+             br(),
+             gt_output(outputId = "table2")
     ),
     
     tabPanel("Small Market",
              h3("Memphis Grizzlies"),
-             imageOutput("myImage4")
+             imageOutput("myImage4"),
+             br(),
+             br(),
+             gt_output(outputId = "table3")
     ),
     
     tabPanel("Model",
-             p("This will be a regression model"),
+             h3("Standard Generalized Linear Model Output"),
+             br(),
+             gt_output(outputId = "table4")
             ),
     
     tabPanel("Discussion",
@@ -285,7 +302,10 @@ ui <- navbarPage(
     tabPanel("About",
              h3("About Me"),
              p("My name is Buddy Scott and I concentrate in Economics with a 
-               secondary in Government at Harvard College. You can reach me at 
+               secondary in Government at Harvard College. I am a Division I athlete, 
+               the Editor in Chief for the Harvard Sports Analysis Collective, and a
+               Basketball Related Income, Revenue Sharing, and Special Projects Intern 
+               at the National Basketball Players Association. You can reach me at 
                jamesscott@college.harvard.edu."), 
              imageOutput("myImage1"),
              br(),
@@ -438,6 +458,96 @@ ui <- navbarPage(
                      height = 500,
                      alt = "This is alternate text")
             }, deleteFile = FALSE)
+        
+        output$table1 <- 
+            render_gt(
+                
+                tibble(subject = c("Valuation", "Metro Area Population", 
+                                   "Stadium", "Stadium Percentage", "Debt to Value",
+                                   "Gate Receipts", "Operating Income", "Income w/ No Fans", 
+                                   "Revenue", "Revenue w / No Fans"), 
+                       beta = c("$4.3B", "7.0M", "$1.1B", "25%", "18%", "$178M", 
+                                "$109M", "-$69M", "$440M", "$262M"), 
+                       `95% CI` = c("3rd", "7th", "2nd", "2nd", "26th", "1st", 
+                                    "4th", "29th", "2nd", "3rd")) %>%
+                    gt() %>%
+                    cols_label(subject = "Variable", beta = "Value", 
+                               `95% CI` = "League Rank") %>%
+                    tab_style(cell_borders(sides = "right"), 
+                              location = cells_body(columns = vars(subject))) %>%
+                    tab_style(cell_text(weight = "bold"),
+                              location = cells_body(columns = vars(subject))) %>%
+                    cols_align(align = "center", columns = TRUE) %>%
+                    fmt_markdown(columns = TRUE) %>%
+                    tab_header(title = "Golden State Warriors Financials")
+            )
+        
+        output$table2 <- 
+            render_gt(
+                
+                tibble(subject = c("Valuation", "Metro Area Population", 
+                                   "Stadium", "Stadium Percentage", "Debt to Value",
+                                   "Gate Receipts", "Operating Income", "Income w/ No Fans", 
+                                   "Revenue", "Revenue w / No Fans"), 
+                       beta = c("$1.85B", "2.4M", "$364M", "20%", "7%", "$67M", 
+                                "$51M", "-$16M", "$287M", "$220M"), 
+                       `95% CI` = c("13th", "22nd", "11th", "9th", "13th", "11th", 
+                                    "22nd", "25th", "13th", "13th")) %>%
+                    gt() %>%
+                    cols_label(subject = "Variable", beta = "Value", 
+                               `95% CI` = "League Rank") %>%
+                    tab_style(cell_borders(sides = "right"), 
+                              location = cells_body(columns = vars(subject))) %>%
+                    tab_style(cell_text(weight = "bold"),
+                              location = cells_body(columns = vars(subject))) %>%
+                    cols_align(align = "center", columns = TRUE) %>%
+                    fmt_markdown(columns = TRUE) %>%
+                    tab_header(title = "Portland Trail Blazers Financials")
+            )
+        
+        output$table3 <- 
+            render_gt(
+                
+                tibble(subject = c("Valuation", "Metro Area Population", 
+                                   "Stadium", "Stadium Percentage", "Debt to Value",
+                                   "Gate Receipts", "Operating Income", "Income w/ No Fans", 
+                                   "Revenue", "Revenue w / No Fans"), 
+                       beta = c("$1.3B", "1.4M", "$116M", "9%", "20%", "$20M", 
+                                "$24M", "$4M", "$224M", "$204M"), 
+                       `95% CI` = c("30th", "26th", "30th", "30th", "28th", "30th", 
+                                    "29th", "20th", "30th", "25th")) %>%
+                    gt() %>%
+                    cols_label(subject = "Variable", beta = "Value", 
+                               `95% CI` = "League Rank") %>%
+                    tab_style(cell_borders(sides = "right"), 
+                              location = cells_body(columns = vars(subject))) %>%
+                    tab_style(cell_text(weight = "bold"),
+                              location = cells_body(columns = vars(subject))) %>%
+                    cols_align(align = "center", columns = TRUE) %>%
+                    fmt_markdown(columns = TRUE) %>%
+                    tab_header(title = "Memphis Grizzlies Financials")
+            )
+        
+        output$table4 <- 
+            render_gt(
+        
+        tibble(subject = c("Intercept", "Gate Receipts", "Operating Income", "Metro Area Population"), 
+               beta = c("168.18", "1.21", "0.45", "2.52"), 
+               `95% CI` = c("154.59, 181.34", "0.987, 1.417", "0.256, 0.653", "1.174, 3.890")) %>%
+            gt() %>%
+            cols_label(subject = "Variable", beta = "Beta", 
+                       `95% CI` = "95% CI") %>%
+            tab_style(cell_borders(sides = "right"), 
+                      location = cells_body(columns = vars(subject))) %>%
+            tab_style(cell_text(weight = "bold"),
+                      location = cells_body(columns = vars(subject))) %>%
+            cols_align(align = "center", columns = TRUE) %>%
+            fmt_markdown(columns = TRUE) %>%
+            tab_header(title = "Regression of Revenue on Variables of Interest", 
+                       subtitle = "Focusing on coefficient of gate_receipts") %>%
+            tab_footnote(footnote = "CI = Confidence Interval", 
+                         locations = cells_column_labels(columns = vars(`95% CI`)))
+            )
         
     }
     
