@@ -100,3 +100,24 @@ pivoted_pct_dataset <- full_dataset %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
+
+pivoted_pct_dataset_gsw <- full_dataset %>%
+  filter(team == "GSW") %>%
+  select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  pivot_longer(sport_pct:brand_pct, 
+               names_to = "aspect", values_to = "values") %>%
+  arrange(desc(valuation))
+
+pivoted_pct_dataset_por <- full_dataset %>%
+  filter(team == "POR") %>%
+  select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  pivot_longer(sport_pct:brand_pct, 
+               names_to = "aspect", values_to = "values") %>%
+  arrange(desc(valuation))
+
+pivoted_pct_dataset_mem <- full_dataset %>%
+  filter(team == "MEM") %>%
+  select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  pivot_longer(sport_pct:brand_pct, 
+               names_to = "aspect", values_to = "values") %>%
+  arrange(desc(valuation))

@@ -150,28 +150,47 @@ ui <- navbarPage(
              ),
     
     tabPanel("Big Market",
-             h3("Golden State Warriors"),
-             imageOutput("myImage2"),
-             br(), 
-             br(),
-             gt_output(outputId = "table1")
+             h2("Golden State Warriors"),
+             sidebarLayout(
+                 sidebarPanel(imageOutput("myImage2")),
+                 mainPanel(gt_output(outputId = "table1"))
              ),
+             br(),
+             br(),
+             br(),
+             br(),
+             br(),
+             plotOutput("plot6")
+    ),
     
     
     tabPanel("Middle Market",
-             h3("Portland Trail Blazers"),
-             imageOutput("myImage3"),
-             br(), 
+             h2("Portland Trail Blazers"),
+             sidebarLayout(
+                 sidebarPanel(imageOutput("myImage3")),
+                 mainPanel(gt_output(outputId = "table2"))
+             ),
              br(),
-             gt_output(outputId = "table2")
+             br(),
+             br(),
+             br(),
+             br(),
+             plotOutput("plot7")
     ),
+
     
     tabPanel("Small Market",
-             h3("Memphis Grizzlies"),
-             imageOutput("myImage4"),
+             h2("Memphis Grizzlies"),
+             sidebarLayout(
+                 sidebarPanel(imageOutput("myImage4")),
+                 mainPanel(gt_output(outputId = "table3"))
+             ),
              br(),
              br(),
-             gt_output(outputId = "table3")
+             br(),
+             br(),
+             br(),
+             plotOutput("plot8")
     ),
     
     tabPanel("Model",
@@ -297,6 +316,69 @@ ui <- navbarPage(
                     ggplot(aes(x = aspect, y = values)) + 
                     geom_col() + 
                     facet_wrap(~ team, ncol = 6) + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Percent Valuation Breakdown", 
+                         y = "Percentage") +
+                    scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                                "sport_pct", "stadium_pct"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    theme_classic()
+            })
+        
+        output$plot6 <- 
+            renderPlot({
+        pivoted_pct_dataset_gsw %>%
+            ggplot(aes(x = aspect, y = values)) + 
+            geom_col() + 
+            theme(strip.text = element_text(size = 6), 
+                  axis.text = element_text(size = 4), 
+                  panel.grid = element_blank(), 
+                  panel.spacing.x = unit(3, "mm")) + 
+            labs(title = "Team Valuation Breakdown", 
+                 x = "Percent Valuation Breakdown", 
+                 y = "Percentage") +
+            scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                        "sport_pct", "stadium_pct"), 
+                             labels = c("Brand", "Market", 
+                                        "Sport", "Stadium")) + 
+            scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                               labels = c("0%", "20%", "40%", "60%")) + 
+            theme_classic()
+            })
+        
+        output$plot7 <- 
+            renderPlot({
+                pivoted_pct_dataset_por %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Percent Valuation Breakdown", 
+                         y = "Percentage") +
+                    scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                                "sport_pct", "stadium_pct"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    theme_classic()
+            })
+        
+        output$plot8 <- 
+            renderPlot({
+                pivoted_pct_dataset_mem %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
                     theme(strip.text = element_text(size = 6), 
                           axis.text = element_text(size = 4), 
                           panel.grid = element_blank(), 

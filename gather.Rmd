@@ -141,8 +141,8 @@ write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
 
 ```{r}
 full_dataset %>%
-  select(team, valuation, operating_income, revenue, debt_to_value, gate_receipts, stadium, stadium_pct, income_no_fans, revenue_no_fans) %>%
-  arrange(desc(income_no_fans))
+  select(team, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  arrange(desc(brand_pct))
 ```
 
 
@@ -280,6 +280,82 @@ pivoted_pct_dataset %>%
                     ggplot(aes(x = aspect, y = values)) + 
                     geom_col() + 
                     facet_wrap(~ team, ncol = 6) + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Percent Valuation Breakdown", 
+                         y = "Percentage") +
+                    scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                                "sport_pct", "stadium_pct"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    theme_classic()
+
+
+pivoted_pct_dataset_gsw <- full_dataset %>%
+  filter(team == "GSW") %>%
+  select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  pivot_longer(sport_pct:brand_pct, 
+               names_to = "aspect", values_to = "values") %>%
+  arrange(desc(valuation))
+
+pivoted_pct_dataset_por <- full_dataset %>%
+  filter(team == "POR") %>%
+  select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  pivot_longer(sport_pct:brand_pct, 
+               names_to = "aspect", values_to = "values") %>%
+  arrange(desc(valuation))
+
+pivoted_pct_dataset_mem <- full_dataset %>%
+  filter(team == "MEM") %>%
+  select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
+  pivot_longer(sport_pct:brand_pct, 
+               names_to = "aspect", values_to = "values") %>%
+  arrange(desc(valuation))
+
+pivoted_pct_dataset_gsw %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Percent Valuation Breakdown", 
+                         y = "Percentage") +
+                    scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                                "sport_pct", "stadium_pct"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    theme_classic()
+
+pivoted_pct_dataset_por %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
+                    theme(strip.text = element_text(size = 6), 
+                          axis.text = element_text(size = 4), 
+                          panel.grid = element_blank(), 
+                          panel.spacing.x = unit(3, "mm")) + 
+                    labs(title = "Team Valuation Breakdown", 
+                         x = "Percent Valuation Breakdown", 
+                         y = "Percentage") +
+                    scale_x_discrete(breaks = c("brand_pct", "market_pct", 
+                                                "sport_pct", "stadium_pct"), 
+                                     labels = c("Brand", "Market", 
+                                                "Sport", "Stadium")) + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    theme_classic()
+
+pivoted_pct_dataset_mem %>%
+                    ggplot(aes(x = aspect, y = values)) + 
+                    geom_col() + 
                     theme(strip.text = element_text(size = 6), 
                           axis.text = element_text(size = 4), 
                           panel.grid = element_blank(), 
