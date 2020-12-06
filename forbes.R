@@ -121,3 +121,11 @@ pivoted_pct_dataset_mem <- full_dataset %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
+
+revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
+                        metro_area_pop, data = full_dataset, cp = 0.01)
+
+valuation_tree <- rpart(valuation ~ market + stadium + sport + brand, 
+                        data = full_dataset, cp = 0.01)
+
+

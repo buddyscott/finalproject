@@ -397,8 +397,8 @@ rpart.plot(revenue_tree, type = 2)
 
 ```{r}
 nn=neuralnet(revenue ~ operating_income + gate_receipts + 
-                metro_area_pop + tenyrwinpct, data = full_dataset, hidden=c(5, 2),
-                linear.output = TRUE)
+               metro_area_pop + avg_ticket, data = full_dataset, hidden=c(5, 2),
+             linear.output = TRUE)
 plot(nn)
 ```
 
