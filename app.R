@@ -227,6 +227,7 @@ ui <- navbarPage(
     
     tabPanel("Model",
              h3("Standard Generalized Linear Model Output"),
+             uiOutput("equation"),
              br(),
              gt_output(outputId = "table4"),
              br(),
@@ -246,15 +247,13 @@ ui <- navbarPage(
     
     tabPanel("About",
              h3("About Me"),
-             splitLayout(cellWidths = c("50%", "50%"),
              p("My name is Buddy Scott and I concentrate in Economics with a 
                secondary in Government at Harvard College. I am a setter on the 
                Men's Volleyball team, the Editor in Chief for the Harvard 
                Sports Analysis Collective, and a Spring 2021 Intern at the 
-               National Basketball Players Association (NBPA). You can reach me at 
-               jamesscott@college.harvard.edu."), 
-             imageOutput("myImage1")
-             ),
+               National Basketball Players Association (NBPA). You can reach me 
+               at jamesscott@college.harvard.edu."), 
+             imageOutput("myImage1"),
              br(),
              br(),
              br(),
@@ -469,7 +468,7 @@ ui <- navbarPage(
         
         output$myImage1 <- 
             renderImage({
-            list(src = "buddyscott.png",
+            list(src = "pictures/headshot.png",
                  width = 300,
                  height = 500,
                  alt = "This is alternate text")
@@ -477,7 +476,7 @@ ui <- navbarPage(
         
         output$myImage2 <- 
             renderImage({
-                list(src = "gsw.png",
+                list(src = "pictures/gsw.png",
                      width = 300,
                      height = 400,
                      alt = "This is alternate text")
@@ -485,7 +484,7 @@ ui <- navbarPage(
         
         output$myImage3 <- 
             renderImage({
-                list(src = "por.png",
+                list(src = "pictures/por.png",
                      width = 300,
                      height = 400,
                      alt = "This is alternate text")
@@ -493,7 +492,7 @@ ui <- navbarPage(
         
         output$myImage4 <- 
             renderImage({
-                list(src = "mem.png",
+                list(src = "pictures/mem.png",
                      width = 300,
                      height = 400,
                      alt = "This is alternate text")
@@ -588,6 +587,11 @@ ui <- navbarPage(
             tab_footnote(footnote = "CI = Confidence Interval", 
                          locations = cells_column_labels(columns = vars(`95% CI`)))
             )
+        
+        output$equation <- 
+            renderUI({
+                withMathJax(helpText('Regression equation: $$\\revenue_i = \\beta_0 + \\beta_1 \\gatereceipts_{i} + \\beta_2 \\operatingincome_{i} + \\beta_3 \\metroareapop_{i} +  \\epsilon_i $$'))
+            })
         
     }
     
