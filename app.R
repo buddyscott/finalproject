@@ -76,14 +76,8 @@ ui <- navbarPage(
              p("year_purchased: Year current ownership group purchased team"),
              p("price_paid: Price (in millions) that current ownership group
                paid when they bought the team"),
-             p("player_expenses: Money spent on players, including benefits
-               and bonuses"),
              p("gate_receipts: Amount (in millions) that team brings in 
                through fan attendance"),
-             p("wins_to_player: Compares the number of wins per player payroll
-               relative to the rest of the NBA"),
-             p("revenue_per_fan: Local revenues divded by metro population
-               (New York and Los Angeles markets divided in half)"),
              p("metro_area_pop: Population (in millions) of metropolitan area"),
              p("sport: Portion of franchise's value attributable to revenue 
                shared among all teams"),
@@ -94,7 +88,6 @@ ui <- navbarPage(
              p("brand: Portion of franchise's value attributable to its brand"),
              p("avg_ticket: Average ticket price"),
              p("build_cost: Amount (in millions) that arena cost to build"),
-             p("nw: Net worth (in billions) of majority owner"),
              p("valuation: Team's valuation (in millions)"),
              p("debt_to_value: Debt divided by value, including arena debt"),
              p("revenue: Amount of revenue (in millions)"),
@@ -115,14 +108,21 @@ ui <- navbarPage(
              p("revenue_no_fans: The revenue for a franchise, minus 
                the gate receipts that they project to lose with zero fan 
                attendance"),
-             
              ),
     
-    tabPanel("Data",
-             p("Please reference the methodology tab for explanations of what
-               the variables represent."),
-             DT::dataTableOutput("full_dataset_condensed"),
+    tabPanel("Model",
+             h3("Standard Generalized Linear Model Output"),
+             uiOutput("equation"),
+             br(),
+             gt_output(outputId = "table4"),
+             br(),
+             br(),
+             h3("Regression Trees"),
+             splitLayout(cellWidths = c("50%", "50%"),
+                         plotOutput("plot9"),
+                         plotOutput("plot10")
              ),
+    ),
     
     tabPanel("Plots",
              p("This section allows you to plot two variables with each 
@@ -178,68 +178,47 @@ ui <- navbarPage(
              plotOutput("plot11")
              ),
     
-    tabPanel("Big Market",
-             h2("Golden State Warriors"),
-             br(),
-             splitLayout(cellWidths = c("50%", "50%"),
-                         imageOutput("myImage2"),
-                         gt_output(outputId = "table1")
+    tabPanel("Three Case Studies",
+             tabsetPanel(type = "tabs", 
+                         tabPanel("Golden State Warriors (Big Market)", 
+                                  splitLayout(cellWidths = c("50%", "50%"),
+                                              imageOutput("myImage2"),
+                                              gt_output(outputId = "table1")
+                                  ),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  plotOutput("plot6")
+                                  ), 
+                         tabPanel("Portland Trail Blazers (Middle Market)", 
+                                  splitLayout(cellWidths = c("50%", "50%"),
+                                              imageOutput("myImage3"),
+                                              gt_output(outputId = "table2")
+                                  ),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  plotOutput("plot7")
+                         ), 
+                         tabPanel("Memphis Grizzlies (Small Market)", 
+                                  splitLayout(cellWidths = c("50%", "50%"),
+                                              imageOutput("myImage4"),
+                                              gt_output(outputId = "table3")
+                                  ),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  br(),
+                                  plotOutput("plot8")
+                         )
+                         )
              ),
-             br(),
-             br(),
-             br(),
-             br(),
-             br(),
-             plotOutput("plot6")
-    ),
-    
-    
-    tabPanel("Middle Market",
-             h2("Portland Trail Blazers"),
-             br(),
-             splitLayout(cellWidths = c("50%", "50%"),
-                         imageOutput("myImage3"),
-                         gt_output(outputId = "table2")
-             ),
-             br(),
-             br(),
-             br(),
-             br(),
-             br(),
-             plotOutput("plot7")
-    ),
-
-    
-    tabPanel("Small Market",
-             h2("Memphis Grizzlies"),
-             br(),
-             splitLayout(cellWidths = c("50%", "50%"),
-                         imageOutput("myImage4"),
-                         gt_output(outputId = "table3")
-             ),
-             br(),
-             br(),
-             br(),
-             br(),
-             br(),
-             plotOutput("plot8")
-    ),
-    
-    tabPanel("Model",
-             h3("Standard Generalized Linear Model Output"),
-             uiOutput("equation"),
-             br(),
-             gt_output(outputId = "table4"),
-             br(),
-             br(),
-             h3("Regression Trees"),
-             splitLayout(cellWidths = c("50%", "50%"),
-                         plotOutput("plot9"),
-                         plotOutput("plot10")
-            ),
-    ),
             
-    
     tabPanel("Discussion",
              p("This will be a discussion about what the model shows as well as 
              potential policy suggestions to mitigate this potential damage."),

@@ -92,9 +92,9 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
 full_dataset_condensed <- full_dataset %>%
   select(team, valuation, metro_area_pop, operating_income, revenue, 
          gate_receipts, avg_ticket, brand, brand_pct, market, market_pct, 
-         stadium, stadium_pct, sport, sport_pct, debt_to_value, build_cost, 
-         growth_rate, income_no_fans, revenue_no_fans, value_change, 
-         year_purchased, price_paid)
+         stadium, stadium_pct, sport, sport_pct, income_no_fans, 
+         revenue_no_fans, value_change, year_purchased, price_paid, build_cost, 
+         growth_rate, value_change)
 
 pivoted_raw_dataset <- full_dataset_condensed %>%
   select(team, valuation, sport, market, stadium, brand) %>%
