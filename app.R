@@ -110,20 +110,6 @@ ui <- navbarPage(
                attendance"),
              ),
     
-    tabPanel("Model",
-             h3("Standard Generalized Linear Model Output"),
-             uiOutput("equation"),
-             br(),
-             gt_output(outputId = "table4"),
-             br(),
-             br(),
-             h3("Regression Trees"),
-             splitLayout(cellWidths = c("50%", "50%"),
-                         plotOutput("plot12"),
-                         plotOutput("plot13")
-             ),
-    ),
-    
     tabPanel("Plots",
              p("This section allows you to plot two variables with each 
                other, either as a scatterplot or bar graph. Please reference
@@ -139,12 +125,17 @@ ui <- navbarPage(
                  selectInput("geom", "geom", c("point", "column")),
                  plotOutput("plot1")),
              br(),
-    
+             br(),
+             br(),
+             
              p("This is a plot of raw team valuations. As you can see, team 
                values range from the New York Knicks worth $4.6 billion to 
                the Memphis Grizzlies worth less than a third of that at 
                $1.3 billion."),
+             br(),
              plotOutput("plot2"), 
+             br(),
+             br(),
              br(),
              
              p("This is a plot of the growth rate of team valuations, 
@@ -154,12 +145,18 @@ ui <- navbarPage(
                in 2019 for $3.3 billion for nearly a billion dollar premium by 
                the co-founder of Alibaba, and will probably cross the $3.3 
                billion threshold soon barring a worse-case COVID-19 scenario."),
+             br(),
              plotOutput("plot3"),
+             br(),
+             br(),
              br(),
              
              p("This is a plot of the raw values of the four components of
                a team's valuation."),
+             br(),
              plotOutput("plot4"),
+             br(),
+             br(),
              br(),
              
              p("This is a plot of the percentage breakdowns of the four
@@ -167,11 +164,21 @@ ui <- navbarPage(
                preferable to the previous one because it standardizes the 
                values to make them non-dependent on the magnitude of a team's 
                valuation."),
+             br(),
              plotOutput("plot5"), 
              br(),
+             br(),
+             br(),
              
-             p("This is..."),
+             p("This is a plot of teams in order of how much of their valuation
+               is attributable to revenue sharing among the teams. It is clear 
+               that smaller market teams rely much more on general revenue from the 
+               legaue than the big market teams, who actually lose money from the 
+               revenue sharing system."),
+             br(),
              plotOutput("plot6"),
+             br(),
+             br(),
              br(),
              
              p("This is a scatterplot of team valuations and gate receipts. 
@@ -181,12 +188,36 @@ ui <- navbarPage(
                team valuation."),
              plotOutput("plot7"),
              br(),
+             br(),
+             br(),
              
-             p("This is..."),
+             p("This is a scatterplot of team valuation and the percentage 
+               of a team's valuation attributable to their stadium. There is a 
+               moderate strong positive correlation between the two variables, 
+               showcasing the greater reliance on the value of their stadium 
+               for richer teams as opposed to the revenue sharing component 
+               from the league."),
+             br(),
              plotOutput("plot8"),
              br()
              
     ),
+    
+    tabPanel("Model",
+             h3("Standard Generalized Linear Model Output"),
+             uiOutput("equation"),
+             br(),
+             gt_output(outputId = "table4"),
+             br(),
+             br(),
+             h3("Regression Trees"),
+             splitLayout(cellWidths = c("50%", "50%"),
+                         plotOutput("plot12"),
+                         plotOutput("plot13")
+             ),
+    ),
+    
+    
              
 
     
