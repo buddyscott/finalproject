@@ -141,17 +141,23 @@ write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
 
 ```{r}
 full_dataset %>%
-  select(team, sport_pct, market_pct, stadium_pct, brand_pct) %>%
-  arrange(desc(brand_pct))
+  select(team, valuation, metro_area_pop, operating_income, revenue, gate_receipts, 
+         avg_ticket, brand_pct, market_pct, stadium_pct, sport_pct, revenue_no_fans, income_no_fans) %>%
+  arrange(desc(revenue))
+  
 ```
 
 
 ```{r}
+round(cor(full_dataset$valuation, full_dataset$sport_pct), 2)
 
 round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
 round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$operating_income), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
+round(cor(full_dataset$metro_area_pop, full_dataset$gate_receipts), 2)
+
+round(cor(full_dataset$gate_receipts, full_dataset$valuation), 2)
 
                 full_dataset %>%
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
@@ -164,6 +170,19 @@ round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
                          x = "Team", y = "Valuation") + 
                     coord_flip() + 
                     theme_classic()
+                
+                  full_dataset %>%
+                    ggplot(aes(x = fct_reorder(team, sport_pct), y = sport_pct)) + 
+                    geom_col() + 
+                    theme(axis.text = element_text(size = 8)) +
+                    labs(title = "Sport Percentages by Team", 
+                         x = "Team", y = "Sport Percentage") + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    coord_flip() + 
+                    theme_classic()
+                
+                
                 
 full_dataset %>%
   ggplot(aes(x = fct_reorder(team, growth_rate), y = growth_rate)) + 
@@ -237,12 +256,12 @@ full_dataset %>%
   geom_text_repel(aes(label = team)) + 
   geom_smooth(formula = y ~ x) + 
   labs(title = "Team Valuation vs. Gate Receipts", 
-       subtitle = "Correlation = 0.65", x = "Team Valuation", 
+       subtitle = "Correlation = 0.81", x = "Team Valuation", 
        y = "Gate Receipts") + 
   theme_bw() + 
   scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
                      label = c("$0", "$50M", "$100M", "$150M", "$200M")) + 
-  scale_x_continuous(breaks = c(1, 2, 3, 4, 5), 
+  scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
                      label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
 
 pivoted_raw_dataset <- full_dataset %>%
@@ -376,7 +395,8 @@ pivoted_pct_dataset_mem %>%
 
 # Stan GLM Model
 ```{r}
-model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts + operating_income + metro_area_pop,
+model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts + 
+                      operating_income + metro_area_pop + avg_ticket,
                     family = gaussian(), refresh = 0)
 
 print(model_1, digits = 4)
@@ -388,8 +408,9 @@ valuation_tree <- rpart(valuation ~ market + stadium + sport + brand,
               data = full_dataset, cp = 0.01)
 rpart.plot(valuation_tree, type = 2)
 
-revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
-                metro_area_pop, data = full_dataset, cp = 0.01)
+revenue_tree <- rpart(revenue ~ gate_receipts + 
+                      operating_income + metro_area_pop + avg_ticket, 
+                      data = full_dataset, cp = 0.01)
 rpart.plot(revenue_tree, type = 2)
 
 ```

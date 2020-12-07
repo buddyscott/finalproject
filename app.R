@@ -16,7 +16,6 @@ library(ggrepel)
 library(shiny)
 library(plotly)
 library(gt)
-library(neuralnet)
 library(rpart)
 library(rpart.plot)
 
@@ -44,7 +43,8 @@ ui <- navbarPage(
              league as sinful endeavours) as a way to get cash into the hands 
              of teams. This project will take a deep dive of the most recent 
              update on each team's finances to better understand the situations 
-             and constraints each individual team faces in the COVID-19 world."),
+             and constraints each individual team faces in the COVID-19 
+             world."),
              br(), 
              p("This is a video of one of the greatest buzzer-beater shots in 
                NBA history. This analysis is being done to better understand
@@ -121,7 +121,7 @@ ui <- navbarPage(
     tabPanel("Data",
              p("Please reference the methodology tab for explanations of what
                the variables represent."),
-             DT::dataTableOutput("full_dataset"),
+             DT::dataTableOutput("full_dataset_condensed"),
              ),
     
     tabPanel("Plots",
@@ -132,30 +132,50 @@ ui <- navbarPage(
              br(),
              
              fluidPage(
-                 selectInput("x", "X variable", choices = names(full_dataset)),
-                 selectInput("y", "Y variable", choices = names(full_dataset)),
+                 selectInput("x", "X variable", 
+                             choices = names(full_dataset_condensed)),
+                 selectInput("y", "Y variable", 
+                             choices = names(full_dataset_condensed)),
                  selectInput("geom", "geom", c("point", "column")),
                  plotOutput("plot1")),
              br(),
     
-             p("This is a plot of raw team valuations"),
+             p("This is a plot of raw team valuations. As you can see, team 
+               values range from the New York Knicks worth $4.6 billion to 
+               the Memphis Grizzlies worth less than a third of that at 
+               $1.3 billion."),
              plotOutput("plot2"), 
              br(),
              
              p("This is a plot of the growth rate of team valuations, 
-               calculated as (valuation - price_paid)/(2020-year_purchased)"),
+               calculated as (valuation - price_paid)/(2020-year_purchased). 
+               Every team has experienced positive growth rates since they were
+               last purchased except for the Brooklyn Nets, who were purchased
+               in 2019 for $3.3 billion for nearly a billion dollar premium by 
+               the co-founder of Alibaba, and will probably cross the $3.3 
+               billion threshold soon barring a worse-case COVID-19 scenario."),
              plotOutput("plot3"),
              br(),
              
              p("This is a plot of the raw values of the four components of
-               a team's valuation"),
+               a team's valuation."),
              plotOutput("plot4"),
              br(),
              
              p("This is a plot of the percentage breakdowns of the four
-               components of a team's valuation"),
+               components of a team's valuation. This plot is probably 
+               preferable to the previous one because it standardizes the 
+               values to make them non-dependent on the magnitude of a team's 
+               valuation."),
              plotOutput("plot5"), 
+             br(),
              
+             p("This is a scatterplot of team valuations and gate receipts. 
+               There is a very strong positive correlation between the 
+               two variables, showcasing the greater reliance on gate receipts
+               for richer teams even after controlling for the magnitude of
+               team valuation."),
+             plotOutput("plot11")
              ),
     
     tabPanel("Big Market",
@@ -226,13 +246,15 @@ ui <- navbarPage(
     
     tabPanel("About",
              h3("About Me"),
+             splitLayout(cellWidths = c("50%", "50%"),
              p("My name is Buddy Scott and I concentrate in Economics with a 
                secondary in Government at Harvard College. I am a setter on the 
                Men's Volleyball team, the Editor in Chief for the Harvard 
                Sports Analysis Collective, and a Spring 2021 Intern at the 
                National Basketball Players Association (NBPA). You can reach me at 
                jamesscott@college.harvard.edu."), 
-             imageOutput("myImage1"),
+             imageOutput("myImage1")
+             ),
              br(),
              br(),
              br(),
@@ -258,8 +280,8 @@ ui <- navbarPage(
         # to make the plot that they so choose. The syntax here was pretty
         # straight forward.
         
-        output$full_dataset = DT::renderDataTable({
-            full_dataset
+        output$full_dataset_condensed = DT::renderDataTable({
+            full_dataset_condensed
         })
         
         plot_geom <- reactive({
@@ -270,14 +292,15 @@ ui <- navbarPage(
         })
 
         output$plot1 <- renderPlot({
-            ggplot(full_dataset, aes(.data[[input$x]], .data[[input$y]])) +
+            ggplot(full_dataset_condensed, aes(.data[[input$x]], 
+                                               .data[[input$y]])) +
                 plot_geom() + theme_bw() + geom_smooth(formula = y ~ x)
                 
         }, res = 96)
         
         output$plot2 <- 
             renderPlot({
-                full_dataset %>%
+                full_dataset_condensed %>%
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
                     geom_col() + 
                     scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
@@ -292,7 +315,7 @@ ui <- navbarPage(
         
         output$plot3 <- 
             renderPlot({
-                full_dataset %>%
+                full_dataset_condensed %>%
                     ggplot(aes(x = fct_reorder(team, growth_rate), 
                                y = growth_rate)) + 
                     geom_col() + 
@@ -423,6 +446,25 @@ ui <- navbarPage(
         output$plot10 <- 
             renderPlot({
                 rpart.plot(valuation_tree, type = 2)
+            })
+        
+        output$plot11 <- 
+            renderPlot({
+                full_dataset_condensed %>%
+                    ggplot(aes(x = valuation, y = gate_receipts)) + 
+                    geom_point() + 
+                    geom_text_repel(aes(label = team)) + 
+                    geom_smooth(formula = y ~ x) + 
+                    labs(title = "Team Valuation vs. Gate Receipts", 
+                         subtitle = "Correlation = 0.81", x = "Team Valuation", 
+                         y = "Gate Receipts") + 
+                    theme_bw() + 
+                    scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
+                                       label = c("$0", "$50M", "$100M", "$150M", 
+                                                 "$200M")) + 
+                    scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
+                                       label = c("$1B", "$2B", "$3B", "$4B", 
+                                                 "$5B"))
             })
         
         output$myImage1 <- 

@@ -85,37 +85,43 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(market_pct = market/valuation) %>%
   mutate(stadium_pct = stadium/valuation) %>%
   mutate(brand_pct = brand/valuation) %>%
-  select(team:build_cost, nw:brand_pct) %>%
   mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased)) %>%
   mutate(income_no_fans = operating_income - gate_receipts) %>%
   mutate(revenue_no_fans = revenue - gate_receipts)
 
-pivoted_raw_dataset <- full_dataset %>%
+full_dataset_condensed <- full_dataset %>%
+  select(team, valuation, metro_area_pop, operating_income, revenue, 
+         gate_receipts, avg_ticket, brand, brand_pct, market, market_pct, 
+         stadium, stadium_pct, sport, sport_pct, debt_to_value, build_cost, 
+         growth_rate, income_no_fans, revenue_no_fans, value_change, 
+         year_purchased, price_paid)
+
+pivoted_raw_dataset <- full_dataset_condensed %>%
   select(team, valuation, sport, market, stadium, brand) %>%
   pivot_longer(sport:brand, names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
 
-pivoted_pct_dataset <- full_dataset %>%
+pivoted_pct_dataset <- full_dataset_condensed %>%
   select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
 
-pivoted_pct_dataset_gsw <- full_dataset %>%
+pivoted_pct_dataset_gsw <- full_dataset_condensed %>%
   filter(team == "GSW") %>%
   select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
 
-pivoted_pct_dataset_por <- full_dataset %>%
+pivoted_pct_dataset_por <- full_dataset_condensed %>%
   filter(team == "POR") %>%
   select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
 
-pivoted_pct_dataset_mem <- full_dataset %>%
+pivoted_pct_dataset_mem <- full_dataset_condensed %>%
   filter(team == "MEM") %>%
   select(team, valuation, sport_pct, market_pct, stadium_pct, brand_pct) %>%
   pivot_longer(sport_pct:brand_pct, 
@@ -123,9 +129,10 @@ pivoted_pct_dataset_mem <- full_dataset %>%
   arrange(desc(valuation))
 
 revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
-                        metro_area_pop, data = full_dataset, cp = 0.01)
+                        metro_area_pop, data = full_dataset_condensed, 
+                      cp = 0.01)
 
 valuation_tree <- rpart(valuation ~ market + stadium + sport + brand, 
-                        data = full_dataset, cp = 0.01)
+                        data = full_dataset_condensed, cp = 0.01)
 
 
