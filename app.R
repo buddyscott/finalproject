@@ -205,16 +205,36 @@ ui <- navbarPage(
     
     tabPanel("Model",
              h3("Standard Generalized Linear Model Output"),
-             uiOutput("equation"),
+             uiOutput("equation1"),
              br(),
              gt_output(outputId = "table4"),
              br(),
+             h4("Interpretation of Stan GLM"),
+             p("The purpose of creating this 'model' is to attempt to quantify 
+               the importance of gate receipts to a team's revenue. The actual 
+               median estimate is not necessarily important; rather, the fact 
+               that we are 95% confident that coefficients lies well greater
+               than 0. The key interpretation is the beta of the gate receipts 
+               variable: 1.21. This coefficient can be interpreted as that a 
+               $1.00 decrease in gate receipts is associated with a $1.21 
+               decrease in revenue, holding all else constant. Again, this 
+               coefficient is undoubtedly inaccurate, but the point of running
+               this Standard GLM and displaying the table is to ascertain the 
+               importance of gate receipts in the NBA's business model."),
              br(),
              h3("Regression Trees"),
+             uiOutput("equation2"),
+             uiOutput("equation3"),
              splitLayout(cellWidths = c("50%", "50%"),
                          plotOutput("plot12"),
                          plotOutput("plot13")
              ),
+             h4("Interpretation of Regression Trees"),
+             p("These regression trees are pretty complex and their complete 
+               interpretation is beyond both the scope of this project and of 
+               this class. Similar to the standard generalized linear model 
+               included above, the inclusion of the regression trees is to 
+               understand ")
     ),
     
     
@@ -661,10 +681,22 @@ ui <- navbarPage(
                          locations = cells_column_labels(columns = vars(`95% CI`)))
             )
         
-        output$equation <- 
+        output$equation1 <- 
             renderUI({
-                withMathJax(helpText('Regression equation: $$\\revenue_i = \\beta_0 + \\beta_1 \\gatereceipts_{i} + \\beta_2 \\operatingincome_{i} + \\beta_3 \\metroareapop_{i} +  \\epsilon_i $$'))
+                withMathJax(helpText('Stan GLM Regression Equation: $$revenue_i = \\beta_0 + \\beta_1 gatereceipts_{i} + \\beta_2 operatingincome_{i} + \\beta_3 metroareapop_{i} +  \\epsilon_i $$'))
             })
+        
+        output$equation2<- 
+            renderUI({
+                withMathJax(helpText('Regression Equation on Left: $$revenue_i = \\beta_0 + \\beta_1 gatereceipts_{i} + \\beta_2 operatingincome_{i} + \\beta_3 metroareapop_{i} +  \\epsilon_i $$'))
+            })
+        
+        output$equation3 <- 
+            renderUI({
+                withMathJax(helpText('Regression Equation on Right: $$valuation_i = \\beta_0 + \\beta_1 brand_{i} + \\beta_2 market_{i} + \\beta_3 stadium_{i} + \\beta_4 sport_{i} + \\epsilon_i $$'))
+            })
+        
+        
         
     }
     
