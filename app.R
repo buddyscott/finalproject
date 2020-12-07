@@ -502,13 +502,17 @@ ui <- navbarPage(
             render_gt(
                 
                 tibble(subject = c("Valuation", "Metro Area Population", 
-                                   "Stadium", "Stadium Percentage", "Debt to Value",
-                                   "Gate Receipts", "Operating Income", "Income w/ No Fans", 
-                                   "Revenue", "Revenue w / No Fans"), 
-                       beta = c("$4.3B", "7.0M", "$1.1B", "25%", "18%", "$178M", 
-                                "$109M", "-$69M", "$440M", "$262M"), 
-                       `95% CI` = c("3rd", "7th", "2nd", "2nd", "26th", "1st", 
-                                    "4th", "29th", "2nd", "3rd")) %>%
+                                   "Operating Income", "Revenue", "Gate Receipts",
+                                   "Average Ticket Price", "Brand Percentage", 
+                                   "Market Percentage", 
+                                   "Stadium Percentage", "Sport Percentage", 
+                                   "Operating Income - Gate Receipts", 
+                                   "Revenue - Gate Receipts"), 
+                       beta = c("$4.3B", "7.0M", "$109M", "$440M", "$178M", "$125", 
+                                "16.79%", "38.86%", "24.84%", "19.51%", 
+                                "-$69M", "$262M"), 
+                       `95% CI` = c("3rd", "7th", "4th", "2nd", "1st", "3rd", 
+                                    "2nd", "3rd", "2nd", "28th", "29th", "3rd")) %>%
                     gt() %>%
                     cols_label(subject = "Variable", beta = "Value", 
                                `95% CI` = "League Rank") %>%
@@ -525,13 +529,19 @@ ui <- navbarPage(
             render_gt(
                 
                 tibble(subject = c("Valuation", "Metro Area Population", 
-                                   "Stadium", "Stadium Percentage", "Debt to Value",
-                                   "Gate Receipts", "Operating Income", "Income w/ No Fans", 
-                                   "Revenue", "Revenue w / No Fans"), 
-                       beta = c("$1.85B", "2.4M", "$364M", "20%", "7%", "$67M", 
-                                "$51M", "-$16M", "$287M", "$220M"), 
-                       `95% CI` = c("13th", "22nd", "11th", "9th", "13th", "11th", 
-                                    "22nd", "25th", "13th", "13th")) %>%
+                                   "Operating Income", "Revenue", "Gate Receipts",
+                                   "Average Ticket Price", "Brand Percentage", 
+                                   "Market Percentage", 
+                                   "Stadium Percentage", "Sport Percentage", 
+                                   "Operating Income - Gate Receipts", 
+                                   "Revenue - Gate Receipts"), 
+                       beta = c("$1.85B", "2.4M", "$51M", "$287M", "$67M", "$66", 
+                                "9.73%", "26.38%", "19.68%", "44.22%", 
+                                "-$16M", "$220M"), 
+                       `95% CI` = c("13th", "T-21st", "22nd", "13th", "11th", 
+                                    "19th", 
+                                    "15th", "19th", "9th", "15th", "25th", 
+                                    "13th")) %>%
                     gt() %>%
                     cols_label(subject = "Variable", beta = "Value", 
                                `95% CI` = "League Rank") %>%
@@ -548,13 +558,19 @@ ui <- navbarPage(
             render_gt(
                 
                 tibble(subject = c("Valuation", "Metro Area Population", 
-                                   "Stadium", "Stadium Percentage", "Debt to Value",
-                                   "Gate Receipts", "Operating Income", "Income w/ No Fans", 
-                                   "Revenue", "Revenue w / No Fans"), 
-                       beta = c("$1.3B", "1.4M", "$116M", "9%", "20%", "$20M", 
-                                "$24M", "$4M", "$224M", "$204M"), 
-                       `95% CI` = c("30th", "26th", "30th", "30th", "28th", "30th", 
-                                    "29th", "20th", "30th", "25th")) %>%
+                                   "Operating Income", "Revenue", "Gate Receipts",
+                                   "Average Ticket Price", "Brand Percentage", 
+                                   "Market Percentage", 
+                                   "Stadium Percentage", "Sport Percentage", 
+                                   "Operating Income - Gate Receipts", 
+                                   "Revenue - Gate Receipts"), 
+                       beta = c("$1.3B", "1.4M", "$24M", "$224M", "$20M", "$35", 
+                                "5.77%", "20.15%", "8.92%", "65.15%", 
+                                "$4M", "$204M"), 
+                       `95% CI` = c("30th", "T-27th", "29th", "T-29th", "30th", 
+                                    "T-29th", 
+                                    "30th", "28th", "30th", "1st", "20th", 
+                                    "25th")) %>%
                     gt() %>%
                     cols_label(subject = "Variable", beta = "Value", 
                                `95% CI` = "League Rank") %>%
