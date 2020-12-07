@@ -158,6 +158,7 @@ round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$gate_receipts), 2)
 
 round(cor(full_dataset$gate_receipts, full_dataset$valuation), 2)
+round(cor(full_dataset$stadium_pct, full_dataset$valuation), 2)
 
                 full_dataset %>%
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
@@ -261,6 +262,20 @@ full_dataset %>%
   theme_bw() + 
   scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
                      label = c("$0", "$50M", "$100M", "$150M", "$200M")) + 
+  scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
+                     label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
+
+full_dataset %>%
+  ggplot(aes(x = valuation, y = stadium_pct)) + 
+  geom_point() + 
+  geom_text_repel(aes(label = team)) + 
+  geom_smooth(formula = y ~ x) + 
+  labs(title = "Team Valuation vs. Valuation % Attributable to Staduium", 
+       subtitle = "Correlation = 0.53", x = "Team Valuation", 
+       y = "Stadium Percentage") + 
+  theme_bw() + 
+  scale_y_continuous(breaks = c(0, 0.1, 0.2, 0.3), 
+                     label = c("0%", "10%", "20%", "30%")) + 
   scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
                      label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
 

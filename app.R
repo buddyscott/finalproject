@@ -119,8 +119,8 @@ ui <- navbarPage(
              br(),
              h3("Regression Trees"),
              splitLayout(cellWidths = c("50%", "50%"),
-                         plotOutput("plot9"),
-                         plotOutput("plot10")
+                         plotOutput("plot12"),
+                         plotOutput("plot13")
              ),
     ),
     
@@ -170,13 +170,25 @@ ui <- navbarPage(
              plotOutput("plot5"), 
              br(),
              
+             p("This is..."),
+             plotOutput("plot6"),
+             br(),
+             
              p("This is a scatterplot of team valuations and gate receipts. 
                There is a very strong positive correlation between the 
                two variables, showcasing the greater reliance on gate receipts
                for richer teams even after controlling for the magnitude of
                team valuation."),
-             plotOutput("plot11")
-             ),
+             plotOutput("plot7"),
+             br(),
+             
+             p("This is..."),
+             plotOutput("plot8"),
+             br()
+             
+    ),
+             
+
     
     tabPanel("Three Case Studies",
              tabsetPanel(type = "tabs", 
@@ -190,7 +202,7 @@ ui <- navbarPage(
                                   br(),
                                   br(),
                                   br(),
-                                  plotOutput("plot6")
+                                  plotOutput("plot9")
                                   ), 
                          tabPanel("Portland Trail Blazers (Middle Market)", 
                                   splitLayout(cellWidths = c("50%", "50%"),
@@ -202,7 +214,7 @@ ui <- navbarPage(
                                   br(),
                                   br(),
                                   br(),
-                                  plotOutput("plot7")
+                                  plotOutput("plot10")
                          ), 
                          tabPanel("Memphis Grizzlies (Small Market)", 
                                   splitLayout(cellWidths = c("50%", "50%"),
@@ -214,7 +226,7 @@ ui <- navbarPage(
                                   br(),
                                   br(),
                                   br(),
-                                  plotOutput("plot8")
+                                  plotOutput("plot11")
                          )
                          )
              ),
@@ -355,6 +367,59 @@ ui <- navbarPage(
         
         output$plot6 <- 
             renderPlot({
+                full_dataset_condensed %>%
+                    ggplot(aes(x = fct_reorder(team, sport_pct), 
+                               y = sport_pct)) + 
+                    geom_col() + 
+                    theme(axis.text = element_text(size = 8)) +
+                    labs(title = "Sport Percentages by Team", 
+                         x = "Team", y = "Sport Percentage") + 
+                    scale_y_continuous(breaks = c(0, 0.2, 0.4, 0.6), 
+                                       labels = c("0%", "20%", "40%", "60%")) + 
+                    coord_flip() + 
+                    theme_classic()
+                
+            })
+        
+        output$plot7 <- 
+            renderPlot({
+                full_dataset_condensed %>%
+                    ggplot(aes(x = valuation, y = gate_receipts)) + 
+                    geom_point() + 
+                    geom_text_repel(aes(label = team)) + 
+                    geom_smooth(formula = y ~ x) + 
+                    labs(title = "Team Valuation vs. Gate Receipts", 
+                         subtitle = "Correlation = 0.81", x = "Team Valuation", 
+                         y = "Gate Receipts") + 
+                    theme_bw() + 
+                    scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
+                                       label = c("$0", "$50M", "$100M", "$150M", 
+                                                 "$200M")) + 
+                    scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
+                                       label = c("$1B", "$2B", "$3B", "$4B", 
+                                                 "$5B"))
+                
+            })
+        
+        output$plot8 <- 
+            renderPlot({
+        full_dataset_condensed %>%
+            ggplot(aes(x = valuation, y = stadium_pct)) + 
+            geom_point() + 
+            geom_text_repel(aes(label = team)) + 
+            geom_smooth(formula = y ~ x) + 
+        labs(title = "Team Valuation vs. Valuation % Attributable to Staduium", 
+                 subtitle = "Correlation = 0.53", x = "Team Valuation", 
+                 y = "Stadium Percentage") + 
+            theme_bw() + 
+            scale_y_continuous(breaks = c(0, 0.1, 0.2, 0.3), 
+                               label = c("0%", "10%", "20%", "30%")) + 
+            scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
+                               label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
+            })
+        
+        output$plot9 <- 
+            renderPlot({
         pivoted_pct_dataset_gsw %>%
             ggplot(aes(x = aspect, y = values)) + 
             geom_col() + 
@@ -374,7 +439,7 @@ ui <- navbarPage(
             theme_classic()
             })
         
-        output$plot7 <- 
+        output$plot10 <- 
             renderPlot({
                 pivoted_pct_dataset_por %>%
                     ggplot(aes(x = aspect, y = values)) + 
@@ -395,7 +460,7 @@ ui <- navbarPage(
                     theme_classic()
             })
         
-        output$plot8 <- 
+        output$plot11 <- 
             renderPlot({
                 pivoted_pct_dataset_mem %>%
                     ggplot(aes(x = aspect, y = values)) + 
@@ -416,34 +481,16 @@ ui <- navbarPage(
                     theme_classic()
             })
         
-        output$plot9 <- 
+        output$plot12 <- 
             renderPlot({
                 rpart.plot(revenue_tree, type = 2)
             })
         
-        output$plot10 <- 
+        output$plot13 <- 
             renderPlot({
                 rpart.plot(valuation_tree, type = 2)
             })
         
-        output$plot11 <- 
-            renderPlot({
-                full_dataset_condensed %>%
-                    ggplot(aes(x = valuation, y = gate_receipts)) + 
-                    geom_point() + 
-                    geom_text_repel(aes(label = team)) + 
-                    geom_smooth(formula = y ~ x) + 
-                    labs(title = "Team Valuation vs. Gate Receipts", 
-                         subtitle = "Correlation = 0.81", x = "Team Valuation", 
-                         y = "Gate Receipts") + 
-                    theme_bw() + 
-                    scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
-                                       label = c("$0", "$50M", "$100M", "$150M", 
-                                                 "$200M")) + 
-                    scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
-                                       label = c("$1B", "$2B", "$3B", "$4B", 
-                                                 "$5B"))
-            })
         
         output$myImage1 <- 
             renderImage({
