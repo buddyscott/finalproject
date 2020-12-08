@@ -64,10 +64,12 @@ ui <- navbarPage(
     
     tabPanel("Methodology",
              h3("Data Sources"),
-             p("Most of this data comes from the Forbes February 2020 NBA Team
-               Valuations publication. Other data comes from spreadsheets that I
-               maintain in my free time (the link to those spreadsheets is at 
-               the bottom of the page."),
+             splitLayout(cellWidths = c("50%", "50%"),
+                         a("This data is from the February 2020 Edition of 
+                           Forbes NBA Team Valuations", 
+                           href = "https://www.forbes.com/nba-valuations/list/"),
+                         imageOutput("myImage5")
+             ),
              br(),
              h3("Explanation of Variables in Dataset"),
              p("team: Abbreviation of team name"),
@@ -234,13 +236,14 @@ ui <- navbarPage(
                interpretation is beyond both the scope of this project and of 
                this class. Similar to the standard generalized linear model 
                included above, the inclusion of the regression trees is to 
-               understand ")
+               understand how important gate receipts, as well as the stadium 
+               component of a team's valuation, are to a team's revenue and 
+               valuation, respectively. These estimates do have interpretations 
+               and their meaning, or perhaps lack of meaning, is discussed in
+               the results tab.")
     ),
     
-    
-             
 
-    
     tabPanel("Three Case Studies",
              tabsetPanel(type = "tabs", 
                          tabPanel("Golden State Warriors (Big Market)", 
@@ -283,8 +286,19 @@ ui <- navbarPage(
              ),
             
     tabPanel("Discussion",
-             p("This will be a discussion about what the model shows as well as 
-             potential policy suggestions to mitigate this potential damage."),
+             h3("Takeaways from the Plots"),
+             p("..."),
+             br(),
+             br(),
+             h3("Takeaways from the Models"),
+             p("..."),
+             br(),
+             br(),
+             h3("Policy Proposals and Further Analysis"),
+             p("..."),
+             a("Read my Economics Term Paper", href = "..."),
+             p("The link will be made available by the end of the day on 
+               Wednesday December 9th.")
              ),
     
     tabPanel("About",
@@ -574,6 +588,16 @@ ui <- navbarPage(
                      height = 400,
                      alt = "This is alternate text")
             }, deleteFile = FALSE)
+        
+        output$myImage5 <- 
+            renderImage({
+                list(src = "pictures/nbalogo.png",
+                     width = 300,
+                     height = 400,
+                     alt = "This is alternate text")
+            }, deleteFile = FALSE)
+        
+        
         
         output$table1 <- 
             render_gt(
