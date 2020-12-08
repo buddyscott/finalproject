@@ -417,6 +417,16 @@ model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts +
 print(model_1, digits = 4)
 
 posterior_interval(model_1, prob = 0.95)
+
+model_2 <- stan_glm(data = full_dataset, valuation ~ brand_pct + 
+                      market_pct + stadium_pct + sport_pct,
+                    family = gaussian(), refresh = 0)
+
+print(model_2, digits = 4)
+
+posterior_interval(model_2, prob = 0.95)
+
+
 ```
 ```{r}
 valuation_tree <- rpart(valuation ~ market + stadium + sport + brand, 

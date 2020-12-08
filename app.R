@@ -358,16 +358,50 @@ ui <- navbarPage(
              ),
             
     tabPanel("Discussion",
-             h3("Takeaways from the Plots"),
-             p("..."),
+             h3("Why don't you discuss your model more, Buddy?"),
+             p("Unlike most Gov 50 Final Projects that focus on producing a 
+               model that spits out some estimate of the situation, I knew
+               when I chose this topic that no model in which an estimate can
+               confidently be stated would work nor be appropriate. Though this 
+               data set is the best and most recent data in the public sphere 
+               about the finances of the 30 NBA teams, the data is from February 
+               2020 (pre-pandemic) and the data teams are using to make 
+               calculated decisions is proprietary. Therefore, my Model tab 
+               focuses on making it clear that gate receipts are crucial to 
+               revenue, and the stadium component is crucial towards a team's 
+               valuation, especially for big market teams that rely less heavily 
+               on the revenue sharing system."),
+             h3("Key Takeaways"),
+             p("The league announced on December 7th that each team will be receiving
+               $30 million in pandemic relief aid to help with these projected
+               losses. My biggest gripe with that standardized payment to all 
+               30 teams (and hopefully yours too after looking through the 
+               plots, models, and case studies!) is that $30 million means 
+               something completly different to the Golden State Warriors 
+               than the Memphis Grizzlies. The Grizzlies had $10 million less 
+               in gate receipts than the stimulus amount given to teams, whereas
+               the Warriors had $148 million more in gate receipts and project
+               to lose '$400 million in revenue and $200 million in relation to 
+               the bottom line' without fans this season. It would be hard to 
+               spin from a PR perspective that some teams would get more
+               stimulus than others, but I believe it is the right thing to 
+               do."),
              br(),
+             p("Simply put, the league needs to find ways to get cash into the 
+               hands of its 30 teams. Commisioner Adam Silver suggested that 
+               increased involvement in sports betting, casinos, and resuming
+               the service of hard alcohol at games once fans are allowed back 
+               would generate $80 million to $100 million of revenue, but once 
+               divided among the 30 teams that is barely enough to pay one 
+               year of a minimum player salary. The NBA has a coronavirus 
+               problem, and this analysis was done to help viewers like you 
+               understand that. With the season starting on December 22nd as 
+               dozens of players continue to test positive, professional sports 
+               leagues like the NBA that rely on in-person fan attendance are
+               in trouble amidst this global pandemic."),
              br(),
-             h3("Takeaways from the Models"),
-             p("..."),
+             imageOutput("myImage6"),
              br(),
-             br(),
-             h3("Policy Proposals and Further Analysis"),
-             p("..."),
              a("Read my Economics Term Paper", href = "..."),
              p("The link will be made available by the end of the day on 
                Wednesday, December 9th. It is a paper entitled 'The Economics 
@@ -671,6 +705,16 @@ ui <- navbarPage(
                      height = 400,
                      alt = "This is alternate text")
             }, deleteFile = FALSE)
+        
+        output$myImage6 <- 
+            renderImage({
+                list(src = "pictures/chasecenter.png",
+                     width = 300,
+                     height = 400,
+                     alt = "This is alternate text")
+            }, deleteFile = FALSE)
+        
+        
         
         
         
