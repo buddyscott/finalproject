@@ -19,7 +19,8 @@ library(gt)
 library(rpart)
 library(rpart.plot)
 
-# reading in data from different .R file to reduce clutter
+# I am reading it all of the data from a .R file to reduce the clutter on the 
+# Shiny App (this decision saves 436 lines of code).
 
 source("forbes.R",local = TRUE)
 
@@ -65,6 +66,10 @@ ui <- navbarPage(
     
     tabPanel("Methodology",
              h3("Data Sources"),
+             
+             # I wanted the text and image to be side-by-side so I implemented
+             # a splitLayout command here.
+             
              splitLayout(cellWidths = c("50%", "50%"),
                          a("This data is from the February 2020 Edition of 
                            Forbes NBA Team Valuations", 
@@ -126,6 +131,10 @@ ui <- navbarPage(
                believe tell a story about the league's finances. Enjoy!"),
              br(),
              
+             # This section is the interactive portion of my ShinyApp. The 
+             # basic premise is that it allows the user to select an x and a y 
+             # y variable of their choosing and make either a geom_point or 
+             # geom_col ggplot. 
              fluidPage(
                  selectInput("x", "X variable", 
                              choices = names(full_dataset_condensed)),
@@ -266,6 +275,14 @@ ui <- navbarPage(
     
 
     tabPanel("Three Case Studies",
+             
+             # I originally had the three sections here (Warriors, Trail Blazers, 
+             # and Grizzlies) as three separate tabs in my ShinyApp, but later
+             # decided to have one main tab called Case Studies and have three 
+             # different tabs within that tab. It was pretty straightforward 
+             # to implement and I also included a splitLayout section which 
+             # I discussed the merit of in an earlier code comment.
+             
              tabsetPanel(type = "tabs", 
                          tabPanel("Golden State Warriors (Big Market)", 
                                   splitLayout(cellWidths = c("50%", "50%"),
@@ -444,27 +461,33 @@ ui <- navbarPage(
         # to make the plot that they so choose. The syntax here was pretty
         # straight forward.
         
-        output$full_dataset_condensed = DT::renderDataTable({
-            full_dataset_condensed
-        })
-        
         plot_geom <- reactive({
+            
+            # This switch command allows for the user choice between a
+            # geom_point and geom_col.
+            
             switch(input$geom,
                    point = geom_point(),
                    column = geom_col()
             )
         })
-
+        
+        # Like all of my scatterplots, I use a smooth line of best fit because 
+        # a lot of these relationships are not necessarily linear.
         output$plot1 <- renderPlot({
             ggplot(full_dataset_condensed, aes(.data[[input$x]], 
                                                .data[[input$y]])) +
-                plot_geom() + theme_bw() + geom_smooth(formula = y ~ x)
+                plot_geom() + theme_classic() + geom_smooth(formula = y ~ x)
                 
         }, res = 96)
         
         output$plot2 <- 
             renderPlot({
                 full_dataset_condensed %>%
+                    
+                    # The fct_reorder command is to get the output in order of
+                    # the y value valuation.
+                    
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
                     geom_col() + 
                     scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
@@ -498,7 +521,17 @@ ui <- navbarPage(
                 pivoted_raw_dataset %>%
                     ggplot(aes(x = aspect, y = values)) + 
                     geom_col() + 
+                    
+                    # This code skill was learned from a prior problem set. 
+                    # I wanted the data to have 6 columns and 5 rows, and the 
+                    # ncol = 6 command accomplishes that.
+                    
                     facet_wrap(~ team, ncol = 6) + 
+                    
+                    # I needed to make this text smaller to get it all to fit
+                    # in the output of the plot. Adjusting the text to sizes 6 
+                    # and 4, respectively, does this.
+                    
                     theme(strip.text = element_text(size = 6), 
                           axis.text = element_text(size = 4), 
                           panel.grid = element_blank(), 
@@ -560,12 +593,17 @@ ui <- navbarPage(
                 full_dataset_condensed %>%
                     ggplot(aes(x = valuation, y = gate_receipts)) + 
                     geom_point() + 
+                    
+                    # This geom_text_repel feature is really cool because it
+                    # makes sure that the labels of the different teams do not
+                    # overlap with one another.
+                    
                     geom_text_repel(aes(label = team)) + 
                     geom_smooth(formula = y ~ x) + 
                     labs(title = "Team Valuation vs. Gate Receipts", 
                          subtitle = "Correlation = 0.81", x = "Team Valuation", 
                          y = "Gate Receipts") + 
-                    theme_bw() + 
+                    theme_classic() + 
                     scale_y_continuous(breaks = c(0, 50, 100, 150, 200), 
                                        label = c("$0", "$50M", "$100M", "$150M", 
                                                  "$200M")) + 
@@ -585,7 +623,7 @@ ui <- navbarPage(
         labs(title = "Team Valuation vs. Valuation % Attributable to Staduium", 
                  subtitle = "Correlation = 0.53", x = "Team Valuation", 
                  y = "Stadium Percentage") + 
-            theme_bw() + 
+            theme_classic() + 
             scale_y_continuous(breaks = c(0, 0.1, 0.2, 0.3), 
                                label = c("0%", "10%", "20%", "30%")) + 
             scale_x_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
@@ -655,6 +693,9 @@ ui <- navbarPage(
                     theme_classic()
             })
         
+        # Both of these plots are just regression trees that were thought to me
+        # by my TF Dan in recitation.
+        
         output$plot12 <- 
             renderPlot({
                 rpart.plot(revenue_tree, type = 2)
@@ -665,6 +706,10 @@ ui <- navbarPage(
                 rpart.plot(valuation_tree, type = 2)
             })
         
+        # The code to insert pictures is pretty straightforward. I think
+        # Michelle Kurrila introduced this in the Slack and it works very 
+        # well for me. Thanks Michelle! I also made sure to make a special
+        # pictures folder to keep my repository organized.
         
         output$myImage1 <- 
             renderImage({
@@ -714,9 +759,10 @@ ui <- navbarPage(
                      alt = "This is alternate text")
             }, deleteFile = FALSE)
         
-        
-        
-        
+        # The format for these data tables are all quite convoluted. Because 
+        # they are not necessarily the output of regressions, I had to do a lot 
+        # of arrange functions and writing that into the table. Probably could
+        # have taken a more streamlined approach, but it works for me.
         
         output$table1 <- 
             render_gt(
@@ -806,9 +852,11 @@ ui <- navbarPage(
         output$table4 <- 
             render_gt(
         
-        tibble(subject = c("Intercept", "Gate Receipts", "Operating Income", "Metro Area Population"), 
+        tibble(subject = c("Intercept", "Gate Receipts", "Operating Income", 
+                           "Metro Area Population"), 
                beta = c("168.18", "1.21", "0.45", "2.52"), 
-               `95% CI` = c("154.59, 181.34", "0.987, 1.417", "0.256, 0.653", "1.174, 3.890")) %>%
+               `95% CI` = c("154.59, 181.34", "0.987, 1.417", "0.256, 0.653", 
+                            "1.174, 3.890")) %>%
             gt() %>%
             cols_label(subject = "Variable", beta = "Beta", 
                        `95% CI` = "95% CI") %>%
@@ -821,8 +869,13 @@ ui <- navbarPage(
             tab_header(title = "Regression of Revenue on Variables of Interest", 
                        subtitle = "Focusing on coefficient of gate_receipts") %>%
             tab_footnote(footnote = "CI = Confidence Interval", 
-                         locations = cells_column_labels(columns = vars(`95% CI`)))
+                         locations = 
+                             cells_column_labels(columns = vars(`95% CI`)))
             )
+        
+        # I figured out this latex! This was really cool to figure out using
+        # the plotly library and MathJax and looks really sleek in the models
+        # section of my ShinyApp.
         
         output$equation1 <- 
             renderUI({
