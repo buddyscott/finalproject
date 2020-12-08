@@ -21,6 +21,8 @@ library(neuralnet)
 ```
 
 ```{r}
+# All of this code has been commented on in my Forbes.R file.
+
 nbainfo <- read_csv("data-files/nbainfo.csv", 
                     col_type = cols(team = col_character(), 
                                     "1920winpct" = col_number(), 
@@ -66,6 +68,9 @@ nbainfo <- read_csv("data-files/nbainfo.csv",
            medexp, nextseasonprojsalary, nextseasonprojexceptions, 
            tenyrwinpct, playoffpct, principal_owner, nw, valuation, 
            percent_change, debt_to_value, revenue, operating_income)
+
+# I did not end up using the playercontracts and agg_capsheets data sets
+# but I did some cool stuff on them so I decided to keep it in this .Rmd file.
 
 playercontracts <- read_csv("data-files/bbrefcontractdata.csv", col_type = cols(
   playername = col_character(),
@@ -127,19 +132,23 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
     mutate(growth_rate = (valuation-price_paid)/(2020-year_purchased)) %>%
     mutate(income_no_fans = operating_income - gate_receipts) %>%
     mutate(revenue_no_fans = revenue - gate_receipts)
-
-
-breakdown <- c(full_dataset$sport_pct, full_dataset$market_pct, 
-                        full_dataset$stadium_pct, full_dataset$brand_pct)
   
                     
 ```
 
 ```{r}
+
+# I wanted to get the full_dataset as a CSV so I could send people the final 
+# dataset that I was working on.
+
 write.csv(full_dataset,"data-files/full_dataset.csv", row.names = FALSE)
 ```
 
 ```{r}
+
+# This chunk was used for a lot of different arrange functions to get the rankings, 
+# especially for the case studies tab of my ShinyApp.
+
 full_dataset %>%
   select(team, valuation, metro_area_pop, operating_income, revenue, gate_receipts, 
          avg_ticket, brand_pct, market_pct, stadium_pct, sport_pct, revenue_no_fans, income_no_fans) %>%
@@ -149,16 +158,21 @@ full_dataset %>%
 
 
 ```{r}
-round(cor(full_dataset$valuation, full_dataset$sport_pct), 2)
 
+# Calculating a bunch of different correlations with two decimal places. Code 
+# is pretty much the same for all of these except for the variables.
+
+round(cor(full_dataset$valuation, full_dataset$sport_pct), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$valuation), 2)
 round(cor(full_dataset$year_purchased, full_dataset$price_paid), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$operating_income), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$revenue), 2)
 round(cor(full_dataset$metro_area_pop, full_dataset$gate_receipts), 2)
-
 round(cor(full_dataset$gate_receipts, full_dataset$valuation), 2)
 round(cor(full_dataset$stadium_pct, full_dataset$valuation), 2)
+
+# Comments for the plots that I actually use in the ShinyApp can be found in 
+# the app.R file.
 
                 full_dataset %>%
                     ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
@@ -182,7 +196,6 @@ round(cor(full_dataset$stadium_pct, full_dataset$valuation), 2)
                                        labels = c("0%", "20%", "40%", "60%")) + 
                     coord_flip() + 
                     theme_classic()
-                
                 
                 
 full_dataset %>%
@@ -410,25 +423,23 @@ pivoted_pct_dataset_mem %>%
 
 # Stan GLM Model
 ```{r}
+
+# This code is super standard like we have been doing for weeks to create a 
+# simple stan_glm model. I wanted to have four decimal places in the print-out 
+# and display 95% confidence intervals for each.
+
 model_1 <- stan_glm(data = full_dataset, revenue ~ gate_receipts + 
                       operating_income + metro_area_pop + avg_ticket,
                     family = gaussian(), refresh = 0)
-
 print(model_1, digits = 4)
-
 posterior_interval(model_1, prob = 0.95)
-
-model_2 <- stan_glm(data = full_dataset, valuation ~ brand_pct + 
-                      market_pct + stadium_pct + sport_pct,
-                    family = gaussian(), refresh = 0)
-
-print(model_2, digits = 4)
-
-posterior_interval(model_2, prob = 0.95)
-
 
 ```
 ```{r}
+# Code for the two valuation trees that I use in the ShinyApp. Commented on in 
+# my app.R file but the code here is pretty straight forward even though I had
+# never done it before.
+
 valuation_tree <- rpart(valuation ~ market + stadium + sport + brand, 
               data = full_dataset, cp = 0.01)
 rpart.plot(valuation_tree, type = 2)
@@ -442,6 +453,10 @@ rpart.plot(revenue_tree, type = 2)
 
 
 ```{r}
+
+# Neural net code, not used in my actual ShinyApp but was cool to see how a 
+# neural net is created / how it works.
+
 nn=neuralnet(revenue ~ operating_income + gate_receipts + 
                metro_area_pop + avg_ticket, data = full_dataset, hidden=c(5, 2),
              linear.output = TRUE)
@@ -449,6 +464,10 @@ plot(nn)
 ```
 
 ```{r}
+# I was playing around here with getting predictions for revenue based on my 
+# neural net, but eventually decided that there is just such pronounced 
+# omitted variable bias that I could never really be confident in a prediction.
+
 test_data <- full_dataset
 test_data$gate_receipts = 0
 

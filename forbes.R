@@ -2,6 +2,10 @@ library(tidyverse)
 library(readr)
 
 nbainfo <- read_csv("data-files/nbainfo.csv", 
+                    
+                    # Getting code in the right format so I can perform 
+                    # my analysis.
+                    
                     col_type = cols(team = col_character(), 
                                     "1920winpct" = col_number(), 
                                     winpctrank = col_number(), 
@@ -37,6 +41,10 @@ nbainfo <- read_csv("data-files/nbainfo.csv",
                                     debt_to_value = col_number(), 
                                     revenue = col_number(), 
                                     operating_income = col_number())) %>%
+  
+  # Renaming variables so they do not start with numbers, which makes it easier
+  # to type them without having to put them in quotes every time.
+  
   rename_with(~ str_replace(.x, "1920", "lastseason")) %>% 
   rename_with(~ str_replace(.x, "2021", "nextseason")) %>% 
   slice(1:30) %>%
@@ -50,6 +58,9 @@ nbainfo <- read_csv("data-files/nbainfo.csv",
 
 forbes1 <- read_csv("data-files/forbes2020.csv", 
                     col_type = cols(.default = col_character())) %>%
+  
+  # Making a lot of the varaibles numeric.
+  
   mutate(rank = str_sub(rank, start = 2)) %>%
   mutate(valuation = substr(valuation, 2, nchar(valuation)-1)) %>%
   mutate(value_change = gsub('.{1}$', '', value_change)) %>%
@@ -69,6 +80,9 @@ forbes2 <- read_csv("data-files/moreforbes.csv",
                     col_type = cols(.default = col_double(), 
                                     team = col_character()))
 
+# Joining the forbes 1 and forbes 2 data to make the full dataset that is the 
+# data set I will be using for the plots.
+
 forbes_joined <- inner_join(forbes1, forbes2, by = "team")
 
 full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
@@ -80,6 +94,10 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(operating_income = operating_income.x) %>%
   subset(select = -c(valuation.x, debt_to_value.x, revenue.x, 
                      operating_income.x)) %>%
+  
+  # Using a bunch of mutate functions to create new variables like percentages
+  # and standardizing valuation by making multiplying by 100.
+  
   mutate(valuation = valuation*1000) %>%
   mutate(sport_pct = sport/valuation) %>%
   mutate(market_pct = market/valuation) %>%
@@ -90,11 +108,19 @@ full_dataset <- inner_join(forbes_joined, nbainfo, by = "team") %>%
   mutate(revenue_no_fans = revenue - gate_receipts)
 
 full_dataset_condensed <- full_dataset %>%
+  
+  # I wanted less variables for the interactive plot in my ShinyApp so I 
+  # decreased the number of variables in the full data set from roughly 40 to 20.
+  
   select(team, valuation, metro_area_pop, operating_income, revenue, 
          gate_receipts, avg_ticket, brand, brand_pct, market, market_pct, 
          stadium, stadium_pct, sport, sport_pct, income_no_fans, 
          revenue_no_fans, value_change, year_purchased, price_paid, build_cost, 
          growth_rate, value_change)
+
+# I needed to create two "new" pivoted datasets to produce two plots in my "plots"
+# section that have all 30 team values for four different values, so the dataset
+# became 120 rows instead of 30 (four per team).
 
 pivoted_raw_dataset <- full_dataset_condensed %>%
   select(team, valuation, sport, market, stadium, brand) %>%
@@ -106,6 +132,9 @@ pivoted_pct_dataset <- full_dataset_condensed %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
+
+# Doing the same pivoted technique here, except just want to get the data 
+# for three specific teams.
 
 pivoted_pct_dataset_gsw <- full_dataset_condensed %>%
   filter(team == "GSW") %>%
@@ -127,6 +156,8 @@ pivoted_pct_dataset_mem <- full_dataset_condensed %>%
   pivot_longer(sport_pct:brand_pct, 
                names_to = "aspect", values_to = "values") %>%
   arrange(desc(valuation))
+
+# This is my code for the regression trees that I display in my model section.
 
 revenue_tree <- rpart(revenue ~ operating_income + gate_receipts + 
                         metro_area_pop, data = full_dataset_condensed, 
