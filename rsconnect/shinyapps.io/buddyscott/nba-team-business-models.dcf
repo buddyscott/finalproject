@@ -5,8 +5,8 @@ account: buddyscott
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3328340
-bundleId: 3957889
+bundleId: 3958088
 url: https://buddyscott.shinyapps.io/nba-team-business-models/
-when: 1607390560.2247
+when: 1607394602.80051
 asMultiple: FALSE
 asStatic: FALSE
