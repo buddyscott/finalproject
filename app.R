@@ -29,22 +29,23 @@ ui <- navbarPage(
     tabPanel("Introduction", 
              h3("Project Background and Motivations"),
              p("This project will analyze the potential ramifications of the 
-             ongoing COVID-19 pandemic on the finances of National Basketball
-             Association (NBA) teams. NBA Commissioner Adam Silver revealed in 
-             May 2020 that ticket sales for in-person fan attendance comprises 
-             an estimated 40% of the NBA’s revenue. In a doomdsay scenario that 
-             would have no fans in the arenas for the 2020-2021, both the 
-             players’ and the owners’ share of Basketball Related Income would 
-             decrease from roughly $4 billion to $2.4 billion according to 
-             Silver's projection. If this is the case, the league will have to 
+             ongoing COVID-19 pandemic on the finances of the 30 teams in the 
+             National Basketball Association (NBA). NBA Commissioner Adam Silver 
+             revealed in May 2020 that ticket sales for in-person fan attendance 
+             comprises an estimated 40% of the NBA’s revenue. In a doomdsay 
+             (but very much plausible) scenario that would have no fans in the 
+             arenas for the upcoming 2020-2021 season, both the players’ and the 
+             owners’ share of Basketball Related Income would decrease from 
+             roughly $4 billion to $2.4 billion according to Silver's 
+             projection. If this is the case, the league will have to 
              rethink its entire business model. The commisioner has already 
              discussed the possibility of the league turning to sports betting, 
              serving hard alcohol at games, and casinos (long thought of by the 
              league as sinful endeavours) as a way to get cash into the hands 
-             of teams. This project will take a deep dive of the most recent 
-             update on each team's finances to better understand the situations 
-             and constraints each individual team faces in the COVID-19 
-             world."),
+             of teams. This project will take a deep dive into the most recent 
+             update of each team's finances to better understand the situations 
+             and constraints each team faces, focusing on examples of big, 
+             middle, and small market teams."),
              br(), 
              p("This is a video of one of the greatest buzzer-beater shots in 
                NBA history. This analysis is being done to better understand
@@ -82,18 +83,20 @@ ui <- navbarPage(
                through fan attendance"),
              p("metro_area_pop: Population (in millions) of metropolitan area"),
              p("sport: Portion of franchise's value attributable to revenue 
-               shared among all teams"),
+               shared among all teams (in millions)"),
              p("market: Portion of franchise's value attributable to its city 
-               and market size"),
+               and market size (in millions)"),
              p("stadium: Portion of franchise's value attributable to its 
-               arena"),
-             p("brand: Portion of franchise's value attributable to its brand"),
+               arena (in millions)"),
+             p("brand: Portion of franchise's value attributable to its brand
+               (in millions)"),
              p("avg_ticket: Average ticket price"),
              p("build_cost: Amount (in millions) that arena cost to build"),
              p("valuation: Team's valuation (in millions)"),
              p("debt_to_value: Debt divided by value, including arena debt"),
              p("revenue: Amount of revenue (in millions)"),
-             p("operating_income: Earnings before interest, taxes, etc."),
+             p("operating_income: Earnings before interest, taxes, etc. 
+               (in millions)"),
              p("sport_pct: Percentage of franchise's value attributable to 
                revenue shared among all teams"),
              p("market_pct: Percentage of franchise's value attributable to
@@ -103,20 +106,24 @@ ui <- navbarPage(
              p("brand_pct: Percentage of franchise's value attributable to its 
                brand"),
              p("growth_rate: Team's valuation minus price paid, divded by 
-               difference between 2020 and year purchased"),
+               difference between 2020 and year purchased 
+               (in millions per year)"),
              p("income_no_fans: The operating income for a franchise, minus 
                the gate receipts that they project to lose with zero fan 
-               attendance"),
+               attendance (in millions)"),
              p("revenue_no_fans: The revenue for a franchise, minus 
                the gate receipts that they project to lose with zero fan 
-               attendance"),
+               attendance (in millions)"),
              ),
     
     tabPanel("Plots",
              p("This section allows you to plot two variables with each 
                other, either as a scatterplot or bar graph. Please reference
                the methodology tab for explanations of what the variables
-               represent."),
+               represent. If you are not interested in this interactive tool 
+               or do not know enough about the NBA and its finances to know
+               where to begin, I have produced seven plots for you that I 
+               believe tell a story about the league's finances. Enjoy!"),
              br(),
              
              fluidPage(
@@ -133,7 +140,9 @@ ui <- navbarPage(
              p("This is a plot of raw team valuations. As you can see, team 
                values range from the New York Knicks worth $4.6 billion to 
                the Memphis Grizzlies worth less than a third of that at 
-               $1.3 billion."),
+               $1.3 billion. This graph is the perfect encapsulation of why 
+               all teams' business models are not equal; some franchises are 
+               worth more than three times as much as others."),
              br(),
              plotOutput("plot2"), 
              br(),
@@ -146,7 +155,9 @@ ui <- navbarPage(
                last purchased except for the Brooklyn Nets, who were purchased
                in 2019 for $3.3 billion for nearly a billion dollar premium by 
                the co-founder of Alibaba, and will probably cross the $3.3 
-               billion threshold soon barring a worse-case COVID-19 scenario."),
+               billion threshold soon barring a worse-case COVID-19 scenario. 
+               Brooklyn is an outlier in a trend displayed by the other 29 
+               teams of astronomical team valuation growth in recent years."),
              br(),
              plotOutput("plot3"),
              br(),
@@ -154,7 +165,9 @@ ui <- navbarPage(
              br(),
              
              p("This is a plot of the raw values of the four components of
-               a team's valuation."),
+               a team's valuation: brand, market, stadium, and sport. Formal 
+               definitions of these four variables can be found in the 
+               Methodology tab."),
              br(),
              plotOutput("plot4"),
              br(),
@@ -165,7 +178,8 @@ ui <- navbarPage(
                components of a team's valuation. This plot is probably 
                preferable to the previous one because it standardizes the 
                values to make them non-dependent on the magnitude of a team's 
-               valuation."),
+               valuation, and thus we are rating all 30 teams by a standardized, 
+               comparable metric."),
              br(),
              plotOutput("plot5"), 
              br(),
@@ -174,9 +188,13 @@ ui <- navbarPage(
              
              p("This is a plot of teams in order of how much of their valuation
                is attributable to revenue sharing among the teams. It is clear 
-               that smaller market teams rely much more on general revenue from the 
-               legaue than the big market teams, who actually lose money from the 
-               revenue sharing system."),
+               that smaller market teams rely much more on general revenue from 
+               the league than the big market teams, who actually lose money 
+               from the revenue sharing system. This can be seen in small market 
+               teams like the Memphis Grizzlies and New Orleans Pelicans leading
+               the way, whereas teams like the New York Knicks and Los Angeles 
+               Lakers rely on revenue sharing for less than 20% of their total 
+               valuation."),
              br(),
              plotOutput("plot6"),
              br(),
@@ -195,7 +213,7 @@ ui <- navbarPage(
              
              p("This is a scatterplot of team valuation and the percentage 
                of a team's valuation attributable to their stadium. There is a 
-               moderate strong positive correlation between the two variables, 
+               moderately strong positive correlation between the two variables, 
                showcasing the greater reliance on the value of their stadium 
                for richer teams as opposed to the revenue sharing component 
                from the league."),
@@ -215,14 +233,17 @@ ui <- navbarPage(
              p("The purpose of creating this 'model' is to attempt to quantify 
                the importance of gate receipts to a team's revenue. The actual 
                median estimate is not necessarily important; rather, the fact 
-               that we are 95% confident that coefficients lies well greater
-               than 0. The key interpretation is the beta of the gate receipts 
-               variable: 1.21. This coefficient can be interpreted as that a 
-               $1.00 decrease in gate receipts is associated with a $1.21 
-               decrease in revenue, holding all else constant. Again, this 
-               coefficient is undoubtedly inaccurate, but the point of running
-               this Standard GLM and displaying the table is to ascertain the 
-               importance of gate receipts in the NBA's business model."),
+               that we are 95% confident that the coefficient on gate receipts 
+               lies well greater than 0 is what matters in this output. The key 
+               interpretation is the beta of the gate receipts variable: 1.21. 
+               This coefficient can be interpreted as that a $1.00 decrease in 
+               gate receipts is associated with a $1.21 decrease in revenue, 
+               holding all else constant. Again, this coefficient is undoubtedly 
+               inaccurate because of the various unknowns about what this 
+               upcoming season will look like with COVID-19, but the point of 
+               running this standard GLM and displaying the table is to 
+               ascertain the importance of gate receipts in the business model 
+               for the NBA's 30 teams."),
              br(),
              h3("Regression Trees"),
              uiOutput("equation2"),
@@ -239,8 +260,8 @@ ui <- navbarPage(
                understand how important gate receipts, as well as the stadium 
                component of a team's valuation, are to a team's revenue and 
                valuation, respectively. These estimates do have interpretations 
-               and their meaning, or perhaps lack of meaning, is discussed in
-               the results tab.")
+               and their meaning, or perhaps lack of meaning, is further 
+               interpreted in the Discussion tab.")
     ),
     
 
@@ -256,8 +277,24 @@ ui <- navbarPage(
                                   br(),
                                   br(),
                                   br(),
-                                  plotOutput("plot9")
+                                  plotOutput("plot9"),
+                    br(),
+                    p("Golden State ranks near the top of the league in many 
+                      financial metrics, as seen in the table above. As noted 
+                      in both the table as well as the plot below it, the 
+                      Warriors rely primarily on their Bay Area market and the 
+                      money that their stadium brings in to catapult their 
+                      valuation higher. The league's revenue sharing system 
+                      (encapsulated by the sport column) accounts for less 
+                      than 20% of their valuation. In a 2020-2021 season
+                      without gate receipts, this analysis expects them to 
+                      drop from 4th to 29th in operating income rank and 2nd 
+                      to 3rd in revenue rank. This analysis models just the loss 
+                      in gate receipts, but Warriors President Rick Welts said 
+                      that the organization expects a $400 million revenue loss 
+                      if no fans are allowed in the arena this season.")
                                   ), 
+                    
                          tabPanel("Portland Trail Blazers (Middle Market)", 
                                   splitLayout(cellWidths = c("50%", "50%"),
                                               imageOutput("myImage3"),
@@ -268,8 +305,23 @@ ui <- navbarPage(
                                   br(),
                                   br(),
                                   br(),
-                                  plotOutput("plot10")
+                                  plotOutput("plot10"),
+                        br(),
+                      p("As a middle market team, Portland unsurprisingly ranks 
+                        close to the middle in most financial metrics. Their 
+                        inclusion in this analysis is mainly to bridge the gap 
+                        between the big market Golden State Warriors and small 
+                        market Memphis Grizzlies. The model projects Portland's 
+                        operating income to drop from 22nd to 25th in the 
+                        league, but their revenue to hold constant at 13th if 
+                        no fans are allowed for the 2020-2021 season. Unlike 
+                        big market teams, Portland relies primarily on revenue
+                        sharing from the league (the sport column) in their 
+                        team valuation, though their moderately sizeable market 
+                        and stadium percentages vault them into the middle 
+                        tier.")
                          ), 
+                    
                          tabPanel("Memphis Grizzlies (Small Market)", 
                                   splitLayout(cellWidths = c("50%", "50%"),
                                               imageOutput("myImage4"),
@@ -280,7 +332,27 @@ ui <- navbarPage(
                                   br(),
                                   br(),
                                   br(),
-                                  plotOutput("plot11")
+                                  plotOutput("plot11"),
+                                  
+                        br(),
+                        p("The Memphis Grizzlies are the epitome of a small 
+                        market team in the NBA. They rank near the bottom in 
+                        nearly every financial metric and play in one of the 
+                        smallest of the 28 cities that host NBA teams. Over 
+                        65% of their valuation comes from revenue sharing, 
+                        allowing us to draw the conclusion that a majority of 
+                        the value of the Memphis Grizzlies is completly dependent 
+                        on how the league's finances are doing in the aggregate, 
+                        much different from teams in bigger markets that could
+                        plausibly have different financial outcomes than the league 
+                        as a whole coming out of this pandemic. The interesting
+                        thing to note about the Grizzlies is that they actually
+                        increase from 29th to 20th in operating income rank 
+                        and tied for 29th to 25th in revenue rank without fans. 
+                        A big reason why is that they only brought in $20 million 
+                        in gate receipts according to the dataset, which is 
+                        one-ninth of that the Golden State Warriors brought 
+                        in.")
                          )
                          )
              ),
@@ -298,14 +370,17 @@ ui <- navbarPage(
              p("..."),
              a("Read my Economics Term Paper", href = "..."),
              p("The link will be made available by the end of the day on 
-               Wednesday December 9th.")
+               Wednesday, December 9th. It is a paper entitled 'The Economics 
+               of the National Basketball Association: How COVID-19 Affects 
+               The League and Its Teams' and it is for a junior seminar called 
+               'The Economics of the Coronavirus.'")
              ),
     
     tabPanel("About",
              h3("About Me"),
              p("My name is Buddy Scott and I concentrate in Economics with a 
                secondary in Government at Harvard College. I am a setter on the 
-               Men's Volleyball team, the Editor in Chief for the Harvard 
+               Men's Volleyball team, the Editor in Chief of the Harvard 
                Sports Analysis Collective, and a Spring 2021 Intern at the 
                National Basketball Players Association (NBPA). You can reach me 
                at jamesscott@college.harvard.edu."), 
