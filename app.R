@@ -420,11 +420,10 @@ ui <- navbarPage(
              br(),
              imageOutput("myImage6"),
              br(),
-             a("Read my Economics Term Paper", href = "..."),
-             p("The link will be made available by the end of the day on 
-               Wednesday, December 9th. It is a paper entitled 'The Economics 
+             a("Read my Economics Term Paper", href = "https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:24facebc-fa33-4754-8651-819e798f661c#pageNum=1"),
+             p("This a paper entitled 'The Economics 
                of the National Basketball Association: How COVID-19 Affects 
-               The League and Its Teams' and it is for a junior seminar called 
+               the League and Its Teams' and it is for a junior seminar called 
                'The Economics of the Coronavirus.'")
              ),
     
