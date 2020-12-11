@@ -420,7 +420,7 @@ ui <- navbarPage(
              br(),
              imageOutput("myImage6"),
              br(),
-             a("Read my Economics Term Paper", href = "https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:24facebc-fa33-4754-8651-819e798f661c#pageNum=1"),
+             a("Read my Economics Term Paper", href = "https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:a458d028-85a0-4903-8fa3-fce16f5389dc"),
              p("This a paper entitled 'The Economics 
                of the National Basketball Association: How COVID-19 Affects 
                the League and Its Teams' and it is for a junior seminar called 
@@ -429,12 +429,12 @@ ui <- navbarPage(
     
     tabPanel("About",
              h3("About Me"),
-             p("My name is Buddy Scott and I concentrate in Economics with a 
-               secondary in Government at Harvard College. I am a setter on the 
-               Men's Volleyball team, the Editor in Chief of the Harvard 
-               Sports Analysis Collective, and a Spring 2021 Intern at the 
-               National Basketball Players Association (NBPA). You can reach me 
-               at jamesscott@college.harvard.edu."), 
+             p("My name is Buddy Scott and I am a junior at Harvard College 
+             pursuing an A.B. in Economics with a secondary field in Government. 
+             I am a setter on the Men's Volleyball team, the Editor in Chief of 
+             the Harvard Sports Analysis Collective, and a Spring 2021 Intern at 
+             the National Basketball Players Association (NBPA). You can reach 
+             me at jamesscott@college.harvard.edu."), 
              imageOutput("myImage1"),
              br(),
              br(),
