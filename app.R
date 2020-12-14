@@ -74,7 +74,7 @@ ui <- navbarPage(
              splitLayout(cellWidths = c("50%", "50%"),
                          a("This data is from the February 2020 Edition of 
                            Forbes NBA Team Valuations", 
-                           href = "https://www.forbes.com/nba-valuations/list/"),
+                          href = "https://www.forbes.com/nba-valuations/list/"),
                          imageOutput("myImage5")
              ),
              br(),
@@ -136,6 +136,7 @@ ui <- navbarPage(
              # basic premise is that it allows the user to select an x and a y 
              # y variable of their choosing and make either a geom_point or 
              # geom_col ggplot. 
+             
              fluidPage(
                  selectInput("x", "X variable", 
                              choices = names(full_dataset_condensed)),
@@ -146,6 +147,10 @@ ui <- navbarPage(
              br(),
              br(),
              br(),
+             
+             # All of this code is pretty repetitive and self-explanatory. 
+             # I have more detailed comments about each plot output in the 
+             # server section of this app.R document.
              
              p("This is a plot of raw team valuations. As you can see, team 
                values range from the New York Knicks worth $4.6 billion to 
@@ -258,6 +263,10 @@ ui <- navbarPage(
              h3("Regression Trees"),
              uiOutput("equation2"),
              uiOutput("equation3"),
+             
+             # This splitLayout function allows the two regression trees to be
+             # next to one another instead of one on top of the other.
+             
              splitLayout(cellWidths = c("50%", "50%"),
                          plotOutput("plot12"),
                          plotOutput("plot13")
@@ -430,7 +439,7 @@ ui <- navbarPage(
     tabPanel("About",
              h3("About Me"),
              p("My name is Buddy Scott and I am a junior at Harvard College 
-             pursuing an A.B. in Economics with a secondary field in Government. 
+             pursuing an A.B. in Economics with a Secondary Field in Government. 
              I am a setter on the Men's Volleyball team, the Editor in Chief of 
              the Harvard Sports Analysis Collective, and a Spring 2021 Intern at 
              the National Basketball Players Association (NBPA). You can reach 
@@ -448,7 +457,8 @@ ui <- navbarPage(
              a("Please see my GitHub repo here", 
                href = "https://github.com/buddyscott/nba-team-business-models"),
              br(), 
-             a("Please see my NBA spreadsheet work here", 
+             a("Please see my NBA Cap Sheets (updated for the 2020-2021 season) 
+               here", 
                href = "https://hu-my.sharepoint.com/:x:/g/personal/jamesscott_college_harvard_edu/Ees1sxrxTG1AobHhy3Z_SEEBxzYTcnAFO1zm5XM22L-JGQ?e=gfcWXM")
     ))
 
@@ -473,7 +483,10 @@ ui <- navbarPage(
         })
         
         # Like all of my scatterplots, I use a smooth line of best fit because 
-        # a lot of these relationships are not necessarily linear.
+        # a lot of these relationships are not necessarily linear and the 
+        # smooth line allows for further visualization of a potential quadratic
+        # relationship.
+        
         output$plot1 <- renderPlot({
             ggplot(full_dataset_condensed, aes(.data[[input$x]], 
                                                .data[[input$y]])) +
@@ -488,7 +501,8 @@ ui <- navbarPage(
                     # The fct_reorder command is to get the output in order of
                     # the y value valuation.
                     
-                    ggplot(aes(x = fct_reorder(team, valuation), y = valuation)) + 
+                    ggplot(aes(x = fct_reorder(team, valuation), 
+                               y = valuation)) + 
                     geom_col() + 
                     scale_y_continuous(breaks = c(1000, 2000, 3000, 4000, 5000), 
                                        labels = c("$1B", "$2B", "$3B", "$4B", 
@@ -499,6 +513,8 @@ ui <- navbarPage(
                     coord_flip() + 
                     theme_classic()
             })
+        
+        # Very similar code to plot 2 above.
         
         output$plot3 <- 
             renderPlot({
@@ -549,6 +565,9 @@ ui <- navbarPage(
                     theme_classic()
             })
         
+        
+        # Exact same code as plot 4 except that I am using a different data 
+        # set here that I pivoted (see pivot code in Forbes.R document).
         
         output$plot5 <- 
             renderPlot({
@@ -630,6 +649,9 @@ ui <- navbarPage(
                                label = c("$1B", "$2B", "$3B", "$4B", "$5B"))
             })
         
+        # Very similar output to previous plots in the "Plots" tab but this 
+        # time I filtered the data set to just these three specific teams.
+        
         output$plot9 <- 
             renderPlot({
         pivoted_pct_dataset_gsw %>%
@@ -693,7 +715,7 @@ ui <- navbarPage(
                     theme_classic()
             })
         
-        # Both of these plots are just regression trees that were thought to me
+        # Both of these plots are just regression trees that were taught to me
         # by my TF Dan in recitation.
         
         output$plot12 <- 
@@ -778,7 +800,8 @@ ui <- navbarPage(
                                 "16.79%", "38.86%", "24.84%", "19.51%", 
                                 "-$69M", "$262M"), 
                        `95% CI` = c("3rd", "7th", "4th", "2nd", "1st", "3rd", 
-                                    "2nd", "3rd", "2nd", "28th", "29th", "3rd")) %>%
+                                    "2nd", "3rd", "2nd", "28th", "29th", 
+                                    "3rd")) %>%
                     gt() %>%
                     cols_label(subject = "Variable", beta = "Value", 
                                `95% CI` = "League Rank") %>%
@@ -795,7 +818,8 @@ ui <- navbarPage(
             render_gt(
                 
                 tibble(subject = c("Valuation", "Metro Area Population", 
-                                   "Operating Income", "Revenue", "Gate Receipts",
+                                   "Operating Income", "Revenue", 
+                                   "Gate Receipts",
                                    "Average Ticket Price", "Brand Percentage", 
                                    "Market Percentage", 
                                    "Stadium Percentage", "Sport Percentage", 
